@@ -1,0 +1,7 @@
+C:\Users\ferdi\Source\Repos\Miniprojekt\MiniProjektFB\MiniProjektFB\bin\Debug\MiniProjektFB.exe.config
+C:\Users\ferdi\Source\Repos\Miniprojekt\MiniProjektFB\MiniProjektFB\bin\Debug\MiniProjektFB.exe
+C:\Users\ferdi\Source\Repos\Miniprojekt\MiniProjektFB\MiniProjektFB\bin\Debug\MiniProjektFB.pdb
+C:\Users\ferdi\Source\Repos\Miniprojekt\MiniProjektFB\MiniProjektFB\obj\Debug\MiniProjektFB.csprojResolveAssemblyReference.cache
+C:\Users\ferdi\Source\Repos\Miniprojekt\MiniProjektFB\MiniProjektFB\obj\Debug\MiniProjektFB.csproj.CoreCompileInputs.cache
+C:\Users\ferdi\Source\Repos\Miniprojekt\MiniProjektFB\MiniProjektFB\obj\Debug\MiniProjektFB.exe
+C:\Users\ferdi\Source\Repos\Miniprojekt\MiniProjektFB\MiniProjektFB\obj\Debug\MiniProjektFB.pdb
