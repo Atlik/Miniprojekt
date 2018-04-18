@@ -6,13 +6,7 @@ using System.Threading.Tasks;
 
 namespace MiniProjekt
 {
-    class Program
+    class TennisPlayer
     {
-        static void Main01(string[] args)
-        {
-           
-
-
-        }
     }
 }
