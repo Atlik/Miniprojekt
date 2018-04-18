@@ -1,7 +1,0 @@
-C:\Users\ferdi\Source\Repos\Miniprojekt\MiniProjekt\MiniProjekt\obj\Debug\MiniProjekt.csprojResolveAssemblyReference.cache
-C:\Users\ferdi\Source\Repos\Miniprojekt\MiniProjekt\MiniProjekt\obj\Debug\MiniProjekt.csproj.CoreCompileInputs.cache
-C:\Users\ferdi\Source\Repos\Miniprojekt\MiniProjekt\MiniProjekt\bin\Debug\MiniProjekt.exe.config
-C:\Users\ferdi\Source\Repos\Miniprojekt\MiniProjekt\MiniProjekt\bin\Debug\MiniProjekt.exe
-C:\Users\ferdi\Source\Repos\Miniprojekt\MiniProjekt\MiniProjekt\bin\Debug\MiniProjekt.pdb
-C:\Users\ferdi\Source\Repos\Miniprojekt\MiniProjekt\MiniProjekt\obj\Debug\MiniProjekt.exe
-C:\Users\ferdi\Source\Repos\Miniprojekt\MiniProjekt\MiniProjekt\obj\Debug\MiniProjekt.pdb
