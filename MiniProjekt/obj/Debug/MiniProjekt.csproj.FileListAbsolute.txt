@@ -1,0 +1,7 @@
+C:\Users\Christian(Atlik)\Desktop\Miniprojekt\MiniProjekt\MiniProjekt\obj\Debug\MiniProjekt.csprojResolveAssemblyReference.cache
+C:\Users\Christian(Atlik)\Desktop\Miniprojekt\MiniProjekt\MiniProjekt\obj\Debug\MiniProjekt.csproj.CoreCompileInputs.cache
+C:\Users\Christian(Atlik)\Desktop\Miniprojekt\MiniProjekt\MiniProjekt\bin\Debug\MiniProjekt.exe.config
+C:\Users\Christian(Atlik)\Desktop\Miniprojekt\MiniProjekt\MiniProjekt\bin\Debug\MiniProjekt.exe
+C:\Users\Christian(Atlik)\Desktop\Miniprojekt\MiniProjekt\MiniProjekt\bin\Debug\MiniProjekt.pdb
+C:\Users\Christian(Atlik)\Desktop\Miniprojekt\MiniProjekt\MiniProjekt\obj\Debug\MiniProjekt.exe
+C:\Users\Christian(Atlik)\Desktop\Miniprojekt\MiniProjekt\MiniProjekt\obj\Debug\MiniProjekt.pdb
