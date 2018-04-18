@@ -7,6 +7,7 @@ using System.Text.RegularExpressions;
 
 namespace MiniProjekt
 {
+
     class TennisMatch
     {
         public string results { get; set; }
@@ -14,45 +15,20 @@ namespace MiniProjekt
         public int menSingleSet { get; set; }
         public int womenSingleSet { get; set; }
         public string Match { get; set; }
+
         bool player1 = false;
         bool player2 = false;
         int amountOfSets = 0;
-
-        /*
-               public int noSets(string results)
-               {
-
-                   /*
-                   sets['0-6', '6-0', '6-2']
-
-
-                  String pattern = @"(\d+)\s+([-])\s+(\d+)";
-                   foreach (var expression in results)
-                   {
-                       foreach (Match m in Regex.Matches(expression, pattern))
-                       {
-                           int num1 = Int32.Parse(m.Groups[1].Value);
-                           int num2 = Int32.Parse(m.Groups[3].Value);
-                           int i; 
-
-                           results = i++;
-
-                           if (results = 3)
-                           {
-
-                           }
-                       }
-                   }
-                   return String.Format("{0}-{1}", num01, num02);
-
-               }
-       */
-
 
         public TennisMatch()
         {
             //array skal genereres automatisk
             string[] set = { "set0", "set1", "set2", "set3", "set4" };
+
+            if (player1 == true)
+            {
+                Console.WriteLine("test test, vi har med et hankøn gøre!");
+            }
 
             if (player1 == true && player2 == true)
             {
@@ -90,7 +66,7 @@ namespace MiniProjekt
             return "Match: " + Match + Environment.NewLine + "Women single match: " + setWomen + Environment.NewLine + "Men single match: " + setMen;
         }
 
-        static void Main(string[] args)
+        public static void mainMatch()
         {
             var matchNo = new TennisMatch();
             matchNo.Match = "Testing the field";
