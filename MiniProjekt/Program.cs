@@ -11,13 +11,12 @@ namespace MiniProjekt
      * Beskrivelse af projektet...
      * 
      * Christian Gundersen Holmgaard,   studie nr. 20155309
-     * Ferdinand Brødløs,               studie nr. 20167752 
+     * Ferdinand Brødløs,               studie nr. 20167752
      */
-    class Program
+    class Program 
     {
         static void Main(string[] args)
         {
-            TennisPlayer.mainPlayer();
             TennisMatch.mainMatch();
         }
     }
