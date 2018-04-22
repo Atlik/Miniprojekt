@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using System.Text.RegularExpressions;
 
 namespace MiniProjekt
-{ 
+{
     class TennisMatch : TennisPlayer
     {
         public string results { get; set; }
@@ -27,7 +27,11 @@ namespace MiniProjekt
 
         public TennisMatch() : base(Fname, Mname, Lname, DOB, Na, sex)
         {
-            if (sex == true)
+            var Player01 = new TennisPlayer("Christian", "Gundersen", "Holmgaard", new DateTime(1996, 05, 09), "Denmark", true);
+            var Player02 = new TennisPlayer("Ferdy", "", "Brødløs", new DateTime(1995, 07, 19), "Denmark", true);
+            Console.WriteLine(Player01 + Environment.NewLine + Player02);
+
+            if (Player01.gender == true)
             {
                 Console.WriteLine("test test, vi har med et hankøn gøre!");
             }
@@ -36,7 +40,7 @@ namespace MiniProjekt
                 Console.WriteLine("pas på! der er et hunkøn tilstede!");
             }
 
-            if (sex == true && sex == true)
+            if (Player01.gender == true && Player02.gender == true)
             {
                 foreach (var sets in set)
                 {
@@ -48,7 +52,7 @@ namespace MiniProjekt
                     setMen = "This is a mens single match";
                 }
             }
-            else if (sex == false && sex == false)
+            else if (Player01.gender == false && Player02.gender == false)
             {
                 foreach (var sets in set)
                 {
@@ -68,20 +72,37 @@ namespace MiniProjekt
 
         public override string ToString()
         {
-
+            int i;
             Console.WriteLine("There is {0} sets ", amountOfSets);
-            return "Match results: " + Match + Environment.NewLine + "Women single match: " + setWomen + Environment.NewLine + "Men single match: " + setMen;
+            if (amountOfSets > 0)
+            {
+                for (i = 0; i < amountOfSets; i++)
+                {
+                    var Game = "Match results: " + set[i];
+                    Console.WriteLine(Game);
+                }
+            }
+            else
+            {
+                Console.WriteLine("Game results could not be found");
+            }
+
+            return "Women single match: " + setWomen + Environment.NewLine + "Men single match: " + setMen;
         }
 
         public static void mainMatch()
         {
-            var Player01 = new TennisPlayer("Christian", "Gundersen", "Holmgaard", new DateTime(1996, 05, 09), "Denmark", true);
-            var Player02 = new TennisPlayer("Ferdy", "", "Brødløs", new DateTime(1995, 07, 19), "Denmark", true);
-            Console.WriteLine(Player01 + Environment.NewLine + Player02);
-
             var matchNo = new TennisMatch();
-            matchNo.Match = "Testing the field";
             Console.WriteLine(matchNo);
         }
     }
 }
+
+
+/*            var matchResults = new HashSet<string> { "set0", "set1", "set2", "set3", "set4" };
+            Console.WriteLine("There was {0} sets in the game", matchResults.Count);
+            amountOfSets = matchResults.Count;
+            foreach (string s in matchResults)
+            {
+                Console.WriteLine("The match went as following: " + s);
+            }*/
