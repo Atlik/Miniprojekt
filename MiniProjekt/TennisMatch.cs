@@ -9,12 +9,7 @@ namespace MiniProjekt
 {
     class TennisMatch : TennisPlayer
     {
-        public string results { get; set; }
-        string setWomen, setMen;
-        public int menSingleSet { get; set; }
-        public int womenSingleSet { get; set; }
-        public string Match { get; set; }
-
+        //Tennis player properties
         public static string Fname { get; }
         public static string Mname { get; }
         public static string Lname { get; }
@@ -22,7 +17,15 @@ namespace MiniProjekt
         public static string Na { get; }
         public static bool sex { get; }
 
+        //Tennis Match properties
+        public string results { get; set; }
+        string setWomen, setMen;
+        public int menSingleSet { get; set; }
+        public int womenSingleSet { get; set; }
+        public string Match { get; set; }
+
         int amountOfSets = 0;
+        //Få ordnet en random generate function til at genere resultater og parse til int values
         string[] set = { "set0", "set1", "set2", "set3", "set4" };
 
         public TennisMatch() : base(Fname, Mname, Lname, DOB, Na, sex)
