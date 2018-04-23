@@ -1,0 +1,21 @@
+E:\Mega\Skole\P4\Fundamental object-oriented programming\Visual Studio\Tournament\Tournament\bin\Debug\Tournament.exe.config
+E:\Mega\Skole\P4\Fundamental object-oriented programming\Visual Studio\Tournament\Tournament\bin\Debug\Tournament.exe
+E:\Mega\Skole\P4\Fundamental object-oriented programming\Visual Studio\Tournament\Tournament\bin\Debug\Tournament.pdb
+E:\Mega\Skole\P4\Fundamental object-oriented programming\Visual Studio\Tournament\Tournament\obj\Debug\Tournament.csprojResolveAssemblyReference.cache
+E:\Mega\Skole\P4\Fundamental object-oriented programming\Visual Studio\Tournament\Tournament\obj\Debug\Tournament.csproj.CoreCompileInputs.cache
+E:\Mega\Skole\P4\Fundamental object-oriented programming\Visual Studio\Tournament\Tournament\obj\Debug\Tournament.exe
+E:\Mega\Skole\P4\Fundamental object-oriented programming\Visual Studio\Tournament\Tournament\obj\Debug\Tournament.pdb
+F:\Skole\P4\Fundamental object-oriented programming\Visual Studio\Tournament\Tournament\bin\Debug\Tournament.exe.config
+F:\Skole\P4\Fundamental object-oriented programming\Visual Studio\Tournament\Tournament\bin\Debug\Tournament.exe
+F:\Skole\P4\Fundamental object-oriented programming\Visual Studio\Tournament\Tournament\bin\Debug\Tournament.pdb
+F:\Skole\P4\Fundamental object-oriented programming\Visual Studio\Tournament\Tournament\obj\Debug\Tournament.csprojResolveAssemblyReference.cache
+F:\Skole\P4\Fundamental object-oriented programming\Visual Studio\Tournament\Tournament\obj\Debug\Tournament.csproj.CoreCompileInputs.cache
+F:\Skole\P4\Fundamental object-oriented programming\Visual Studio\Tournament\Tournament\obj\Debug\Tournament.exe
+F:\Skole\P4\Fundamental object-oriented programming\Visual Studio\Tournament\Tournament\obj\Debug\Tournament.pdb
+C:\Users\ferdi\Desktop\Tournament\Tournament\bin\Debug\Tournament.exe.config
+C:\Users\ferdi\Desktop\Tournament\Tournament\bin\Debug\Tournament.exe
+C:\Users\ferdi\Desktop\Tournament\Tournament\bin\Debug\Tournament.pdb
+C:\Users\ferdi\Desktop\Tournament\Tournament\obj\Debug\Tournament.csprojResolveAssemblyReference.cache
+C:\Users\ferdi\Desktop\Tournament\Tournament\obj\Debug\Tournament.csproj.CoreCompileInputs.cache
+C:\Users\ferdi\Desktop\Tournament\Tournament\obj\Debug\Tournament.exe
+C:\Users\ferdi\Desktop\Tournament\Tournament\obj\Debug\Tournament.pdb
