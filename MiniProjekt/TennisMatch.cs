@@ -24,6 +24,10 @@ namespace MiniProjekt
         public int womenSingleSet { get; set; }
         public string Match { get; set; }
 
+        //bruges i Tournament klassen
+        public TennisPlayer Player01 { get; set; }
+        public TennisPlayer Player02 { get; set; }
+
         int amountOfSets = 0;
         //Få ordnet en random generate function til at genere resultater og parse til int values
         string[] set = { "set0", "set1", "set2", "set3", "set4" };
@@ -33,6 +37,9 @@ namespace MiniProjekt
             var Player01 = new TennisPlayer("Christian", "Gundersen", "Holmgaard", new DateTime(1996, 05, 09), "Denmark", true);
             var Player02 = new TennisPlayer("Ferdy", "", "Brødløs", new DateTime(1995, 07, 19), "Denmark", true);
             Console.WriteLine(Player01 + Environment.NewLine + Player02);
+
+          //  Player01.firstName = player01Name;
+          //  Player02.firstName = player02Name;
 
             if (Player01.gender == true)
             {

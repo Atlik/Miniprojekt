@@ -51,10 +51,10 @@ namespace MiniProjekt
                 MiddleNameSpaceCheck = " " + middleName;
 
             //ToShortDateString() is used to delete time
-            return "Players Name: " + firstName + MiddleNameSpaceCheck + " " + lastName +
-            Environment.NewLine + "Players birthday is the: " + dateOfBirth.ToShortDateString() +
-            Environment.NewLine + "The players nationality is: " + nationality +
-            Environment.NewLine + "The players gender is: " + GenderCheck + Environment.NewLine;
+            return "Contestant Name: " + firstName + MiddleNameSpaceCheck + " " + lastName +
+            Environment.NewLine + "Contestants birthday is the: " + dateOfBirth.ToShortDateString() +
+            Environment.NewLine + "The contestants nationality is: " + nationality +
+            Environment.NewLine + "The contestants gender is: " + GenderCheck + Environment.NewLine;
         }
     }
 }
