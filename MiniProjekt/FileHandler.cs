@@ -55,7 +55,7 @@ namespace MiniProjekt
             return rv;
         }
 
-        public static void PrintFile()
+        public static void ReadFile()
         {
             var MalePlayers = new FileHandler(@"C:\Users\Christian(Atlik)\Desktop\Miniprojekt-christian2\tennis_data\MalePlayer.txt");
             var no = MalePlayers.Load();
