@@ -12,11 +12,11 @@ namespace MiniProjekt
     public class TennisPlayer //public so everyone can see it
     {
         //Properties
-        public virtual string firstName { get; set; }   
-        public virtual string middleName { get; set; }   
-        public virtual string lastName { get; set; }    
-        public virtual string nationality { get; set; }   
-        public virtual bool gender { get; set; }           
+        public virtual string firstName { get; set; }
+        public virtual string middleName { get; set; }
+        public virtual string lastName { get; set; }
+        public virtual string nationality { get; set; }
+        public virtual bool gender { get; set; }
         public DateTime dateOfBirth { get; set; }
 
         //Constructor of TennisPlayer
@@ -32,7 +32,8 @@ namespace MiniProjekt
 
         public override string ToString()
         {
-
+            //Checks and gives the gender og the player
+            #region
             string GenderCheck = "";
             switch (gender)
             {
@@ -43,18 +44,35 @@ namespace MiniProjekt
                     GenderCheck = "Female";
                     break;
             }
+            #endregion
 
+            //Checks if the player has a middlename, if true, gives spacing
+            #region
             string MiddleNameSpaceCheck;
             if (middleName == "")
                 MiddleNameSpaceCheck = "";
             else
                 MiddleNameSpaceCheck = " " + middleName;
+            #endregion
 
+            //Calculate the persons DateOfDay to Age
+            #region
+            var DateTimeToday = DateTime.Today;
+            var PlayersAge = DateTimeToday.Year - dateOfBirth.Year;
+            if (dateOfBirth > DateTimeToday.AddYears(-PlayersAge)) PlayersAge--;
+            #endregion
+
+            //Inserts player information in correct order if printed
+            #region
             //ToShortDateString() is used to delete time
+            // "\r\n" is euqal as the same as Environment.NewLine
             return "Contestant Name: " + firstName + MiddleNameSpaceCheck + " " + lastName +
             Environment.NewLine + "Contestants birthday is the: " + dateOfBirth.ToShortDateString() +
             Environment.NewLine + "The contestants nationality is: " + nationality +
-            Environment.NewLine + "The contestants gender is: " + GenderCheck + Environment.NewLine;
+            Environment.NewLine + "The contestants gender is: " + GenderCheck +
+            Environment.NewLine + "The contestants age is " + PlayersAge + Environment.NewLine;
+            #endregion
+
         }
     }
 }
