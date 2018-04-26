@@ -31,8 +31,8 @@ namespace MiniProjekt
 
         public static void mainTournament()
         {
-            System.DateTime tournamentStart = new System.DateTime(2017, 11, 22);
-            System.DateTime tournamentEnd = new System.DateTime(2018, 01, 05);
+            DateTime tournamentStart = new DateTime(2017, 11, 22);
+            DateTime tournamentEnd = new DateTime(2018, 01, 05);
             Tournament T1 = new Tournament(tournamentStart, tournamentEnd, "Winter Olympics");
             Console.WriteLine(T1);
         }

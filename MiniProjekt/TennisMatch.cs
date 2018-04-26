@@ -10,15 +10,12 @@ namespace MiniProjekt
     class TennisMatch
     {
         //Tennis Match properties
+        #region
         public string results { get; set; }
-        string setWomen, setMen;
         public int menSingleSet { get; set; }
         public int womenSingleSet { get; set; }
         public string Match { get; set; }
-
-        int amountOfSets = 0;
-        //Få ordnet en random generate function til at genere resultater og parse til int values
-        string[] set = { "set0", "set1", "set2", "set3", "set4" };
+        #endregion
 
         public TennisMatch()
         {
@@ -30,17 +27,23 @@ namespace MiniProjekt
             Console.WriteLine(Player01 + Environment.NewLine + Player02 + Environment.NewLine + Player03);
             #endregion
 
+            //checks if player is Male or Female, if Male it will run a match with best of 5 sets, else a match with best of 3 sets
+            #region
             if (Player01.gender == true)
             {
-                Console.WriteLine("test test, vi har med et hankøn gøre!");
+                Console.WriteLine("test test, vi har med et hankøn gøre! Simulerer 5 set...");
             }
             else
             {
-                Console.WriteLine("pas på! der er et hunkøn tilstede!");
+                Console.WriteLine("pas på! der er et hunkøn tilstede! Simulerer 3 set...");
             }
 
             if (Player01.gender == true && Player02.gender == true)
             {
+                RandSetsTournament.MaleMatch();
+                //skrald
+                #region
+                /*
                 foreach (var sets in set)
                 {
                     amountOfSets++;
@@ -49,116 +52,172 @@ namespace MiniProjekt
                 if (amountOfSets <= 5 && amountOfSets > 3)
                 {
                     setMen = "This is a mens single match";
-                }
+                }*/
+                #endregion
             }
             else if (Player01.gender == false && Player02.gender == false)
             {
-                foreach (var sets in set)
+                RandSetsTournament.FemaleMatch();
+                //skrald
+                #region
+            /*    foreach (var sets in set)
                 {
                     amountOfSets++;
                 }
 
                 if (amountOfSets <= 3)
                 {
-                    setWomen = "This is a womens single match";
-                }
+                    //setWomen = "This is a womens single match";
+                }*/
+                #endregion
             }
             else
             {
                 Console.WriteLine("There is no match");
             }
+            #endregion
         }
 
         public class RandSetsTournament
         {
+            //Simulate matches between males and femlase
+            #region
             static Random rand = new Random();
 
-            public static void TGeneration()
+            public static void MaleMatch()
             {
-                int Player01 = 0;
-                int Player02 = 0;
-                string Player01win = "";
-                string Player02win = "";
+                int player01Point = 0;
+                int player02Point = 0;
+                int SetWinCount01 = 0;
+                int SetWinCount02 = 0;
+                string SetWin01 = "";
+                string SetWin02 = "";
 
-                //Skal bruges til at tælle op på set -> int CounterOfSets = 0;
+                for (int i = 0; i < 5; i++)
+                {
+                    while (true)
+                    {
+                        //Points is given
+                        #region
+                        var dice = rand.Next(0, 2);
+                        if (dice == 0)
+                        {
+                            ++player01Point;
+                            //Tester hvordan point systemet gives
+                            //Console.WriteLine("Player 1 gets a point: " + Player01);
+                            if (player01Point == 6)
+                            {
+                                SetWin01 = "Player 1 wins the game ";
+                                SetWin02 = null;
+                                SetWinCount01++;
+                            }
+                        }
+                        else if (dice == 1)
+                        {
+                            ++player02Point;
+                            //Tester hvordan point systemet gives
+                            //Console.WriteLine("Player 2 gets a point: " + Player02);
+                            if (player02Point == 6)
+                            {
+                                SetWin01 = null;
+                                SetWin02 = "Player 2 wins the game ";
+                                SetWinCount02++;
+                            }
+                        }
+                        #endregion
+
+                        //Player points pr. set is printed
+                        #region
+                        if (player01Point == 6 || player02Point == 6)
+                        {
+                            Console.WriteLine("The sets of the game was: " + player01Point + " - " + player02Point +
+                                                " " + SetWin01 + SetWin02 + Environment.NewLine);
+                            player01Point = 0;
+                            player02Point = 0;
+                        }
+                        #endregion
+
+                        //Checks the amount of sets each player has won
+                        #region
+                        if (SetWinCount01 == 3 || SetWinCount02 == 3)
+                        {
+                            break;
+                        }
+                        #endregion
+                    }
+                }
+            }
+
+            public static void FemaleMatch()
+            {
+                int player01Point = 0;
+                int player02Point = 0;
+                int SetWinCount01 = 0;
+                int SetWinCount02 = 0;
+                string SetWin01 = "";
+                string SetWin02 = "";
 
                 for (int i = 0; i < 3; i++)
                 {
                     while (true)
                     {
+                        //Points is given
+                        #region
+                        var dice = rand.Next(0, 2);
+                        if (dice == 0)
                         {
-                            var dice = rand.Next(0, 2);
-                            if (dice == 0)
+                            ++player01Point;
+                            //Tester hvordan point systemet gives
+                            //Console.WriteLine("Player 1 gets a point: " + Player01);
+                            if (player01Point == 6)
                             {
-                                ++Player01;
-                                //Tester hvordan point systemet gives
-                                //Console.WriteLine("Player 1 gets a point: " + Player01);
-                                if (Player01 == 6)
-                                {
-                                    Player01win = "Player 1 wins the game ";
-                                    Player02win = "";
-                                }
-                            }
-                            else if (dice == 1)
-                            {
-                                ++Player02;
-                                //Tester hvordan point systemet gives
-                                //Console.WriteLine("Player 2 gets a point: " + Player02);
-                                if (Player02 == 6)
-                                {
-                                    Player01win = "";
-                                    Player02win = "Player 2 wins the game ";
-                                }
-                            }
-                            if (Player01 == 6 || Player02 == 6)
-                            {
-                                Console.WriteLine("The sets of the game was: " + Player01 + " - " + Player02 + " " + Player01win + Player02win + Environment.NewLine);
-                                Player01 = 0;
-                                Player02 = 0;
-                                break;
+                                SetWin01 = "Player 1 wins the game ";
+                                SetWin02 = null;
+                                SetWinCount01++;
                             }
                         }
+                        else if (dice == 1)
+                        {
+                            ++player02Point;
+                            //Tester hvordan point systemet gives
+                            //Console.WriteLine("Player 2 gets a point: " + Player02);
+                            if (player02Point == 6)
+                            {
+                                SetWin01 = null;
+                                SetWin02 = "Player 2 wins the game ";
+                                SetWinCount02++;
+                            }
+                        }
+                        #endregion
+
+                        //Player points pr. set is printed
+                        #region
+                        if (player01Point == 6 || player02Point == 6)
+                        {
+                            Console.WriteLine("The sets of the game was: " + player01Point + " - " + player02Point +
+                                                " " + SetWin01 + SetWin02 + Environment.NewLine);
+                            player01Point = 0;
+                            player02Point = 0;
+                        }
+                        #endregion
+
+                        //Checks the amount of sets each player has won
+                        #region
+                        if (SetWinCount01 == 2 || SetWinCount02 == 2)
+                        {
+                            break;
+                        }
+                        #endregion
                     }
                 }
             }
-        }
-
-        public override string ToString()
-        {
-            int i;
-            Console.WriteLine("There is {0} sets ", amountOfSets);
-            if (amountOfSets > 0)
-            {
-                for (i = 0; i < amountOfSets; i++)
-                {
-                    var Game = "Match results: " + set[i];
-                    Console.WriteLine(Game);
-                }
-            }
-            else
-            {
-                Console.WriteLine("Game results could not be found");
-            }
-
-            return "Women single match: " + setWomen + Environment.NewLine + "Men single match: " + setMen;
+            #endregion
         }
 
         public static void mainMatch()
         {
             var matchNo = new TennisMatch();
             Console.WriteLine(matchNo);
-
-            RandSetsTournament.TGeneration();
-
         }
     }
 }
-
-
-/*            var matchResults = new HashSet<string> { "set0", "set1", "set2", "set3", "set4" };
-            Console.WriteLine("There was {0} sets in the game", matchResults.Count);
-            amountOfSets = matchResults.Count;
-            foreach (string s in matchResults)
-            {
-                Console.WriteLine("The match went as following: " + s);
-            }*/
