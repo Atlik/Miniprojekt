@@ -9,10 +9,12 @@ namespace MiniProjekt
     class Tournament
     {
         //Tournament properties
+        #region
         public string tournamentName { get; set; }
         public DateTime tournamentStart { get; set; }
         public DateTime tournamentEnd { get; set; }
         public DateTime TYearStartToEnd { get; set; }
+        #endregion
 
         public Tournament(DateTime TDateStart, DateTime TDateEnd, string Tname)
         {

@@ -7,6 +7,7 @@ using System.Text.RegularExpressions;
 
 namespace MiniProjekt
 {
+    //This class handles and simulate each match in the tournament
     class TennisMatch
     {
         //Tennis Match properties
@@ -27,7 +28,7 @@ namespace MiniProjekt
             Console.WriteLine(Player01 + Environment.NewLine + Player02 + Environment.NewLine + Player03);
             #endregion
 
-            //checks if player is Male or Female, if Male it will run a match with best of 5 sets, else a match with best of 3 sets
+            //Checks if player is Male or Female, if Male it will run a match with best of 5 sets, else a match with best of 3 sets
             #region
             if (Player01.gender == true)
             {
@@ -80,7 +81,7 @@ namespace MiniProjekt
 
         public class RandSetsTournament
         {
-            //Simulate matches between males and femlase
+            //Simulate matches between Males and Females
             #region
             static Random rand = new Random();
 
@@ -146,6 +147,18 @@ namespace MiniProjekt
                         #endregion
                     }
                 }
+
+                //Prints who won the game
+                #region
+                if (SetWinCount01 == 3)
+                {
+                    Console.WriteLine("Player 1 has won the game!");
+                }
+                else if (SetWinCount02 == 3)
+                {
+                    Console.WriteLine("Player 2 has won the game!");
+                }
+                #endregion
             }
 
             public static void FemaleMatch()
@@ -210,6 +223,17 @@ namespace MiniProjekt
                         #endregion
                     }
                 }
+                //Prints who won the game
+                #region
+                if (SetWinCount01 == 3)
+                {
+                    Console.WriteLine("Player 1 has won the game!");
+                }
+                else if (SetWinCount02 == 3)
+                {
+                    Console.WriteLine("Player 2 has won the game!");
+                }
+                #endregion
             }
             #endregion
         }
