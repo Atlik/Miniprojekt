@@ -1,0 +1,14 @@
+C:\Users\ferdi\Desktop\Miniprojekt 24-04-18\Branch Christian\Miniprojekt-christian2\MiniProjekt\bin\Debug\MiniProjekt.exe.config
+C:\Users\ferdi\Desktop\Miniprojekt 24-04-18\Branch Christian\Miniprojekt-christian2\MiniProjekt\bin\Debug\MiniProjekt.exe
+C:\Users\ferdi\Desktop\Miniprojekt 24-04-18\Branch Christian\Miniprojekt-christian2\MiniProjekt\bin\Debug\MiniProjekt.pdb
+C:\Users\ferdi\Desktop\Miniprojekt 24-04-18\Branch Christian\Miniprojekt-christian2\MiniProjekt\obj\Debug\MiniProjekt.csprojResolveAssemblyReference.cache
+C:\Users\ferdi\Desktop\Miniprojekt 24-04-18\Branch Christian\Miniprojekt-christian2\MiniProjekt\obj\Debug\MiniProjekt.csproj.CoreCompileInputs.cache
+C:\Users\ferdi\Desktop\Miniprojekt 24-04-18\Branch Christian\Miniprojekt-christian2\MiniProjekt\obj\Debug\MiniProjekt.exe
+C:\Users\ferdi\Desktop\Miniprojekt 24-04-18\Branch Christian\Miniprojekt-christian2\MiniProjekt\obj\Debug\MiniProjekt.pdb
+C:\Users\ferdi\Desktop\Miniprojekt 24-04-18\Branch Christian\Miniprojekt 24-04-18 Ny\MiniProjekt\bin\Debug\MiniProjekt.exe.config
+C:\Users\ferdi\Desktop\Miniprojekt 24-04-18\Branch Christian\Miniprojekt 24-04-18 Ny\MiniProjekt\bin\Debug\MiniProjekt.exe
+C:\Users\ferdi\Desktop\Miniprojekt 24-04-18\Branch Christian\Miniprojekt 24-04-18 Ny\MiniProjekt\bin\Debug\MiniProjekt.pdb
+C:\Users\ferdi\Desktop\Miniprojekt 24-04-18\Branch Christian\Miniprojekt 24-04-18 Ny\MiniProjekt\obj\Debug\MiniProjekt.csprojResolveAssemblyReference.cache
+C:\Users\ferdi\Desktop\Miniprojekt 24-04-18\Branch Christian\Miniprojekt 24-04-18 Ny\MiniProjekt\obj\Debug\MiniProjekt.csproj.CoreCompileInputs.cache
+C:\Users\ferdi\Desktop\Miniprojekt 24-04-18\Branch Christian\Miniprojekt 24-04-18 Ny\MiniProjekt\obj\Debug\MiniProjekt.exe
+C:\Users\ferdi\Desktop\Miniprojekt 24-04-18\Branch Christian\Miniprojekt 24-04-18 Ny\MiniProjekt\obj\Debug\MiniProjekt.pdb
