@@ -9,14 +9,13 @@ namespace MiniProjekt
 {
     class FileHandler
     {
+        //FileHandler properties
         private List<string> content = new List<string>();
         public string FileName { get; set; }
-   //     public string Delimiter { get; set; }
 
         public FileHandler(string fn)
         {
             FileName = fn;
-         //   Delimiter = delim;
         }
 
         public int Load()
@@ -25,9 +24,10 @@ namespace MiniProjekt
             int noLines = 0;
             string line;
 
+            //Read and add text from file to a string List
+            #region
             try
             {
-
                 file = new StreamReader(FileName);
                 while ((line = file.ReadLine()) != null)
                 {
@@ -43,16 +43,21 @@ namespace MiniProjekt
                 }
             }
             return noLines;
+            #endregion
         }
 
         public override string ToString()
         {
             string rv = "";
-            foreach(var l in content)
+
+            //Shows how the variable (string) "line" in "content" list should be printed
+            #region
+            foreach(var line in content)
             {
-                rv += l + "\n";
+                rv += line + "\n";
             }
             return rv;
+            #endregion
         }
 
         public static void ReadFile()
@@ -60,11 +65,6 @@ namespace MiniProjekt
             var MalePlayers = new FileHandler(@"C:\Users\Christian(Atlik)\Desktop\Miniprojekt-christian2\tennis_data\MalePlayer.txt");
             var no = MalePlayers.Load();
             Console.WriteLine(MalePlayers);
-        }
-
-        public void Read()
-        {
-           // FileIO.TextFieldParser par = new TextFieldParser(FileName);
         }
     }
 }

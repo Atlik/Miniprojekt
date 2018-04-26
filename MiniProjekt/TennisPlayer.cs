@@ -6,18 +6,18 @@ using System.Threading.Tasks;
 
 namespace MiniProjekt
 {
-    /// <summary>
     /// This class will implement the information about the player
-    /// </summary>
     public class TennisPlayer //public so everyone can see it
     {
         //Properties
+        #region
         public virtual string firstName { get; set; }
         public virtual string middleName { get; set; }
         public virtual string lastName { get; set; }
         public virtual string nationality { get; set; }
         public virtual bool gender { get; set; }
         public DateTime dateOfBirth { get; set; }
+        #endregion
 
         //Constructor of TennisPlayer
         public TennisPlayer(string Fname, string Mname, string Lname, DateTime DOB, string Na, bool sex)
@@ -32,7 +32,7 @@ namespace MiniProjekt
 
         public override string ToString()
         {
-            //Checks and gives the gender og the player
+            //Checks and gives the gender a string name
             #region
             string GenderCheck = "";
             switch (gender)
@@ -72,7 +72,6 @@ namespace MiniProjekt
             Environment.NewLine + "The contestants gender is: " + GenderCheck +
             Environment.NewLine + "The contestants age is " + PlayersAge + Environment.NewLine;
             #endregion
-
         }
     }
 }
