@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace MiniProjekt
 {
@@ -18,8 +14,8 @@ namespace MiniProjekt
         static void Main(string[] args)
         {
             FileHandler.ReadFile();
-       //     Tournament.mainTournament();
-       //     TennisMatch.mainMatch();
+            Tournament.MainTournament();
+            TennisMatch.MainMatch();
         }
     }
 }

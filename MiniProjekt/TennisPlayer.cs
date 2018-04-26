@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace MiniProjekt
 {
@@ -11,66 +7,66 @@ namespace MiniProjekt
     {
         //Properties
         #region
-        public virtual string firstName { get; set; }
-        public virtual string middleName { get; set; }
-        public virtual string lastName { get; set; }
-        public virtual string nationality { get; set; }
-        public virtual bool gender { get; set; }
-        public DateTime dateOfBirth { get; set; }
+        public virtual string FirstName { get; set; }
+        public virtual string MiddleName { get; set; }
+        public virtual string LastName { get; set; }
+        public virtual string Nationality { get; set; }
+        public virtual bool Gender { get; set; }
+        public DateTime DateOfBirth { get; set; }
         #endregion
 
         //Constructor of TennisPlayer
-        public TennisPlayer(string Fname, string Mname, string Lname, DateTime DOB, string Na, bool sex)
+        public TennisPlayer(string fname, string mname, string lname, DateTime dob, string na, bool sex)
         {
-            firstName = Fname;
-            middleName = Mname;
-            lastName = Lname;
-            dateOfBirth = DOB;
-            nationality = Na;
-            gender = sex;
+            FirstName = fname;
+            MiddleName = mname;
+            LastName = lname;
+            DateOfBirth = dob;
+            Nationality = na;
+            Gender = sex;
         }
 
         public override string ToString()
         {
             //Checks and gives the gender a string name
             #region
-            string GenderCheck = "";
-            switch (gender)
+            string genderCheck = "";
+            switch (Gender)
             {
                 case true:
-                    GenderCheck = "Male";
+                    genderCheck = "Male";
                     break;
                 case false:
-                    GenderCheck = "Female";
+                    genderCheck = "Female";
                     break;
             }
             #endregion
 
             //Checks if the player has a middlename, if true, gives spacing
             #region
-            string MiddleNameSpaceCheck;
-            if (middleName == "")
-                MiddleNameSpaceCheck = "";
+            string middleNameSpaceCheck;
+            if (MiddleName == "")
+                middleNameSpaceCheck = "";
             else
-                MiddleNameSpaceCheck = " " + middleName;
+                middleNameSpaceCheck = " " + MiddleName;
             #endregion
 
             //Calculate the persons DateOfDay to Age
             #region
-            var DateTimeToday = DateTime.Today;
-            var PlayersAge = DateTimeToday.Year - dateOfBirth.Year;
-            if (dateOfBirth > DateTimeToday.AddYears(-PlayersAge)) PlayersAge--;
+            var dateTimeToday = DateTime.Today;
+            var playersAge = dateTimeToday.Year - DateOfBirth.Year;
+            if (DateOfBirth > dateTimeToday.AddYears(-playersAge)) playersAge--;
             #endregion
 
             //Inserts player information in correct order if printed
             #region
             //ToShortDateString() is used to delete time
             // "\r\n" is euqal as the same as Environment.NewLine
-            return "Contestant Name: " + firstName + MiddleNameSpaceCheck + " " + lastName +
-            Environment.NewLine + "Contestants birthday is the: " + dateOfBirth.ToShortDateString() +
-            Environment.NewLine + "The contestants nationality is: " + nationality +
-            Environment.NewLine + "The contestants gender is: " + GenderCheck +
-            Environment.NewLine + "The contestants age is " + PlayersAge + Environment.NewLine;
+            return "Contestant Name: " + FirstName + middleNameSpaceCheck + " " + LastName +
+            Environment.NewLine + "Contestants birthday is the: " + DateOfBirth.ToShortDateString() +
+            Environment.NewLine + "The contestants nationality is: " + Nationality +
+            Environment.NewLine + "The contestants gender is: " + genderCheck +
+            Environment.NewLine + "The contestants age is " + playersAge + Environment.NewLine;
             #endregion
         }
     }

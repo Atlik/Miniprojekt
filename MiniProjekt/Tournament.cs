@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace MiniProjekt
 {
@@ -10,29 +6,28 @@ namespace MiniProjekt
     {
         //Tournament properties
         #region
-        public string tournamentName { get; set; }
-        public DateTime tournamentStart { get; set; }
-        public DateTime tournamentEnd { get; set; }
-        public DateTime TYearStartToEnd { get; set; }
+        public string TournamentName { get; set; }
+        public DateTime TournamentStart { get; set; }
+        public DateTime TournamentEnd { get; set; }
         #endregion
 
-        public Tournament(DateTime TDateStart, DateTime TDateEnd, string Tname)
+        public Tournament(DateTime tourDateStart, DateTime tourDateEnd, string tourName)
         {
-            tournamentStart = TDateStart;
-            tournamentEnd = TDateEnd;
-            tournamentName = Tname;
+            TournamentStart = tourDateStart;
+            TournamentEnd = tourDateEnd;
+            TournamentName = tourName;
         }
 
         public override string ToString()
         {
-            int yearStart = tournamentStart.Year;
-            int yearEnd = tournamentEnd.Year;
+            int yearStart = TournamentStart.Year;
+            int yearEnd = TournamentEnd.Year;
 
             //Defines how the object tournament should be printed
-            return "Tournament name: " + tournamentName + " " + yearStart.ToString("d") + " - " + yearEnd.ToString("d") + Environment.NewLine;
+            return "Tournament name: " + TournamentName + " " + yearStart.ToString("d") + " - " + yearEnd.ToString("d") + Environment.NewLine;
         }
 
-        public static void mainTournament()
+        public static void MainTournament()
         {
             //Assigns objects of tournament and prints it
             #region

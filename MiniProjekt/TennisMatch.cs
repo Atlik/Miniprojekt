@@ -1,9 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Text.RegularExpressions;
 
 namespace MiniProjekt
 {
@@ -12,9 +7,9 @@ namespace MiniProjekt
     {
         //Tennis Match properties
         #region
-        public string results { get; set; }
-        public int menSingleSet { get; set; }
-        public int womenSingleSet { get; set; }
+        public string Results { get; set; }
+        public int MenSingleSet { get; set; }
+        public int WomenSingleSet { get; set; }
         public string Match { get; set; }
         #endregion
 
@@ -22,15 +17,15 @@ namespace MiniProjekt
         {
             //Assigns new player objects and print their information
             #region
-            var Player01 = new TennisPlayer("Christian", "Gundersen", "Holmgaard", new DateTime(1996, 05, 09), "Denmark", true);
-            var Player02 = new TennisPlayer("Ferdinand", "", "Brødløs", new DateTime(1995, 07, 19), "Denmark", true);
-            var Player03 = new TennisPlayer("Mia", "Bødker", "Nissen", new DateTime(1991, 11, 11), "Denmark", false);
-            Console.WriteLine(Player01 + Environment.NewLine + Player02 + Environment.NewLine + Player03);
+            var player01 = new TennisPlayer("Christian", "Gundersen", "Holmgaard", new DateTime(1996, 05, 09), "Denmark", true);
+            var player02 = new TennisPlayer("Ferdinand", "", "Brødløs", new DateTime(1995, 07, 19), "Denmark", true);
+            var player03 = new TennisPlayer("Mia", "Bødker", "Nissen", new DateTime(1991, 11, 11), "Denmark", false);
+            Console.WriteLine(player01 + Environment.NewLine + player02 + Environment.NewLine + player03);
             #endregion
 
             //Checks if player is Male or Female, if Male it will run a match with best of 5 sets, else a match with best of 3 sets
             #region
-            if (Player01.gender == true)
+            if (player01.Gender == true)
             {
                 Console.WriteLine("test test, vi har med et hankøn gøre! Simulerer 5 set...");
             }
@@ -39,7 +34,7 @@ namespace MiniProjekt
                 Console.WriteLine("pas på! der er et hunkøn tilstede! Simulerer 3 set...");
             }
 
-            if (Player01.gender == true && Player02.gender == true)
+            if (player01.Gender == true && player02.Gender == true)
             {
                 RandSetsTournament.MaleMatch();
                 //skrald
@@ -56,7 +51,7 @@ namespace MiniProjekt
                 }*/
                 #endregion
             }
-            else if (Player01.gender == false && Player02.gender == false)
+            else if (player01.Gender == false && player02.Gender == false)
             {
                 RandSetsTournament.FemaleMatch();
                 //skrald
@@ -89,12 +84,12 @@ namespace MiniProjekt
             {
                 int player01Point = 0;
                 int player02Point = 0;
-                int SetWinCount01 = 0;
-                int SetWinCount02 = 0;
-                string SetWin01 = "";
-                string SetWin02 = "";
+                int setWinCount01 = 0;
+                int setWinCount02 = 0;
+                string setWin01 = "";
+                string setWin02 = "";
 
-                for (int i = 0; i < 5; i++)
+                for (var i = 0; i < 5; i++)
                 {
                     while (true)
                     {
@@ -108,9 +103,9 @@ namespace MiniProjekt
                             //Console.WriteLine("Player 1 gets a point: " + Player01);
                             if (player01Point == 6)
                             {
-                                SetWin01 = "Player 1 wins the game ";
-                                SetWin02 = null;
-                                SetWinCount01++;
+                                setWin01 = "Player 1 wins the game ";
+                                setWin02 = null;
+                                setWinCount01++;
                             }
                         }
                         else if (dice == 1)
@@ -120,9 +115,9 @@ namespace MiniProjekt
                             //Console.WriteLine("Player 2 gets a point: " + Player02);
                             if (player02Point == 6)
                             {
-                                SetWin01 = null;
-                                SetWin02 = "Player 2 wins the game ";
-                                SetWinCount02++;
+                                setWin01 = null;
+                                setWin02 = "Player 2 wins the game ";
+                                setWinCount02++;
                             }
                         }
                         #endregion
@@ -132,7 +127,7 @@ namespace MiniProjekt
                         if (player01Point == 6 || player02Point == 6)
                         {
                             Console.WriteLine("The sets of the game was: " + player01Point + " - " + player02Point +
-                                                " " + SetWin01 + SetWin02 + Environment.NewLine);
+                                                " " + setWin01 + setWin02 + Environment.NewLine);
                             player01Point = 0;
                             player02Point = 0;
                         }
@@ -140,7 +135,7 @@ namespace MiniProjekt
 
                         //Checks the amount of sets each player has won
                         #region
-                        if (SetWinCount01 == 3 || SetWinCount02 == 3)
+                        if (setWinCount01 == 3 || setWinCount02 == 3)
                         {
                             break;
                         }
@@ -150,11 +145,11 @@ namespace MiniProjekt
 
                 //Prints who won the game
                 #region
-                if (SetWinCount01 == 3)
+                if (setWinCount01 == 3)
                 {
                     Console.WriteLine("Player 1 has won the game!");
                 }
-                else if (SetWinCount02 == 3)
+                else if (setWinCount02 == 3)
                 {
                     Console.WriteLine("Player 2 has won the game!");
                 }
@@ -165,10 +160,10 @@ namespace MiniProjekt
             {
                 int player01Point = 0;
                 int player02Point = 0;
-                int SetWinCount01 = 0;
-                int SetWinCount02 = 0;
-                string SetWin01 = "";
-                string SetWin02 = "";
+                int setWinCount01 = 0;
+                int setWinCount02 = 0;
+                string setWin01 = "";
+                string setWin02 = "";
 
                 for (int i = 0; i < 3; i++)
                 {
@@ -184,9 +179,9 @@ namespace MiniProjekt
                             //Console.WriteLine("Player 1 gets a point: " + Player01);
                             if (player01Point == 6)
                             {
-                                SetWin01 = "Player 1 wins the game ";
-                                SetWin02 = null;
-                                SetWinCount01++;
+                                setWin01 = "Player 1 wins the game ";
+                                setWin02 = null;
+                                setWinCount01++;
                             }
                         }
                         else if (dice == 1)
@@ -196,9 +191,9 @@ namespace MiniProjekt
                             //Console.WriteLine("Player 2 gets a point: " + Player02);
                             if (player02Point == 6)
                             {
-                                SetWin01 = null;
-                                SetWin02 = "Player 2 wins the game ";
-                                SetWinCount02++;
+                                setWin01 = null;
+                                setWin02 = "Player 2 wins the game ";
+                                setWinCount02++;
                             }
                         }
                         #endregion
@@ -208,7 +203,7 @@ namespace MiniProjekt
                         if (player01Point == 6 || player02Point == 6)
                         {
                             Console.WriteLine("The sets of the game was: " + player01Point + " - " + player02Point +
-                                                " " + SetWin01 + SetWin02 + Environment.NewLine);
+                                                " " + setWin01 + setWin02 + Environment.NewLine);
                             player01Point = 0;
                             player02Point = 0;
                         }
@@ -216,7 +211,7 @@ namespace MiniProjekt
 
                         //Checks the amount of sets each player has won
                         #region
-                        if (SetWinCount01 == 2 || SetWinCount02 == 2)
+                        if (setWinCount01 == 2 || setWinCount02 == 2)
                         {
                             break;
                         }
@@ -225,11 +220,11 @@ namespace MiniProjekt
                 }
                 //Prints who won the game
                 #region
-                if (SetWinCount01 == 3)
+                if (setWinCount01 == 3)
                 {
                     Console.WriteLine("Player 1 has won the game!");
                 }
-                else if (SetWinCount02 == 3)
+                else if (setWinCount02 == 3)
                 {
                     Console.WriteLine("Player 2 has won the game!");
                 }
@@ -238,7 +233,7 @@ namespace MiniProjekt
             #endregion
         }
 
-        public static void mainMatch()
+        public static void MainMatch()
         {
             var matchNo = new TennisMatch();
             Console.WriteLine(matchNo);

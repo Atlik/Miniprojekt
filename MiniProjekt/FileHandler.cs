@@ -1,8 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.IO;
 
 namespace MiniProjekt
@@ -10,7 +7,7 @@ namespace MiniProjekt
     class FileHandler
     {
         //FileHandler properties
-        private List<string> content = new List<string>();
+        private readonly List<string> _content = new List<string>();
         public string FileName { get; set; }
 
         public FileHandler(string fn)
@@ -31,7 +28,7 @@ namespace MiniProjekt
                 file = new StreamReader(FileName);
                 while ((line = file.ReadLine()) != null)
                 {
-                    content.Add(line);
+                    _content.Add(line);
                     noLines++;
                 }
             }
@@ -50,9 +47,9 @@ namespace MiniProjekt
         {
             string rv = "";
 
-            //Shows how the variable (string) "line" in "content" list should be printed
+            //Shows how the variable (string) "line" in "_content" list should be printed
             #region
-            foreach(var line in content)
+            foreach(var line in _content)
             {
                 rv += line + "\n";
             }
@@ -62,9 +59,9 @@ namespace MiniProjekt
 
         public static void ReadFile()
         {
-            var MalePlayers = new FileHandler(@"C:\Users\Christian(Atlik)\Desktop\Miniprojekt-christian2\tennis_data\MalePlayer.txt");
-            var no = MalePlayers.Load();
-            Console.WriteLine(MalePlayers);
+            var malePlayers = new FileHandler(@"C:\Users\Christian(Atlik)\Desktop\Miniprojekt-christian2\tennis_data\MalePlayer.txt");
+            var no = malePlayers.Load();
+            Console.WriteLine(malePlayers);
         }
     }
 }
