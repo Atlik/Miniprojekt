@@ -17,8 +17,9 @@ namespace MiniProjekt
     {
         static void Main(string[] args)
         {
-            Tournament.mainTournament();
-            TennisMatch.mainMatch();
+            FileHandler.PrintFile();
+       //     Tournament.mainTournament();
+       //     TennisMatch.mainMatch();
         }
     }
 }
