@@ -17,14 +17,18 @@ namespace MiniProjekt
         {
             //Assigns new player objects and print their information
             #region
-            var player01 = new TennisPlayer(997, "Christian", "Gundersen", "Holmgaard", new DateTime(1996, 05, 09), "Denmark", true);
-            var player02 = new TennisPlayer(998, "Ferdinand", "", "Brødløs", new DateTime(1995, 07, 19), "Denmark", true);
-            var player03 = new TennisPlayer(999, "Mia", "Bødker", "Nissen", new DateTime(1991, 11, 11), "Denmark", false);
-            Console.WriteLine(player01 + Environment.NewLine + player02 + Environment.NewLine + player03);
+            var player01 = new TennisPlayer(997, "Christian", "Gundersen", "Holmgaard", new DateTime(1996, 05, 09), "Denmark", true, false);
+            var player02 = new TennisPlayer(998, "Ferdinand", "", "Brødløs", new DateTime(1995, 07, 19), "Denmark", true, false);
+            var player03 = new TennisPlayer(999, "Mia", "Bødker", "Nissen", new DateTime(1991, 11, 11), "Denmark", false, false);
+
+            var Referee01 = new TennisPlayer(996, "Kristian", "", "Torp", new DateTime(1983, 11, 11), "Denmark", true, true, new DateTime(2006, 08, 20), new DateTime(2018, 04, 27));
+            Console.WriteLine(player01 + Environment.NewLine + player02 + Environment.NewLine + player03 + Environment.NewLine + Referee01);
             #endregion
 
             //Checks if player is Male or Female, if Male it will run a match with best of 5 sets, else a match with best of 3 sets
             #region
+            Console.ForegroundColor = ConsoleColor.Green;
+
             if (player01.Gender == true)
             {
                 Console.WriteLine("test test, vi har med et hankøn gøre! Simulerer 5 set...");
@@ -33,6 +37,7 @@ namespace MiniProjekt
             {
                 Console.WriteLine("pas på! der er et hunkøn tilstede! Simulerer 3 set...");
             }
+            Console.ResetColor();
 
             if (player01.Gender == true && player02.Gender == true)
             {
@@ -88,6 +93,7 @@ namespace MiniProjekt
                 int setWinCount02 = 0;
                 string setWin01 = "";
                 string setWin02 = "";
+                int MatchOfSetsCounter = 0;
 
                 for (var i = 0; i < 5; i++)
                 {
@@ -130,6 +136,7 @@ namespace MiniProjekt
                                                 " " + setWin01 + setWin02 + Environment.NewLine);
                             player01Point = 0;
                             player02Point = 0;
+                            MatchOfSetsCounter++;
                         }
                         #endregion
 
@@ -147,11 +154,14 @@ namespace MiniProjekt
                 #region
                 if (setWinCount01 == 3)
                 {
-                    Console.WriteLine("Player 1 has won the game!");
+                    Console.WriteLine("There has been a sets of: " + MatchOfSetsCounter + " Player 1 has won the game!");
+                    MatchOfSetsCounter = 0;
+
                 }
                 else if (setWinCount02 == 3)
                 {
-                    Console.WriteLine("Player 2 has won the game!");
+                    Console.WriteLine("There has been a sets of: " + MatchOfSetsCounter + " Player 2 has won the game!");
+                    MatchOfSetsCounter = 0;
                 }
                 #endregion
             }
@@ -164,6 +174,7 @@ namespace MiniProjekt
                 int setWinCount02 = 0;
                 string setWin01 = "";
                 string setWin02 = "";
+                int MatchOfSetsCounter = 0;
 
                 for (int i = 0; i < 3; i++)
                 {
@@ -206,6 +217,7 @@ namespace MiniProjekt
                                                 " " + setWin01 + setWin02 + Environment.NewLine);
                             player01Point = 0;
                             player02Point = 0;
+                            MatchOfSetsCounter++;
                         }
                         #endregion
 
@@ -222,11 +234,14 @@ namespace MiniProjekt
                 #region
                 if (setWinCount01 == 2)
                 {
-                    Console.WriteLine("Player 1 has won the game!");
+                    Console.WriteLine("There has been a sets of: " + MatchOfSetsCounter + " Player 1 has won the game!");
+                    MatchOfSetsCounter = 0;
+
                 }
                 else if (setWinCount02 == 2)
                 {
-                    Console.WriteLine("Player 2 has won the game!");
+                    Console.WriteLine("There has been a sets of: " + MatchOfSetsCounter + " Player 2 has won the game!");
+                    MatchOfSetsCounter = 0;
                 }
                 #endregion
             }

@@ -92,9 +92,37 @@ namespace MiniProjekt
                 DateTime dob = DateTime.Parse(fields[4]);
                 string na = fields[5];
                 bool sex = true;
+                bool PoR = false;
 
-                var malePlayer = new TennisPlayer(id, fname, mname, lname, dob, na, sex);
+                var malePlayer = new TennisPlayer(id, fname, mname, lname, dob, na, sex, PoR);
                 _listOfMalePlayerObjects.Add(malePlayer);
+            }
+            par.Close();
+        }
+
+        public void LoadReferee()
+        {
+            TextFieldParser par = new TextFieldParser(FileName);
+            par.TextFieldType = FieldType.Delimited;
+            par.SetDelimiters(Delimiter);
+
+            while (!par.EndOfData)
+            {
+                string[] fields = par.ReadFields();
+                int id = Int32.Parse(fields[0]);
+                string fname = fields[1];
+                string mname = fields[2];
+                string lname = fields[3];
+                DateTime dob = DateTime.Parse(fields[4]);
+                string na = fields[5];
+                bool sex = true;
+                bool PoR = true;
+                DateTime LGdate = DateTime.Parse(fields[7]);
+                DateTime LRdate = DateTime.Parse(fields[8]);
+
+
+                var maleReferee = new TennisPlayer(id, fname, mname, lname, dob, na, sex, PoR, LGdate, LRdate);
+                _listOfMalePlayerObjects.Add(maleReferee);
             }
             par.Close();
         }
@@ -114,9 +142,15 @@ namespace MiniProjekt
 
         public static void ReadFile()
         {
+            var maleReferee = new  FileHandler(@"C:\Users\Christian(Atlik)\Desktop\Miniprojekt\MiniProjekt\tennis_data\MaleRefs.txt");
+            maleReferee.LoadReferee();
+            Console.WriteLine(maleReferee);
+
+
             var malePlayers = new FileHandler(@"C:\Users\Christian(Atlik)\Desktop\Miniprojekt-christian2\tennis_data\MalePlayer.txt");
-            malePlayers.LoadMalePlayer();
-            Console.WriteLine(malePlayers);
+            //malePlayers.LoadMalePlayer();
+
+            //Console.WriteLine(malePlayers);
         }
     }
 }

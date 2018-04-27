@@ -15,10 +15,15 @@ namespace MiniProjekt
         public virtual string Nationality { get; set; }
         public virtual bool Gender { get; set; }
         public DateTime DateOfBirth { get; set; }
+        public bool PlayerOrReferee { get; set; }
+
+        //Referee properties
+        public DateTime LicenseGot { get; set; }
+        public DateTime LicenseRenewal { get; set; }
         #endregion
 
         //Constructor of TennisPlayer
-        public TennisPlayer(int id, string fname, string mname, string lname, DateTime dob, string na, bool sex)
+        public TennisPlayer(int id, string fname, string mname, string lname, DateTime dob, string na, bool sex, bool PoR)
         {
             Identifikation = id;
             FirstName = fname;
@@ -27,10 +32,31 @@ namespace MiniProjekt
             DateOfBirth = dob;
             Nationality = na;
             Gender = sex;
+            PlayerOrReferee = PoR;
+        }
+
+        public TennisPlayer(int id, string fname, string mname, string lname, DateTime dob, string na, bool sex, bool PoR, DateTime LGdate, DateTime LRdate) : this(id, fname, mname, lname, dob, na, sex, PoR)
+        {
+            LicenseGot = LGdate;
+            LicenseRenewal = LRdate;
         }
 
         public override string ToString()
         {
+            //checks and gives the referee ekstra variables
+            #region
+            string RefereeCheck = "";
+            switch (PlayerOrReferee)
+            {
+                case true:
+                    RefereeCheck = "This is a referee." + Environment.NewLine + "The person got the license: " + LicenseGot.ToShortDateString() + " and got it renewed: " + LicenseRenewal.ToShortDateString();
+                    break;
+                case false:
+                    RefereeCheck = "This is a player";
+                    break;
+            }
+            #endregion
+
             //Checks and gives the gender a string name
             #region
             string genderCheck = "";
@@ -65,12 +91,14 @@ namespace MiniProjekt
             #region
             //ToShortDateString() is used to delete time
             // "\r\n" is euqal as the same as Environment.NewLine
-            return "Identifikation: " + Identifikation + 
-            Environment.NewLine + "Contestant Name: " + FirstName + middleNameSpaceCheck + " " + LastName +
-            Environment.NewLine + "Contestants birthday is the: " + DateOfBirth.ToShortDateString() +
-            Environment.NewLine + "The contestants nationality is: " + Nationality +
-            Environment.NewLine + "The contestants gender is: " + genderCheck +
-            Environment.NewLine + "The contestants age is " + playersAge + Environment.NewLine;
+            return "Identifikation: " + Identifikation +
+                   Environment.NewLine + "Persons Name: " + FirstName + middleNameSpaceCheck + " " + LastName +
+                   Environment.NewLine + "Persons birthday is the: " + DateOfBirth.ToShortDateString() +
+                   Environment.NewLine + "The persons nationality is: " + Nationality +
+                   Environment.NewLine + "The persons gender is: " + genderCheck +
+                   Environment.NewLine + "The persons age is " + playersAge +
+                   Environment.NewLine + RefereeCheck +
+                   Environment.NewLine;
             #endregion
         }
     }
