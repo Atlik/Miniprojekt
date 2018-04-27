@@ -1,12 +1,14 @@
 ﻿using System;
 
+
 namespace MiniProjekt
 {
     /// This class will implement the information about the player
-    public class TennisPlayer //public so everyone can see it
+    public class TennisPlayer
     {
         //Properties
         #region
+        public virtual int Identifikation { get; set; }
         public virtual string FirstName { get; set; }
         public virtual string MiddleName { get; set; }
         public virtual string LastName { get; set; }
@@ -16,8 +18,9 @@ namespace MiniProjekt
         #endregion
 
         //Constructor of TennisPlayer
-        public TennisPlayer(string fname, string mname, string lname, DateTime dob, string na, bool sex)
+        public TennisPlayer(int id, string fname, string mname, string lname, DateTime dob, string na, bool sex)
         {
+            Identifikation = id;
             FirstName = fname;
             MiddleName = mname;
             LastName = lname;
@@ -62,7 +65,8 @@ namespace MiniProjekt
             #region
             //ToShortDateString() is used to delete time
             // "\r\n" is euqal as the same as Environment.NewLine
-            return "Contestant Name: " + FirstName + middleNameSpaceCheck + " " + LastName +
+            return "Identifikation: " + Identifikation + 
+            Environment.NewLine + "Contestant Name: " + FirstName + middleNameSpaceCheck + " " + LastName +
             Environment.NewLine + "Contestants birthday is the: " + DateOfBirth.ToShortDateString() +
             Environment.NewLine + "The contestants nationality is: " + Nationality +
             Environment.NewLine + "The contestants gender is: " + genderCheck +

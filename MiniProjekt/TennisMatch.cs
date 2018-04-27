@@ -17,9 +17,9 @@ namespace MiniProjekt
         {
             //Assigns new player objects and print their information
             #region
-            var player01 = new TennisPlayer("Christian", "Gundersen", "Holmgaard", new DateTime(1996, 05, 09), "Denmark", true);
-            var player02 = new TennisPlayer("Ferdinand", "", "Brødløs", new DateTime(1995, 07, 19), "Denmark", true);
-            var player03 = new TennisPlayer("Mia", "Bødker", "Nissen", new DateTime(1991, 11, 11), "Denmark", false);
+            var player01 = new TennisPlayer(997, "Christian", "Gundersen", "Holmgaard", new DateTime(1996, 05, 09), "Denmark", true);
+            var player02 = new TennisPlayer(998, "Ferdinand", "", "Brødløs", new DateTime(1995, 07, 19), "Denmark", true);
+            var player03 = new TennisPlayer(999, "Mia", "Bødker", "Nissen", new DateTime(1991, 11, 11), "Denmark", false);
             Console.WriteLine(player01 + Environment.NewLine + player02 + Environment.NewLine + player03);
             #endregion
 
@@ -220,11 +220,11 @@ namespace MiniProjekt
                 }
                 //Prints who won the game
                 #region
-                if (setWinCount01 == 3)
+                if (setWinCount01 == 2)
                 {
                     Console.WriteLine("Player 1 has won the game!");
                 }
-                else if (setWinCount02 == 3)
+                else if (setWinCount02 == 2)
                 {
                     Console.WriteLine("Player 2 has won the game!");
                 }
