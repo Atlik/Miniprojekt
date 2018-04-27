@@ -154,13 +154,13 @@ namespace MiniProjekt
                 #region
                 if (setWinCount01 == 3)
                 {
-                    Console.WriteLine("There has been a sets of: " + MatchOfSetsCounter + " Player 1 has won the game!");
+                    Console.WriteLine("There has been played {0} sets and Player 1 has won the game", MatchOfSetsCounter);
                     MatchOfSetsCounter = 0;
 
                 }
                 else if (setWinCount02 == 3)
                 {
-                    Console.WriteLine("There has been a sets of: " + MatchOfSetsCounter + " Player 2 has won the game!");
+                    Console.WriteLine("There has been played {0} sets and Player 2 has won the game", MatchOfSetsCounter);
                     MatchOfSetsCounter = 0;
                 }
                 #endregion
