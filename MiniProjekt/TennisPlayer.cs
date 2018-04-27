@@ -49,7 +49,9 @@ namespace MiniProjekt
             switch (PlayerOrReferee)
             {
                 case true:
-                    RefereeCheck = "This is a referee." + Environment.NewLine + "The person got the license: " + LicenseGot.ToShortDateString() + " and got it renewed: " + LicenseRenewal.ToShortDateString();
+                    RefereeCheck = "This is a referee." + Environment.NewLine + 
+                                   "The person got the license: " + LicenseGot.ToShortDateString() + 
+                                   " and got it renewed: " + LicenseRenewal.ToShortDateString();
                     break;
                 case false:
                     RefereeCheck = "This is a player";
