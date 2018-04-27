@@ -19,12 +19,12 @@ namespace MiniProjekt
         {
             StreamReader file = null;
             int noLines = 0;
-            string line;
 
             //Read and add text from file to a string List
             #region
             try
             {
+                string line;
                 file = new StreamReader(FileName);
                 while ((line = file.ReadLine()) != null)
                 {
@@ -32,6 +32,33 @@ namespace MiniProjekt
                     noLines++;
                 }
             }
+            //Exceptions
+            #region
+            catch (System.IO.FileNotFoundException)
+            {
+                var message = String.Format("File: {0} does not exist", FileName);
+                Console.WriteLine(message);
+            }
+            catch (System.IO.DirectoryNotFoundException)
+            {
+                var message = String.Format("Dir: {0} does not exist, part of file or directory is not loaded",
+                    FileName);
+                Console.WriteLine(message);
+            }
+            catch (System.IO.PathTooLongException)
+            {
+                Console.WriteLine("Path to file name is too long");
+            }
+            catch (System.IO.FileLoadException)
+            {
+                var message = String.Format("File: {0} can't be loaded", FileName);
+                Console.WriteLine(message);
+            }
+            catch (System.Exception)
+            {
+                Console.WriteLine("There happened a general error");
+            }
+            #endregion
             finally
             {
                 if (file != null)
@@ -46,7 +73,6 @@ namespace MiniProjekt
         public override string ToString()
         {
             string rv = "";
-
             //Shows how the variable (string) "line" in "_content" list should be printed
             #region
             foreach(var line in _content)
