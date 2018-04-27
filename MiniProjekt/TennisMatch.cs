@@ -28,7 +28,7 @@ namespace MiniProjekt
             //Checks if player is Male or Female, if Male it will run a match with best of 5 sets, else a match with best of 3 sets
             #region
             Console.ForegroundColor = ConsoleColor.Green;
-
+            
             if (player01.Gender == true)
             {
                 Console.WriteLine("test test, vi har med et hankøn gøre! Simulerer 5 set...");

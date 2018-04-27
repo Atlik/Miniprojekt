@@ -45,16 +45,16 @@ namespace MiniProjekt
         {
             //checks and gives the referee ekstra variables
             #region
-            string RefereeCheck = "";
+            string refereeCheck = "";
             switch (PlayerOrReferee)
             {
                 case true:
-                    RefereeCheck = "This is a referee." + Environment.NewLine + 
+                    refereeCheck = "This is a referee." + Environment.NewLine + 
                                    "The person got the license: " + LicenseGot.ToShortDateString() + 
                                    " and got it renewed: " + LicenseRenewal.ToShortDateString();
                     break;
                 case false:
-                    RefereeCheck = "This is a player";
+                    refereeCheck = "This is a player";
                     break;
             }
             #endregion
@@ -99,7 +99,7 @@ namespace MiniProjekt
                    Environment.NewLine + "The persons nationality is: " + Nationality +
                    Environment.NewLine + "The persons gender is: " + genderCheck +
                    Environment.NewLine + "The persons age is " + playersAge +
-                   Environment.NewLine + RefereeCheck +
+                   Environment.NewLine + refereeCheck +
                    Environment.NewLine;
             #endregion
         }
