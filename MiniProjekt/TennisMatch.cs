@@ -20,6 +20,7 @@ namespace MiniProjekt
             var player01 = new TennisPlayer(997, "Christian", "Gundersen", "Holmgaard", new DateTime(1996, 05, 09), "Denmark", true, false);
             var player02 = new TennisPlayer(998, "Ferdinand", "", "Brødløs", new DateTime(1995, 07, 19), "Denmark", true, false);
             var player03 = new TennisPlayer(999, "Mia", "Bødker", "Nissen", new DateTime(1991, 11, 11), "Denmark", false, false);
+            var player04 = new TennisPlayer(1000, "Tina", "Hammer", "Sørensen", new DateTime(1996, 03, 23), "Denmark", false, false);
 
             var Referee01 = new TennisPlayer(996, "Kristian", "", "Torp", new DateTime(1983, 11, 11), "Denmark", true, true, new DateTime(2006, 08, 20), new DateTime(2018, 04, 27));
             Console.WriteLine(player01 + Environment.NewLine + player02 + Environment.NewLine + player03 + Environment.NewLine + Referee01);
@@ -41,6 +42,10 @@ namespace MiniProjekt
 
             if (player01.Gender == true && player02.Gender == true)
             {
+                Console.ForegroundColor = ConsoleColor.White;
+                Console.WriteLine("A single male game has been set for player 01: {0} and player 2: {1}" + Environment.NewLine + Environment.NewLine + "The game will be controlled by the referee: {2} " + Environment.NewLine, player01.FirstName, player02.FirstName, Referee01.FirstName);
+                Console.ResetColor();
+
                 RandSetsTournament.MaleMatch();
                 //skrald
                 #region
@@ -58,6 +63,10 @@ namespace MiniProjekt
             }
             else if (player01.Gender == false && player02.Gender == false)
             {
+                Console.ForegroundColor = ConsoleColor.White;
+                Console.WriteLine("A single female game has been set for player 01: {0} and player 2: {1}" + Environment.NewLine + Environment.NewLine + "The game will be controlled by the referee: {2} " + Environment.NewLine, player03.FirstName, player04.FirstName, Referee01.FirstName);
+                Console.ResetColor();
+
                 RandSetsTournament.FemaleMatch();
                 //skrald
                 #region

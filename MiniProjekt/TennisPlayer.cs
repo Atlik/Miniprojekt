@@ -35,6 +35,7 @@ namespace MiniProjekt
             PlayerOrReferee = PoR;
         }
 
+        //Constructor of Referee
         public TennisPlayer(int id, string fname, string mname, string lname, DateTime dob, string na, bool sex, bool PoR, DateTime LGdate, DateTime LRdate) : this(id, fname, mname, lname, dob, na, sex, PoR)
         {
             LicenseGot = LGdate;
@@ -92,7 +93,7 @@ namespace MiniProjekt
             //Inserts player information in correct order if printed
             #region
             //ToShortDateString() is used to delete time
-            // "\r\n" is euqal as the same as Environment.NewLine
+            // "\r\n" is equal to Environment.NewLine
             return "Identifikation: " + Identifikation +
                    Environment.NewLine + "Persons Name: " + FirstName + middleNameSpaceCheck + " " + LastName +
                    Environment.NewLine + "Persons birthday is the: " + DateOfBirth.ToShortDateString() +
