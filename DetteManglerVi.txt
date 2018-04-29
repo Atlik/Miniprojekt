@@ -1,0 +1,16 @@
+
+TennisMatch
+-> lav loop der håndtere to random spillere af listerne og håndtere deres match
+-> Send vinderne tilbage til start af metoden således runde 2 påbegyndes
+- og der skal være en dommer til hver match, betyder ikke noget om det er en mand eller kvinde
+- Throw new exception i det tilfælde at der ikke er 2 eller 4 spillere i kampen.
+
+FileHandler
+- lav exceptions som i Load() i de nye metoder hvori object lister bliver lavet.
+
+Tournament
+- Lav metode der kalder en ny instans af tennismatch og udskriver hvilken runde instans skal køre i.
+- Lav metode der sortere listen af de spillere der spiller i turneringen
+
+
+evt. lav readline der kan håndtere om du vil se resultater 32, 16... osv.
