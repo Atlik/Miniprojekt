@@ -78,16 +78,25 @@ namespace MiniProjekt
             #region
             string middleNameSpaceCheck;
             if (MiddleName == "")
+            {
                 middleNameSpaceCheck = "";
+            }
             else
+            {
                 middleNameSpaceCheck = " " + MiddleName;
+            }
+
             #endregion
 
             //Calculate the persons DateOfDay to Age
             #region
             var dateTimeToday = DateTime.Today;
             var playersAge = dateTimeToday.Year - DateOfBirth.Year;
-            if (DateOfBirth > dateTimeToday.AddYears(-playersAge)) playersAge--;
+
+            if (DateOfBirth > dateTimeToday.AddYears(-playersAge))
+            {
+                playersAge--;
+            }
             #endregion
 
             //Inserts player information in correct order if printed

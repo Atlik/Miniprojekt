@@ -18,47 +18,46 @@ namespace MiniProjekt
         public string Match { get; set; }
         #endregion
 
+        //FileHandler objekter/instantieringer
+        #region
         FileHandler listOfMalePlayer = new FileHandler(@"C:\Users\Christian(Atlik)\Desktop\Miniprojekt\MiniProjekt\tennis_data\MalePlayer.txt");
         FileHandler listOfMaleReferee = new FileHandler(@"C:\Users\Christian(Atlik)\Desktop\Miniprojekt\MiniProjekt\tennis_data\MaleRefs.txt");
         FileHandler listOfFemalePlayer = new FileHandler(@"C:\Users\Christian(Atlik)\Desktop\Miniprojekt\MiniProjekt\tennis_data\FemalePlayer.txt");
         FileHandler listOfFemaleReferee = new FileHandler(@"C:\Users\Christian(Atlik)\Desktop\Miniprojekt\MiniProjekt\tennis_data\FermaleRefs.txt");
+        #endregion
 
         public TennisMatch()
         {
             //Prints lists of objects from FileHandler(tekstfiler)
-
             #region
+            List<TennisPlayer> maleTennisPlayers = listOfMalePlayer.GetListMalePlayers();
 
-            List<TennisPlayer> _maleTennisPlayers = listOfMalePlayer.GetListMalePlayers();
-
-            for (int i = 0; i < _maleTennisPlayers.Count; i++)
+            for (int i = 0; i < maleTennisPlayers.Count; i++)
             {
-               // Console.WriteLine(_maleTennisPlayers[i]);
+               // Console.WriteLine(maleTennisPlayers[i]);
             }
 
-            List<TennisPlayer> _maleReferees = listOfMaleReferee.GetListMaleReferee();
+            List<TennisPlayer> maleReferees = listOfMaleReferee.GetListMaleReferee();
 
-            for (int i = 0; i < _maleReferees.Count; i++)
+            for (int i = 0; i < maleReferees.Count; i++)
             {
-               // Console.WriteLine(_maleReferees[i]);
+               // Console.WriteLine(maleReferees[i]);
             }
 
-            List<TennisPlayer> _femaleTennisPlayers = listOfFemalePlayer.GetListFemalePlayers();
+            List<TennisPlayer> femaleTennisPlayers = listOfFemalePlayer.GetListFemalePlayers();
 
-            for (int i = 0; i < _femaleTennisPlayers.Count; i++)
+            for (int i = 0; i < femaleTennisPlayers.Count; i++)
             {
-             //  Console.WriteLine(_femaleTennisPlayers[i]);
+              // Console.WriteLine(femaleTennisPlayers[i]);
             }
 
-            List<TennisPlayer> _femaleReferee = listOfFemaleReferee.GetListFemaleReferee();
+            List<TennisPlayer> femaleReferee = listOfFemaleReferee.GetListFemaleReferee();
 
-            for (int i = 0; i < _femaleReferee.Count; i++)
+            for (int i = 0; i < femaleReferee.Count; i++)
             {
-              //  Console.WriteLine(_femaleReferee[i]);
+               // Console.WriteLine(femaleReferee[i]);
             }
-
             #endregion
-
 
             //Assigns new player objects and print their information
             #region
@@ -93,19 +92,6 @@ namespace MiniProjekt
                 Console.ResetColor();
 
                 RandSetsTournament.MaleMatch();
-                //skrald
-                #region
-                /*
-                foreach (var sets in set)
-                {
-                    amountOfSets++;
-                }
-
-                if (amountOfSets <= 5 && amountOfSets > 3)
-                {
-                    setMen = "This is a mens single match";
-                }*/
-                #endregion
             }
             else if (player01.Gender == false && player02.Gender == false)
             {
@@ -114,18 +100,6 @@ namespace MiniProjekt
                 Console.ResetColor();
 
                 RandSetsTournament.FemaleMatch();
-                //skrald
-                #region
-            /*    foreach (var sets in set)
-                {
-                    amountOfSets++;
-                }
-
-                if (amountOfSets <= 3)
-                {
-                    //setWomen = "This is a womens single match";
-                }*/
-                #endregion
             }
             else
             {
@@ -149,7 +123,7 @@ namespace MiniProjekt
                 int setWinCount02 = 0;
                 string setWin01 = "";
                 string setWin02 = "";
-                int MatchOfSetsCounter = 0;
+                int matchOfSetsCounter = 0;
 
                 for (var i = 0; i < 5; i++)
                 {
@@ -192,7 +166,7 @@ namespace MiniProjekt
                                                 " " + setWin01 + setWin02 + Environment.NewLine);
                             player01Point = 0;
                             player02Point = 0;
-                            MatchOfSetsCounter++;
+                            matchOfSetsCounter++;
                         }
                         #endregion
 
@@ -205,19 +179,18 @@ namespace MiniProjekt
                         #endregion
                     }
                 }
-
                 //Prints who won the game
                 #region
                 if (setWinCount01 == 3)
                 {
-                    Console.WriteLine("There has been played {0} sets and Player 1 has won the game", MatchOfSetsCounter);
-                    MatchOfSetsCounter = 0;
+                    Console.WriteLine("There has been played {0} sets and Player 1 has won the game", matchOfSetsCounter);
+                    matchOfSetsCounter = 0;
 
                 }
                 else if (setWinCount02 == 3)
                 {
-                    Console.WriteLine("There has been played {0} sets and Player 2 has won the game", MatchOfSetsCounter);
-                    MatchOfSetsCounter = 0;
+                    Console.WriteLine("There has been played {0} sets and Player 2 has won the game", matchOfSetsCounter);
+                    matchOfSetsCounter = 0;
                 }
                 #endregion
             }
@@ -230,7 +203,7 @@ namespace MiniProjekt
                 int setWinCount02 = 0;
                 string setWin01 = "";
                 string setWin02 = "";
-                int MatchOfSetsCounter = 0;
+                int matchOfSetsCounter = 0;
 
                 for (int i = 0; i < 3; i++)
                 {
@@ -273,7 +246,7 @@ namespace MiniProjekt
                                                 " " + setWin01 + setWin02 + Environment.NewLine);
                             player01Point = 0;
                             player02Point = 0;
-                            MatchOfSetsCounter++;
+                            matchOfSetsCounter++;
                         }
                         #endregion
 
@@ -290,14 +263,14 @@ namespace MiniProjekt
                 #region
                 if (setWinCount01 == 2)
                 {
-                    Console.WriteLine("There has been a sets of: " + MatchOfSetsCounter + " Player 1 has won the game!");
-                    MatchOfSetsCounter = 0;
+                    Console.WriteLine("There has been a sets of: " + matchOfSetsCounter + " Player 1 has won the game!");
+                    matchOfSetsCounter = 0;
 
                 }
                 else if (setWinCount02 == 2)
                 {
-                    Console.WriteLine("There has been a sets of: " + MatchOfSetsCounter + " Player 2 has won the game!");
-                    MatchOfSetsCounter = 0;
+                    Console.WriteLine("There has been a sets of: " + matchOfSetsCounter + " Player 2 has won the game!");
+                    matchOfSetsCounter = 0;
                 }
                 #endregion
             }

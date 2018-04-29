@@ -10,19 +10,22 @@ namespace MiniProjekt
     class FileHandler
     {
         //FileHandler properties
-        private readonly List<string> _content = new List<string>();
         public string FileName { get; set; }
         public string Delimiter { get; set; }
-     //   public object _listOfMalePlayer { get; set; }
 
-        //   List<TennisPlayer> _listOfPersonsObjects = new List<TennisPlayer>();
-        List<TennisPlayer> _listOfMalePlayers = new List<TennisPlayer>();
-        List<TennisPlayer> _listOfFemalePlayers = new List<TennisPlayer>();
-        List<TennisPlayer> _listOfMaleReferee = new List<TennisPlayer>();
-        List<TennisPlayer> _listOfFemaleReferee = new List<TennisPlayer>();
+        //Instantiate new lists of Tennisplayer objects
+        #region
+        private readonly List<string> _content = new List<string>();
+        readonly List<TennisPlayer> _listOfMalePlayers = new List<TennisPlayer>();
+        readonly List<TennisPlayer> _listOfFemalePlayers = new List<TennisPlayer>();
+        readonly List<TennisPlayer> _listOfMaleReferee = new List<TennisPlayer>();
+        readonly List<TennisPlayer> _listOfFemaleReferee = new List<TennisPlayer>();
+        #endregion
 
         public List<TennisPlayer> GetListMalePlayers()
         {
+            //Inserts text from textfile into correct object references for Male Players
+            #region
             TextFieldParser par = new TextFieldParser(FileName);
             par.TextFieldType = FieldType.Delimited;
             par.SetDelimiters(Delimiter);
@@ -42,11 +45,13 @@ namespace MiniProjekt
                 var malePlayer = new TennisPlayer(id, fname, mname, lname, dob, na, sex, PoR);
                 _listOfMalePlayers.Add(malePlayer);
             }
-
             return _listOfMalePlayers;
+            #endregion
         }
         public List<TennisPlayer> GetListFemalePlayers()
         {
+            //Inserts text from textfile into correct object references for Female Players
+            #region
             TextFieldParser par = new TextFieldParser(FileName);
             par.TextFieldType = FieldType.Delimited;
             par.SetDelimiters(Delimiter);
@@ -68,9 +73,12 @@ namespace MiniProjekt
             }
             par.Close();
             return _listOfFemalePlayers;
+            #endregion
         }
         public List<TennisPlayer> GetListMaleReferee()
         {
+            //Inserts text from textfile into correct object references for Male Refs
+            #region
             TextFieldParser par = new TextFieldParser(FileName);
             par.TextFieldType = FieldType.Delimited;
             par.SetDelimiters(Delimiter);
@@ -95,9 +103,12 @@ namespace MiniProjekt
             }
             par.Close();
             return _listOfMaleReferee;
+            #endregion
         }
         public List<TennisPlayer> GetListFemaleReferee()
         {
+            //Inserts text from textfile into correct object references for Female Refs
+            #region
             TextFieldParser par = new TextFieldParser(FileName);
             par.TextFieldType = FieldType.Delimited;
             par.SetDelimiters(Delimiter);
@@ -122,6 +133,7 @@ namespace MiniProjekt
             }
             par.Close();
             return _listOfFemaleReferee;
+            #endregion
         }
 
         public FileHandler(string fn, string delim = "|")
@@ -132,11 +144,12 @@ namespace MiniProjekt
 
         public int Load()
         {
+            //Read and add text from file to the string List _content 
+            //og forsøg på hvordan exceptions bliver lavet
+            #region
             StreamReader file = null;
             int noLines = 0;
 
-            //Read and add text from file to a string List
-            #region
             try
             {
                 string line;
@@ -187,10 +200,11 @@ namespace MiniProjekt
 
         public override string ToString()
         {
-            var rv = "";
             //Shows how the variable (string) "line" in "_content" list should be printed
-            //Listen _content bliver lavet i metoden Load()
+            //Listen _content bliver lavet i metoden Load() bruges kun i det tilfælde at det er nødvendigt at printe indhold
             #region
+            var rv = "";
+
             foreach (var line in _content)
             {
                 rv += line + Environment.NewLine;
@@ -221,9 +235,11 @@ namespace MiniProjekt
 
         public static void ReadFile()
         {
+            //Husk at ændre til korrekt kildesti!
+            //Her kan indhold printes hvis nødvendigt
+            #region 
             var loadContent = new FileHandler(@"C:\Users\Christian(Atlik)\Desktop\Miniprojekt\MiniProjekt\tennis_data\MalePlayer.txt");
 
-            //Husk at ændre til korrekt kildesti!
             var malePlayers = new FileHandler(@"C:\Users\Christian(Atlik)\Desktop\Miniprojekt\MiniProjekt\tennis_data\MalePlayer.txt");
             //malePlayers.LoadMalePlayer();
             //Console.WriteLine(malePlayers);
@@ -239,6 +255,7 @@ namespace MiniProjekt
             var femaleReferee = new FileHandler(@"C:\Users\Christian(Atlik)\Desktop\Miniprojekt\MiniProjekt\tennis_data\FermaleRefs.txt");
             //femaleReferee.LoadFemaleReferee();
             //Console.WriteLine(femaleReferee);
+            #endregion
         }
     }
 }

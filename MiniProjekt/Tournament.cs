@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Reflection.Emit;
 
 namespace MiniProjekt
 {
@@ -11,6 +12,7 @@ namespace MiniProjekt
         public DateTime TournamentEnd { get; set; }
         #endregion
 
+        //Constructor of Tournament
         public Tournament(DateTime tourDateStart, DateTime tourDateEnd, string tourName)
         {
             TournamentStart = tourDateStart;
@@ -20,11 +22,13 @@ namespace MiniProjekt
 
         public override string ToString()
         {
+            //Defines how the object tournament should be printed
+            #region
             int yearStart = TournamentStart.Year;
             int yearEnd = TournamentEnd.Year;
 
-            //Defines how the object tournament should be printed
             return "Tournament name: " + TournamentName + " " + yearStart.ToString("d") + " - " + yearEnd.ToString("d") + Environment.NewLine;
+            #endregion
         }
 
         public static void MainTournament()
