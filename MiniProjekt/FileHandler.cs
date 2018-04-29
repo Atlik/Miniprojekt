@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.IO;
+using Microsoft.VisualBasic;
 using Microsoft.VisualBasic.FileIO;
 
 namespace MiniProjekt
@@ -12,12 +13,116 @@ namespace MiniProjekt
         private readonly List<string> _content = new List<string>();
         public string FileName { get; set; }
         public string Delimiter { get; set; }
+     //   public object _listOfMalePlayer { get; set; }
 
         //   List<TennisPlayer> _listOfPersonsObjects = new List<TennisPlayer>();
         List<TennisPlayer> _listOfMalePlayers = new List<TennisPlayer>();
         List<TennisPlayer> _listOfFemalePlayers = new List<TennisPlayer>();
         List<TennisPlayer> _listOfMaleReferee = new List<TennisPlayer>();
         List<TennisPlayer> _listOfFemaleReferee = new List<TennisPlayer>();
+
+        public List<TennisPlayer> GetListMalePlayers()
+        {
+            TextFieldParser par = new TextFieldParser(FileName);
+            par.TextFieldType = FieldType.Delimited;
+            par.SetDelimiters(Delimiter);
+
+            while (!par.EndOfData)
+            {
+                string[] fields = par.ReadFields();
+                int id = Int32.Parse(fields[0]);
+                string fname = fields[1];
+                string mname = fields[2];
+                string lname = fields[3];
+                DateTime dob = DateTime.Parse(fields[4]);
+                string na = fields[5];
+                bool sex = true;
+                bool PoR = false;
+
+                var malePlayer = new TennisPlayer(id, fname, mname, lname, dob, na, sex, PoR);
+                _listOfMalePlayers.Add(malePlayer);
+            }
+
+            return _listOfMalePlayers;
+        }
+        public List<TennisPlayer> GetListFemalePlayers()
+        {
+            TextFieldParser par = new TextFieldParser(FileName);
+            par.TextFieldType = FieldType.Delimited;
+            par.SetDelimiters(Delimiter);
+
+            while (!par.EndOfData)
+            {
+                string[] fields = par.ReadFields();
+                int id = Int32.Parse(fields[0]);
+                string fname = fields[1];
+                string mname = fields[2];
+                string lname = fields[3];
+                DateTime dob = DateTime.Parse(fields[4]);
+                string na = fields[5];
+                bool sex = false;
+                bool PoR = false;
+
+                var femalePlayer = new TennisPlayer(id, fname, mname, lname, dob, na, sex, PoR);
+                _listOfFemalePlayers.Add(femalePlayer);
+            }
+            par.Close();
+            return _listOfFemalePlayers;
+        }
+        public List<TennisPlayer> GetListMaleReferee()
+        {
+            TextFieldParser par = new TextFieldParser(FileName);
+            par.TextFieldType = FieldType.Delimited;
+            par.SetDelimiters(Delimiter);
+
+            while (!par.EndOfData)
+            {
+                string[] fields = par.ReadFields();
+                int id = Int32.Parse(fields[0]);
+                string fname = fields[1];
+                string mname = fields[2];
+                string lname = fields[3];
+                DateTime dob = DateTime.Parse(fields[4]);
+                string na = fields[5];
+                bool sex = true;
+                bool PoR = true;
+                DateTime LGdate = DateTime.Parse(fields[7]);
+                DateTime LRdate = DateTime.Parse(fields[8]);
+
+
+                var maleReferee = new TennisPlayer(id, fname, mname, lname, dob, na, sex, PoR, LGdate, LRdate);
+                _listOfMaleReferee.Add(maleReferee);
+            }
+            par.Close();
+            return _listOfMaleReferee;
+        }
+        public List<TennisPlayer> GetListFemaleReferee()
+        {
+            TextFieldParser par = new TextFieldParser(FileName);
+            par.TextFieldType = FieldType.Delimited;
+            par.SetDelimiters(Delimiter);
+
+            while (!par.EndOfData)
+            {
+                string[] fields = par.ReadFields();
+                int id = Int32.Parse(fields[0]);
+                string fname = fields[1];
+                string mname = fields[2];
+                string lname = fields[3];
+                DateTime dob = DateTime.Parse(fields[4]);
+                string na = fields[5];
+                bool sex = false;
+                bool PoR = true;
+                DateTime LGdate = DateTime.Parse(fields[7]);
+                DateTime LRdate = DateTime.Parse(fields[8]);
+
+
+                var femaleReferee = new TennisPlayer(id, fname, mname, lname, dob, na, sex, PoR, LGdate, LRdate);
+                _listOfFemaleReferee.Add(femaleReferee);
+            }
+            par.Close();
+            return _listOfFemaleReferee;
+        }
 
         public FileHandler(string fn, string delim = "|")
         {
@@ -80,108 +185,6 @@ namespace MiniProjekt
             #endregion
         }
 
-        public void LoadMalePlayer()
-        {
-            TextFieldParser par = new TextFieldParser(FileName);
-            par.TextFieldType = FieldType.Delimited;
-            par.SetDelimiters(Delimiter);
-
-            while (!par.EndOfData)
-            {
-                string[] fields = par.ReadFields();
-                int id = Int32.Parse(fields[0]);
-                string fname = fields[1];
-                string mname = fields[2];
-                string lname = fields[3];
-                DateTime dob = DateTime.Parse(fields[4]);
-                string na = fields[5];
-                bool sex = true;
-                bool PoR = false;
-
-                var malePlayer = new TennisPlayer(id, fname, mname, lname, dob, na, sex, PoR);
-                _listOfMalePlayers.Add(malePlayer);
-            }
-            par.Close();
-        }
-
-        public void LoadFemalePlayer()
-        {
-            TextFieldParser par = new TextFieldParser(FileName);
-            par.TextFieldType = FieldType.Delimited;
-            par.SetDelimiters(Delimiter);
-
-            while (!par.EndOfData)
-            {
-                string[] fields = par.ReadFields();
-                int id = Int32.Parse(fields[0]);
-                string fname = fields[1];
-                string mname = fields[2];
-                string lname = fields[3];
-                DateTime dob = DateTime.Parse(fields[4]);
-                string na = fields[5];
-                bool sex = false;
-                bool PoR = false;
-
-                var femalePlayer = new TennisPlayer(id, fname, mname, lname, dob, na, sex, PoR);
-                _listOfFemalePlayers.Add(femalePlayer);
-            }
-            par.Close();
-        }
-
-        public void LoadMaleReferee()
-        {
-            TextFieldParser par = new TextFieldParser(FileName);
-            par.TextFieldType = FieldType.Delimited;
-            par.SetDelimiters(Delimiter);
-
-            while (!par.EndOfData)
-            {
-                string[] fields = par.ReadFields();
-                int id = Int32.Parse(fields[0]);
-                string fname = fields[1];
-                string mname = fields[2];
-                string lname = fields[3];
-                DateTime dob = DateTime.Parse(fields[4]);
-                string na = fields[5];
-                bool sex = true;
-                bool PoR = true;
-                DateTime LGdate = DateTime.Parse(fields[7]);
-                DateTime LRdate = DateTime.Parse(fields[8]);
-
-
-                var maleReferee = new TennisPlayer(id, fname, mname, lname, dob, na, sex, PoR, LGdate, LRdate);
-                _listOfMaleReferee.Add(maleReferee);
-            }
-            par.Close();
-        }
-
-        public void LoadFemaleReferee()
-        {
-            TextFieldParser par = new TextFieldParser(FileName);
-            par.TextFieldType = FieldType.Delimited;
-            par.SetDelimiters(Delimiter);
-
-            while (!par.EndOfData)
-            {
-                string[] fields = par.ReadFields();
-                int id = Int32.Parse(fields[0]);
-                string fname = fields[1];
-                string mname = fields[2];
-                string lname = fields[3];
-                DateTime dob = DateTime.Parse(fields[4]);
-                string na = fields[5];
-                bool sex = false;
-                bool PoR = true;
-                DateTime LGdate = DateTime.Parse(fields[7]);
-                DateTime LRdate = DateTime.Parse(fields[8]);
-
-
-                var femaleReferee = new TennisPlayer(id, fname, mname, lname, dob, na, sex, PoR, LGdate, LRdate);
-                _listOfFemaleReferee.Add(femaleReferee);
-            }
-            par.Close();
-        }
-
         public override string ToString()
         {
             var rv = "";
@@ -239,3 +242,110 @@ namespace MiniProjekt
         }
     }
 }
+
+//skrald
+#region
+
+/*
+public void LoadMalePlayer()
+{
+    TextFieldParser par = new TextFieldParser(FileName);
+    par.TextFieldType = FieldType.Delimited;
+    par.SetDelimiters(Delimiter);
+
+    while (!par.EndOfData)
+    {
+        string[] fields = par.ReadFields();
+        int id = Int32.Parse(fields[0]);
+        string fname = fields[1];
+        string mname = fields[2];
+        string lname = fields[3];
+        DateTime dob = DateTime.Parse(fields[4]);
+        string na = fields[5];
+        bool sex = true;
+        bool PoR = false;
+
+        var malePlayer = new TennisPlayer(id, fname, mname, lname, dob, na, sex, PoR);
+        _listOfMalePlayers.Add(malePlayer);
+    }
+    par.Close();
+}
+
+public void LoadFemalePlayer()
+{
+    TextFieldParser par = new TextFieldParser(FileName);
+    par.TextFieldType = FieldType.Delimited;
+    par.SetDelimiters(Delimiter);
+
+    while (!par.EndOfData)
+    {
+        string[] fields = par.ReadFields();
+        int id = Int32.Parse(fields[0]);
+        string fname = fields[1];
+        string mname = fields[2];
+        string lname = fields[3];
+        DateTime dob = DateTime.Parse(fields[4]);
+        string na = fields[5];
+        bool sex = false;
+        bool PoR = false;
+
+        var femalePlayer = new TennisPlayer(id, fname, mname, lname, dob, na, sex, PoR);
+        _listOfFemalePlayers.Add(femalePlayer);
+    }
+    par.Close();
+}
+
+public void LoadMaleReferee()
+{
+    TextFieldParser par = new TextFieldParser(FileName);
+    par.TextFieldType = FieldType.Delimited;
+    par.SetDelimiters(Delimiter);
+
+    while (!par.EndOfData)
+    {
+        string[] fields = par.ReadFields();
+        int id = Int32.Parse(fields[0]);
+        string fname = fields[1];
+        string mname = fields[2];
+        string lname = fields[3];
+        DateTime dob = DateTime.Parse(fields[4]);
+        string na = fields[5];
+        bool sex = true;
+        bool PoR = true;
+        DateTime LGdate = DateTime.Parse(fields[7]);
+        DateTime LRdate = DateTime.Parse(fields[8]);
+
+
+        var maleReferee = new TennisPlayer(id, fname, mname, lname, dob, na, sex, PoR, LGdate, LRdate);
+        _listOfMaleReferee.Add(maleReferee);
+    }
+    par.Close();
+}
+
+public void LoadFemaleReferee()
+{
+    TextFieldParser par = new TextFieldParser(FileName);
+    par.TextFieldType = FieldType.Delimited;
+    par.SetDelimiters(Delimiter);
+
+    while (!par.EndOfData)
+    {
+        string[] fields = par.ReadFields();
+        int id = Int32.Parse(fields[0]);
+        string fname = fields[1];
+        string mname = fields[2];
+        string lname = fields[3];
+        DateTime dob = DateTime.Parse(fields[4]);
+        string na = fields[5];
+        bool sex = false;
+        bool PoR = true;
+        DateTime LGdate = DateTime.Parse(fields[7]);
+        DateTime LRdate = DateTime.Parse(fields[8]);
+
+
+        var femaleReferee = new TennisPlayer(id, fname, mname, lname, dob, na, sex, PoR, LGdate, LRdate);
+        _listOfFemaleReferee.Add(femaleReferee);
+    }
+    par.Close();
+}*/
+#endregion

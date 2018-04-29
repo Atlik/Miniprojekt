@@ -1,4 +1,9 @@
 ﻿using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.IO;
+using Microsoft.VisualBasic;
+using Microsoft.VisualBasic.FileIO;
 
 namespace MiniProjekt
 {
@@ -13,17 +18,58 @@ namespace MiniProjekt
         public string Match { get; set; }
         #endregion
 
+        FileHandler listOfMalePlayer = new FileHandler(@"C:\Users\Christian(Atlik)\Desktop\Miniprojekt\MiniProjekt\tennis_data\MalePlayer.txt");
+        FileHandler listOfMaleReferee = new FileHandler(@"C:\Users\Christian(Atlik)\Desktop\Miniprojekt\MiniProjekt\tennis_data\MaleRefs.txt");
+        FileHandler listOfFemalePlayer = new FileHandler(@"C:\Users\Christian(Atlik)\Desktop\Miniprojekt\MiniProjekt\tennis_data\FemalePlayer.txt");
+        FileHandler listOfFemaleReferee = new FileHandler(@"C:\Users\Christian(Atlik)\Desktop\Miniprojekt\MiniProjekt\tennis_data\FermaleRefs.txt");
+
         public TennisMatch()
         {
+            //Prints lists of objects from FileHandler(tekstfiler)
+
+            #region
+
+            List<TennisPlayer> _maleTennisPlayers = listOfMalePlayer.GetListMalePlayers();
+
+            for (int i = 0; i < _maleTennisPlayers.Count; i++)
+            {
+               // Console.WriteLine(_maleTennisPlayers[i]);
+            }
+
+            List<TennisPlayer> _maleReferees = listOfMaleReferee.GetListMaleReferee();
+
+            for (int i = 0; i < _maleReferees.Count; i++)
+            {
+               // Console.WriteLine(_maleReferees[i]);
+            }
+
+            List<TennisPlayer> _femaleTennisPlayers = listOfFemalePlayer.GetListFemalePlayers();
+
+            for (int i = 0; i < _femaleTennisPlayers.Count; i++)
+            {
+             //  Console.WriteLine(_femaleTennisPlayers[i]);
+            }
+
+            List<TennisPlayer> _femaleReferee = listOfFemaleReferee.GetListFemaleReferee();
+
+            for (int i = 0; i < _femaleReferee.Count; i++)
+            {
+              //  Console.WriteLine(_femaleReferee[i]);
+            }
+
+            #endregion
+
+
             //Assigns new player objects and print their information
             #region
+
             var player01 = new TennisPlayer(997, "Christian", "Gundersen", "Holmgaard", new DateTime(1996, 05, 09), "Denmark", true, false);
             var player02 = new TennisPlayer(998, "Ferdinand", "", "Brødløs", new DateTime(1995, 07, 19), "Denmark", true, false);
             var player03 = new TennisPlayer(999, "Mia", "Bødker", "Nissen", new DateTime(1991, 11, 11), "Denmark", false, false);
             var player04 = new TennisPlayer(1000, "Tina", "Hammer", "Sørensen", new DateTime(1996, 03, 23), "Denmark", false, false);
 
-            var Referee01 = new TennisPlayer(996, "Kristian", "", "Torp", new DateTime(1983, 11, 11), "Denmark", true, true, new DateTime(2006, 08, 20), new DateTime(2018, 04, 27));
-            Console.WriteLine(player01 + Environment.NewLine + player02 + Environment.NewLine + player03 + Environment.NewLine + Referee01);
+            var referee01 = new TennisPlayer(996, "Kristian", "", "Torp", new DateTime(1983, 11, 11), "Denmark", true, true, new DateTime(2006, 08, 20), new DateTime(2018, 04, 27));
+          //  Console.WriteLine(player01 + Environment.NewLine + player02 + Environment.NewLine + player03 + Environment.NewLine + referee01);
             #endregion
 
             //Checks if player is Male or Female, if Male it will run a match with best of 5 sets, else a match with best of 3 sets
@@ -43,7 +89,7 @@ namespace MiniProjekt
             if (player01.Gender == true && player02.Gender == true)
             {
                 Console.ForegroundColor = ConsoleColor.White;
-                Console.WriteLine("A single male game has been set for player 01: {0} and player 2: {1}" + Environment.NewLine + Environment.NewLine + "The game will be controlled by the referee: {2} " + Environment.NewLine, player01.FirstName, player02.FirstName, Referee01.FirstName);
+                Console.WriteLine("A single male game has been set for player 01: {0} and player 2: {1}" + Environment.NewLine + Environment.NewLine + "The game will be controlled by the referee: {2} " + Environment.NewLine, player01.FirstName, player02.FirstName, referee01.FirstName);
                 Console.ResetColor();
 
                 RandSetsTournament.MaleMatch();
@@ -64,7 +110,7 @@ namespace MiniProjekt
             else if (player01.Gender == false && player02.Gender == false)
             {
                 Console.ForegroundColor = ConsoleColor.White;
-                Console.WriteLine("A single female game has been set for player 01: {0} and player 2: {1}" + Environment.NewLine + Environment.NewLine + "The game will be controlled by the referee: {2} " + Environment.NewLine, player03.FirstName, player04.FirstName, Referee01.FirstName);
+                Console.WriteLine("A single female game has been set for player 01: {0} and player 2: {1}" + Environment.NewLine + Environment.NewLine + "The game will be controlled by the referee: {2} " + Environment.NewLine, player03.FirstName, player04.FirstName, referee01.FirstName);
                 Console.ResetColor();
 
                 RandSetsTournament.FemaleMatch();
@@ -86,6 +132,7 @@ namespace MiniProjekt
                 Console.WriteLine("There is no match");
             }
             #endregion
+
         }
 
         public class RandSetsTournament
