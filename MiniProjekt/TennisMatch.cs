@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics.Eventing.Reader;
 using System.IO;
 using System.Linq;
+using System.Security.Cryptography;
 using Microsoft.VisualBasic;
 using Microsoft.VisualBasic.FileIO;
 
@@ -23,7 +25,6 @@ namespace MiniProjekt
         public TennisMatch()
         {
             #region
-
             DateTime tournamentStart = new DateTime(2017, 11, 22);
             DateTime tournamentEnd = new DateTime(2018, 01, 05);
             Tournament listOfPersonsForRound = new Tournament(tournamentStart, tournamentEnd, "Winter Olympics");
@@ -35,11 +36,11 @@ namespace MiniProjekt
             //Console.WriteLine("Male Players");
             for (int i = 0; i < tournamentMalePlayers.Count; i++)
             {
-                Console.WriteLine(tournamentMalePlayers[i]);
+                //Console.WriteLine(tournamentMalePlayers[i]);
                 j++;
-                Console.ReadLine();
+                //Console.ReadLine();
             }
-            Console.WriteLine(j);
+            //Console.WriteLine(j);
 
             //Console.ReadLine();
             //Console.WriteLine("Female Players");
@@ -62,10 +63,9 @@ namespace MiniProjekt
             int round = 0;
             int p2 = 1;
             List<TennisPlayer> Winners = new List<TennisPlayer>();
+            List<int> Losers = new List<int>();
 
-
-
-            if (tournamentMalePlayers.Count > 2)
+            while (true)
             {
                 for (int p1 = 0; p1 < tournamentMalePlayers.Count; p1 += 2)
                 {
@@ -79,12 +79,10 @@ namespace MiniProjekt
                         Environment.NewLine,
                         tournamentMalePlayers[p1].FirstName, tournamentMalePlayers[p2].FirstName,
                         tournamentRefs[r].FirstName);
-
                     #endregion
 
                     //Simulate matches between players
                     #region
-
                     while (true)
                     {
                         int player01Point = 0;
@@ -171,9 +169,9 @@ namespace MiniProjekt
                                 "There has been a sets of: " + matchOfSetsCounter +
                                 " Player 1: {0} has won the game!\r\n", tournamentMalePlayers[p1].FirstName);
                             matchOfSetsCounter = 0;
-                            Console.ReadLine();
+                            //Console.ReadLine();
                             Winners.Add(tournamentMalePlayers[p1]);
-                            tournamentMalePlayers.RemoveAt(p2);
+                            Losers.Add(tournamentMalePlayers[p2].Identifikation);
                             break;
                         }
                         else if (setWinCount02 == 3)
@@ -183,9 +181,9 @@ namespace MiniProjekt
                                 " Player 2: {0} has won the game!\r\n",
                                 tournamentMalePlayers[p2].FirstName);
                             matchOfSetsCounter = 0;
-                            Console.ReadLine();
+                            //Console.ReadLine();
                             Winners.Add(tournamentMalePlayers[p2]);
-                            tournamentMalePlayers.RemoveAt(p1);
+                            Losers.Add(tournamentMalePlayers[p1].Identifikation);
                             break;
                         }
                         #endregion
@@ -193,16 +191,41 @@ namespace MiniProjekt
                     #endregion
                     p2 += 2;
                 }
+
+                //Prints winners and remove losers from list
+                #region
                 round++;
+                int m = 1;
                 Console.ForegroundColor = ConsoleColor.Green;
+                Console.WriteLine("Winners of Round: {0}", round);
                 for (int i = 0; i < Winners.Count; i++)
                 {
-                    Console.WriteLine("Winners of round {0} was the players: \r\n {1}", round, Winners[i].FirstName);
+                    Console.WriteLine("Winner of Game {0} was the players: {1}", m, Winners[i].FirstName);
+                    m++;
                 }
+                m = 1;
                 Console.ResetColor();
-
+                for (int i = 0; i < tournamentMalePlayers.Count; i++)
+                {
+                    for (int k = 0; k < Losers.Count; k++)
+                    {
+                        for (int o = 0; o < Winners.Count; o++)
+                        {
+                            if (tournamentMalePlayers[i].Identifikation == Losers[k] || Winners[o].Identifikation == Losers[k])
+                            {
+                                tournamentMalePlayers.RemoveAt(i);
+                                Winners.RemoveAt(o);
+                            }
+                        }
+                    }
+                }
+                #endregion
                 p2 = 1;
-
+            
+                if (Winners.Count == 1)
+                {
+                    Console.WriteLine("Tournament for Male player is done");
+                }
             }
         }
 
