@@ -51,7 +51,6 @@ namespace MiniProjekt
                     referees.Add(refMale[j]);
                 }
             }
-
             return referees;
         }
 
@@ -60,7 +59,7 @@ namespace MiniProjekt
             List<TennisPlayer> femaleTennisPlayers = _listOfFemalePlayer.GetListFemalePlayers();
             int no = 0;
 
-            while (no < 8)
+            while (no < 32)
             {
                 int r = rnd.Next(femaleTennisPlayers.Count);
 
@@ -70,7 +69,6 @@ namespace MiniProjekt
                     no++;
                 }
             }
-
             return femalePlayerForRoundList;
         }
 
@@ -80,7 +78,7 @@ namespace MiniProjekt
 
             int no = 0;
 
-            while (no < 8)
+            while (no < 32)
             {
                 int r = rnd.Next(maleTennisPlayers.Count);
 
@@ -90,7 +88,6 @@ namespace MiniProjekt
                     no++;
                 }
             }
-
             return malePlayerForRoundList;
         }
 
