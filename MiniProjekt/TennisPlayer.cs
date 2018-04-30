@@ -1,5 +1,5 @@
 ﻿using System;
-
+using System.Collections.Generic;
 
 namespace MiniProjekt
 {
@@ -112,6 +112,11 @@ namespace MiniProjekt
                    Environment.NewLine + refereeCheck +
                    Environment.NewLine;
             #endregion
+        }
+
+        public static implicit operator List<object>(TennisPlayer v)
+        {
+            throw new NotImplementedException();
         }
     }
 }
