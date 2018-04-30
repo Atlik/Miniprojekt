@@ -20,10 +20,10 @@ namespace MiniProjekt
         #endregion
 
         //Filehandler Initiering
-        FileHandler listOfMalePlayer = new FileHandler(@"C:\Users\Christian(Atlik)\Desktop\Miniprojekt\MiniProjekt\tennis_data\MalePlayer.txt");
-        FileHandler listOfMaleReferee = new FileHandler(@"C:\Users\Christian(Atlik)\Desktop\Miniprojekt\MiniProjekt\tennis_data\MaleRefs.txt");
-        FileHandler listOfFemalePlayer = new FileHandler(@"C:\Users\Christian(Atlik)\Desktop\Miniprojekt\MiniProjekt\tennis_data\FemalePlayer.txt");
-        FileHandler listOfFemaleReferee = new FileHandler(@"C:\Users\Christian(Atlik)\Desktop\Miniprojekt\MiniProjekt\tennis_data\FermaleRefs.txt");
+        readonly FileHandler _listOfMalePlayer = new FileHandler(@"C:\Users\Christian(Atlik)\Desktop\Miniprojekt\MiniProjekt\tennis_data\MalePlayer.txt");
+        readonly FileHandler _listOfMaleReferee = new FileHandler(@"C:\Users\Christian(Atlik)\Desktop\Miniprojekt\MiniProjekt\tennis_data\MaleRefs.txt");
+        readonly FileHandler _listOfFemalePlayer = new FileHandler(@"C:\Users\Christian(Atlik)\Desktop\Miniprojekt\MiniProjekt\tennis_data\FemalePlayer.txt");
+        readonly FileHandler _listOfFemaleReferee = new FileHandler(@"C:\Users\Christian(Atlik)\Desktop\Miniprojekt\MiniProjekt\tennis_data\FermaleRefs.txt");
 
         //Runde Lister
         List<TennisPlayer> malePlayerForRoundList = new List<TennisPlayer>();
@@ -40,8 +40,8 @@ namespace MiniProjekt
 
         public List<TennisPlayer> TournamentHandlerRefs()
         {
-            List<TennisPlayer> refFemale = listOfFemaleReferee.GetListFemaleReferee();
-            List<TennisPlayer> refMale = listOfMaleReferee.GetListMaleReferee();
+            List<TennisPlayer> refFemale = _listOfFemaleReferee.GetListFemaleReferee();
+            List<TennisPlayer> refMale = _listOfMaleReferee.GetListMaleReferee();
 
             for (int i = 0; i < refFemale.Count; i++)
             {
@@ -57,7 +57,7 @@ namespace MiniProjekt
 
         public List<TennisPlayer> TournamentHandlerFemaleGame()
         {
-            List<TennisPlayer> femaleTennisPlayers = listOfFemalePlayer.GetListFemalePlayers();
+            List<TennisPlayer> femaleTennisPlayers = _listOfFemalePlayer.GetListFemalePlayers();
             int no = 0;
 
             while (no < 8)
@@ -76,7 +76,7 @@ namespace MiniProjekt
 
         public List<TennisPlayer> TournamentHandlerMaleGame()
         {
-            List<TennisPlayer> maleTennisPlayers = listOfMalePlayer.GetListMalePlayers();
+            List<TennisPlayer> maleTennisPlayers = _listOfMalePlayer.GetListMalePlayers();
 
             int no = 0;
 
@@ -114,8 +114,6 @@ namespace MiniProjekt
             Tournament T1 = new Tournament(tournamentStart, tournamentEnd, "Winter Olympics");
             Console.WriteLine(T1);
             #endregion
-
-            
         }
     }
 }

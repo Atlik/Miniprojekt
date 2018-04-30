@@ -52,9 +52,9 @@ namespace MiniProjekt
             #endregion
 
             int p2 = 1;
-            int r = rnd.Next(tournamentRefs.Count);
             for (int p1 = 0; p1 < tournamentMalePlayers.Count; p1 += 2)
             {
+                int r = rnd.Next(tournamentRefs.Count);
                 Console.WriteLine(tournamentMalePlayers[p1]);
                 Console.WriteLine(tournamentMalePlayers[p2]);
                 Console.WriteLine(
@@ -63,11 +63,93 @@ namespace MiniProjekt
                     Environment.NewLine,
                     tournamentMalePlayers[p1].FirstName, tournamentMalePlayers[p2].FirstName,
                     tournamentRefs[r].FirstName);
-                TennisMatch.MaleMatch();
+
+                //Simulate matches between players
+                #region
+                while (true)
+                {
+                    int player01Point = 0;
+                    int player02Point = 0;
+                    string setWin01 = "";
+                    string setWin02 = "";
+                    int matchOfSetsCounter = 0;
+                    int setWinCount01 = 0;
+                    int setWinCount02 = 0;
+
+                    for (var i = 0; i < 5; i++)
+                    {
+                        while (true)
+                        {
+                            //Points is given
+                            #region
+                            var dice = rnd.Next(0, 2);
+                            if (dice == 0)
+                            {
+                                ++player01Point;
+                                //Tester hvordan point systemet gives
+                                //Console.WriteLine("Player 1 gets a point: " + Player01);
+                                if (player01Point == 6)
+                                {
+                                    setWin01 = "Player 1:" + tournamentMalePlayers[p1].FirstName + " wins the game ";
+                                    setWin02 = null;
+                                    setWinCount01++;
+                                }
+                            }
+                            else if (dice == 1)
+                            {
+                                ++player02Point;
+                                //Tester hvordan point systemet gives
+                                //Console.WriteLine("Player 2 gets a point: " + Player02);
+                                if (player02Point == 6)
+                                {
+                                    setWin01 = null;
+                                    setWin02 = "Player 2: " + tournamentMalePlayers[p2].FirstName + " wins the game ";
+                                    setWinCount02++;
+                                }
+                            }
+                            #endregion
+
+                            //Player points pr. set is printed
+                            #region
+                            if (player01Point == 6 || player02Point == 6)
+                            {
+                                Console.WriteLine("The sets of the game was: " + player01Point + " - " + player02Point +
+                                                    " " + setWin01 + setWin02 + Environment.NewLine);
+                                player01Point = 0;
+                                player02Point = 0;
+                                matchOfSetsCounter++;
+                            }
+                            #endregion
+
+                            //Checks the amount of sets each player has won
+                            #region
+                            if (setWinCount01 == 3 || setWinCount02 == 3)
+                            {
+                                break;
+                            }
+                            #endregion
+                        }
+                    }
+                    //Prints who won the game
+                    #region
+                    if (setWinCount01 == 3)
+                    {
+                        Console.WriteLine("There has been a sets of: " + matchOfSetsCounter + " Player 1: {0} has won the game!\r\n", tournamentMalePlayers[p1].FirstName);
+                        matchOfSetsCounter = 0;
+                        break;
+                    }
+                    else if (setWinCount02 == 3)
+                    {
+                        Console.WriteLine("There has been a sets of: " + matchOfSetsCounter + " Player 2: {0} has won the game!\r\n", tournamentMalePlayers[p2].FirstName);
+                        matchOfSetsCounter = 0;
+                        break;
+                    }
+                    #endregion
+                }
+                #endregion
                 p2 += 2;
             }
             p2 = 1;
-
         }
 
         //Simulate matches between Males and Females
