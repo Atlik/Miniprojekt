@@ -1,0 +1,95 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>MiniProjekt - Tournament</name>
+    </assembly>
+    <members>
+        <member name="T:MiniProjekt.TennisPlayer">
+            This class will implement the information about the player
+        </member>
+        <member name="P:MiniProjekt.TennisPlayer.Identifikation">
+            <summary>
+            TennisPlayer property
+            </summary>
+        </member>
+        <member name="P:MiniProjekt.TennisPlayer.FirstName">
+            <summary>
+            TennisPlayer property
+            </summary>
+        </member>
+        <member name="P:MiniProjekt.TennisPlayer.MiddleName">
+            <summary>
+            TennisPlayer property
+            </summary>
+        </member>
+        <member name="P:MiniProjekt.TennisPlayer.LastName">
+            <summary>
+            TennisPlayer property
+            </summary>
+        </member>
+        <member name="P:MiniProjekt.TennisPlayer.Nationality">
+            <summary>
+            TennisPlayer property
+            </summary>
+        </member>
+        <member name="P:MiniProjekt.TennisPlayer.Gender">
+            <summary>
+            TennisPlayer property
+            </summary>
+        </member>
+        <member name="P:MiniProjekt.TennisPlayer.DateOfBirth">
+            <summary>
+            TennisPlayer property
+            </summary>
+        </member>
+        <member name="P:MiniProjekt.TennisPlayer.PlayerOrReferee">
+            <summary>
+            TennisPlayer property
+            </summary>
+        </member>
+        <member name="P:MiniProjekt.TennisPlayer.LicenseGot">
+            <summary>
+            TennisPlayer for the referee property
+            </summary>
+        </member>
+        <member name="P:MiniProjekt.TennisPlayer.LicenseRenewal">
+            <summary>
+            TennisPlayer for the referee property
+            </summary>
+        </member>
+        <member name="M:MiniProjekt.TennisPlayer.#ctor(System.Int32,System.String,System.String,System.String,System.DateTime,System.String,System.Boolean,System.Boolean)">
+            <summary>
+            Constructor of Tennisplayer
+            </summary>
+            <param name="id"></param>
+            <param name="fname"></param>
+            <param name="mname"></param>
+            <param name="lname"></param>
+            <param name="dob"></param>
+            <param name="na"></param>
+            <param name="sex"></param>
+            <param name="PoR"></param>
+        </member>
+        <member name="M:MiniProjekt.TennisPlayer.#ctor(System.Int32,System.String,System.String,System.String,System.DateTime,System.String,System.Boolean,System.Boolean,System.DateTime,System.DateTime)">
+            <summary>
+            Constructor of referee
+            </summary>
+            <param name="id"></param>
+            <param name="fname"></param>
+            <param name="mname"></param>
+            <param name="lname"></param>
+            <param name="dob"></param>
+            <param name="na"></param>
+            <param name="sex"></param>
+            <param name="PoR"></param>
+            <param name="LGdate"></param>
+            <param name="LRdate"></param>
+        </member>
+        <member name="M:MiniProjekt.TennisPlayer.ToString">
+            <summary>
+            ToString metode
+            </summary>
+            <returns> Referee values, Gender, Middlename if true, Age, Tennis player information order</returns>
+        </member>
+    </members>
+</doc>

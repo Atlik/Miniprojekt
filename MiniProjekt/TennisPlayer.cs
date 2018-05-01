@@ -6,23 +6,65 @@ namespace MiniProjekt
     /// This class will implement the information about the player
     public class TennisPlayer
     {
-        //Properties
         #region
+        /// <summary>
+        /// TennisPlayer property
+        /// </summary>
         public virtual int Identifikation { get; set; }
+        /// <summary>
+        /// TennisPlayer property
+        /// </summary>
         public virtual string FirstName { get; set; }
+        /// <summary>
+        /// TennisPlayer property
+        /// </summary>
         public virtual string MiddleName { get; set; }
+        /// <summary>
+        /// TennisPlayer property
+        /// </summary>
         public virtual string LastName { get; set; }
+        /// <summary>
+        /// TennisPlayer property
+        /// </summary>
         public virtual string Nationality { get; set; }
+        /// <summary>
+        /// TennisPlayer property
+        /// </summary>
         public virtual bool Gender { get; set; }
+        /// <summary>
+        /// TennisPlayer property
+        /// </summary>
         public DateTime DateOfBirth { get; set; }
+        /// <summary>
+        /// TennisPlayer property
+        /// </summary>
         public bool PlayerOrReferee { get; set; }
+        #endregion
 
         //Referee properties
+        #region
+        /// <summary>
+        /// TennisPlayer for the referee property
+        /// </summary>
         public DateTime LicenseGot { get; set; }
+        /// <summary>
+        /// TennisPlayer for the referee property
+        /// </summary>
         public DateTime LicenseRenewal { get; set; }
         #endregion
 
         //Constructor of TennisPlayer
+        /// <summary>
+        /// Constructor of Tennisplayer
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="fname"></param>
+        /// <param name="mname"></param>
+        /// <param name="lname"></param>
+        /// <param name="dob"></param>
+        /// <param name="na"></param>
+        /// <param name="sex"></param>
+        /// <param name="PoR"></param>
         public TennisPlayer(int id, string fname, string mname, string lname, DateTime dob, string na, bool sex, bool PoR)
         {
             Identifikation = id;
@@ -36,12 +78,31 @@ namespace MiniProjekt
         }
 
         //Constructor of Referee
+        #region
+        /// <summary>
+        /// Constructor of referee
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="fname"></param>
+        /// <param name="mname"></param>
+        /// <param name="lname"></param>
+        /// <param name="dob"></param>
+        /// <param name="na"></param>
+        /// <param name="sex"></param>
+        /// <param name="PoR"></param>
+        /// <param name="LGdate"></param>
+        /// <param name="LRdate"></param>
+        #endregion
         public TennisPlayer(int id, string fname, string mname, string lname, DateTime dob, string na, bool sex, bool PoR, DateTime LGdate, DateTime LRdate) : this(id, fname, mname, lname, dob, na, sex, PoR)
         {
             LicenseGot = LGdate;
             LicenseRenewal = LRdate;
         }
-
+        
+        /// <summary>
+        /// ToString metode
+        /// </summary>
+        /// <returns> Referee values, Gender, Middlename if true, Age, Tennis player information order</returns>
         public override string ToString()
         {
             //checks and gives the referee ekstra variables
@@ -112,11 +173,6 @@ namespace MiniProjekt
                    Environment.NewLine + refereeCheck +
                    Environment.NewLine;
             #endregion
-        }
-
-        public static implicit operator List<object>(TennisPlayer v)
-        {
-            throw new NotImplementedException();
         }
     }
 }
