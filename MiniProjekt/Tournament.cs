@@ -52,6 +52,12 @@ namespace MiniProjekt
                     referees.Add(refMale[j]);
                 }
             }
+
+            Console.WriteLine("Do you want to be GameMaster?, then write your name");
+            string gameMaster = Convert.ToString(Console.ReadLine());
+            Console.WriteLine("You are now GameMaster!");
+            Console.WriteLine("GameMaster of the tournament is: {0}", gameMaster);
+
             return referees;
         }
 
@@ -129,9 +135,7 @@ namespace MiniProjekt
             }
             catch (System.IO.IOException ioex)
             {
-                if (ioex.Message.ToLowerInvariant().Contains("32") || ioex.Message.ToLowerInvariant().Contains("16")
-                                                                   || ioex.Message.ToLowerInvariant().Contains("8")
-                                                                   || ioex.Message.ToLowerInvariant().Contains("4"))
+                if (ioex.Message.ToLowerInvariant().Contains("32"))
                 {
                     Console.WriteLine("You will now see the tournament simulated");
                     throw;

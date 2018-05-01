@@ -31,6 +31,7 @@ namespace MiniProjekt
             Tournament listOfPersonsForRound = new Tournament(tournamentStart, tournamentEnd, "Winter Olympics");
             List<TennisPlayer> tournamentRefs = listOfPersonsForRound.TournamentHandlerRefs();
 
+
             //Skrald
             #region
             /*
@@ -237,7 +238,7 @@ namespace MiniProjekt
                 p2 = 1;
                 if (tournamentMalePlayers.Count == 1)
                 {
-                    Console.WriteLine("Tournament for Male player is done");
+                    Console.WriteLine("Tournament for Male player is done" + Environment.NewLine);
                     break;
                 }
             }
@@ -407,7 +408,7 @@ namespace MiniProjekt
 
                 if (tournamentFemalePlayers.Count == 1)
                 {
-                    Console.WriteLine("Tournament for female players is done");
+                    Console.WriteLine("Tournament for female players is done" + Environment.NewLine);
                     break;
                 }
             }
@@ -416,8 +417,8 @@ namespace MiniProjekt
 
         public static void MainMatch()
         {
-            var matchNo = new TennisMatch();
-            Console.WriteLine(matchNo);
+            var match = new TennisMatch();
+            Console.WriteLine(match);
         }
     }
 }
