@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Data;
 using System.IO;
+using System.Linq;
 using Microsoft.VisualBasic;
 using Microsoft.VisualBasic.FileIO;
 
@@ -57,16 +58,42 @@ namespace MiniProjekt
         public List<TennisPlayer> TournamentHandlerFemaleGame()
         {
             List<TennisPlayer> femaleTennisPlayers = _listOfFemalePlayer.GetListFemalePlayers();
-            int no = 0;
 
-            while (no < 32)
+            try
             {
-                int r = rnd.Next(femaleTennisPlayers.Count);
+                Console.WriteLine("What amount of female player do you want to play at the tournament?");
+                Console.WriteLine("The amount of player has to be even such as: 32, 16 or 8 as an example ");
+                int upTo = Convert.ToInt32(Console.ReadLine());
+                Console.WriteLine("You have typed the number {0} and the tournament will now be played" + Environment.NewLine, upTo);
 
-                if (!femalePlayerForRoundList.Contains(femaleTennisPlayers[r]))
+                int i = 0;
+
+                while (i < upTo)
                 {
-                    femalePlayerForRoundList.Add(femaleTennisPlayers[r]);
-                    no++;
+                    int r = rnd.Next(femaleTennisPlayers.Count);
+
+                    if (!femalePlayerForRoundList.Contains(femaleTennisPlayers[r]))
+                    {
+                        femalePlayerForRoundList.Add(femaleTennisPlayers[r]);
+                        i++;
+                    }
+                }
+            }
+            catch (System.FormatException)
+            {
+                Console.WriteLine("You have to type an integer before the tournament can start");
+            }
+            catch (System.IO.IOException ioex)
+            {
+                if (ioex.Message.ToLowerInvariant().Contains("32"))
+                {
+                    Console.WriteLine("You will now see the tournament simulated");
+                    throw;
+                }
+                else
+                {
+                    Console.WriteLine("Something went wrong!");
+                    throw;
                 }
             }
             return femalePlayerForRoundList;
@@ -76,16 +103,43 @@ namespace MiniProjekt
         {
             List<TennisPlayer> maleTennisPlayers = _listOfMalePlayer.GetListMalePlayers();
 
-            int no = 0;
-
-            while (no < 32)
+            try
             {
-                int r = rnd.Next(maleTennisPlayers.Count);
+                Console.WriteLine("What amount of male player do you want to play at the tournament?");
+                Console.WriteLine("The amount of player has to be even such as: 32, 16 or 8 as an example and be between 2 and 64");
+                int upTo = Convert.ToInt32(Console.ReadLine());
+                Console.WriteLine("You have typed the number {0} and the tournament will now be played" + Environment.NewLine, upTo);
 
-                if (!malePlayerForRoundList.Contains(maleTennisPlayers[r]))
+                int i = 0;
+
+                while (i < upTo)
                 {
-                    malePlayerForRoundList.Add(maleTennisPlayers[r]);
-                    no++;
+                    int r = rnd.Next(maleTennisPlayers.Count);
+
+                    if (!malePlayerForRoundList.Contains(maleTennisPlayers[r]))
+                    {
+                        malePlayerForRoundList.Add(maleTennisPlayers[r]);
+                        i++;
+                    }
+                }
+            }
+            catch (System.FormatException)
+            {
+                Console.WriteLine("You have to type a integer before the tournament can start");
+            }
+            catch (System.IO.IOException ioex)
+            {
+                if (ioex.Message.ToLowerInvariant().Contains("32") || ioex.Message.ToLowerInvariant().Contains("16")
+                                                                   || ioex.Message.ToLowerInvariant().Contains("8")
+                                                                   || ioex.Message.ToLowerInvariant().Contains("4"))
+                {
+                    Console.WriteLine("You will now see the tournament simulated");
+                    throw;
+                }
+                else
+                {
+                    Console.WriteLine("Something went wrong!");
+                    throw;
                 }
             }
             return malePlayerForRoundList;

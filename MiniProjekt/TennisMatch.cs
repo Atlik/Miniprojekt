@@ -29,8 +29,6 @@ namespace MiniProjekt
             DateTime tournamentStart = new DateTime(2017, 11, 22);
             DateTime tournamentEnd = new DateTime(2018, 01, 05);
             Tournament listOfPersonsForRound = new Tournament(tournamentStart, tournamentEnd, "Winter Olympics");
-            List<TennisPlayer> tournamentMalePlayers = listOfPersonsForRound.TournamentHandlerMaleGame();
-            List<TennisPlayer> tournamentFemalePlayers = listOfPersonsForRound.TournamentHandlerFemaleGame();
             List<TennisPlayer> tournamentRefs = listOfPersonsForRound.TournamentHandlerRefs();
 
             //Skrald
@@ -67,6 +65,13 @@ namespace MiniProjekt
 
             //Simulate Tournament for Males
             #region
+            List<TennisPlayer> tournamentMalePlayers = listOfPersonsForRound.TournamentHandlerMaleGame();
+            Console.WriteLine("Tournament for male players is beginning!!");
+            if (tournamentMalePlayers == null)
+            {
+                throw new System.IO.IOException();
+            }
+
             int round = 0;
             int p2 = 1;
             List<TennisPlayer> Winners = new List<TennisPlayer>();
@@ -230,7 +235,7 @@ namespace MiniProjekt
                 #endregion
 
                 p2 = 1;
-                if (round == 5)
+                if (tournamentMalePlayers.Count == 1)
                 {
                     Console.WriteLine("Tournament for Male player is done");
                     break;
@@ -240,6 +245,13 @@ namespace MiniProjekt
 
             //Simulate Tournament for females
             #region
+            List<TennisPlayer> tournamentFemalePlayers = listOfPersonsForRound.TournamentHandlerFemaleGame();
+            Console.WriteLine("Female tournament will now start");
+            if (tournamentFemalePlayers == null)
+            {
+                throw new System.IO.IOException();
+            }
+
             int femaleRound = 0;
             int femalep2 = 1;
             List<TennisPlayer> femaleWinners = new List<TennisPlayer>();
@@ -393,7 +405,7 @@ namespace MiniProjekt
                 femalep2 = 1;
                 #endregion
 
-                if (femaleRound == 5)
+                if (tournamentFemalePlayers.Count == 1)
                 {
                     Console.WriteLine("Tournament for female players is done");
                     break;
@@ -401,7 +413,6 @@ namespace MiniProjekt
             }
             #endregion
         }
-
 
         public static void MainMatch()
         {
