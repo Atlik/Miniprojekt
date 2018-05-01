@@ -10,27 +10,27 @@ namespace MiniProjekt
         /// <summary>
         /// TennisPlayer property
         /// </summary>
-        public virtual int Identifikation { get; set; }
+        public int Identifikation { get; set; }
         /// <summary>
         /// TennisPlayer property
         /// </summary>
-        public virtual string FirstName { get; set; }
+        public string FirstName { get; set; }
         /// <summary>
         /// TennisPlayer property
         /// </summary>
-        public virtual string MiddleName { get; set; }
+        public string MiddleName { get; set; }
         /// <summary>
         /// TennisPlayer property
         /// </summary>
-        public virtual string LastName { get; set; }
+        public string LastName { get; set; }
         /// <summary>
         /// TennisPlayer property
         /// </summary>
-        public virtual string Nationality { get; set; }
+        public string Nationality { get; set; }
         /// <summary>
         /// TennisPlayer property
         /// </summary>
-        public virtual bool Gender { get; set; }
+        public bool Gender { get; set; }
         /// <summary>
         /// TennisPlayer property
         /// </summary>
