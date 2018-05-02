@@ -54,12 +54,36 @@ namespace MiniProjekt
                 }
             }
 
-            Console.WriteLine("Do you want to be GameMaster for the Tournament?, then write your name");
-            string gameMaster = Convert.ToString(Console.ReadLine());
-            Console.WriteLine("You are now GameMaster!");
-            Console.WriteLine("GameMaster of the tournament is: {0}", gameMaster);
+            try
+            {
+                Console.WriteLine("Do you want to be GameMaster for the Tournament?" + Environment.NewLine +
+                                  " please answer with yes or no");
+                string gameMaster = Convert.ToString(Console.ReadLine());
 
-            return referees;
+                if (gameMaster == "yes")
+                {
+                    Console.WriteLine("Please enter your name");
+                    string userGameMaster = Convert.ToString((Console.ReadLine()));
+                    Console.WriteLine("You are now GameMaster!");
+                    Console.WriteLine("GameMaster of the tournament is: {0}", userGameMaster);
+                }
+                else if (gameMaster == "no")
+                {
+                    Console.WriteLine("Finding a Referee to be GameMaster");
+                    Console.WriteLine("GameMaster of the tournament is: {0}", referees[0]);
+                }
+                else
+                {
+                    throw new System.Exception();
+                }
+            }
+            catch (System.Exception)
+            {
+                Console.WriteLine("You have typed something wrong");
+            }
+
+            int amount = referees.Count - 1;
+            return referees.GetRange(1, amount);
         }
 
         public List<TennisPlayer> TournamentHandlerFemaleGame()

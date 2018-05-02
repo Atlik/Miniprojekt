@@ -44,7 +44,8 @@ namespace MiniProjekt
 
                 for (int i = 0; i < sortedMalePlayer.Count; i++)
                 {
-                    Console.WriteLine(sortedMalePlayer[i].FirstName + " Players number: {0} ", i);
+                    Console.WriteLine(sortedMalePlayer[i].FirstName + " " + sortedMalePlayer[i].MiddleName + " " + 
+                                      sortedMalePlayer[i].LastName + " Players number: {0} ", i);
                 }
 
                 Console.WriteLine("Sorted list has been made: ");
@@ -252,11 +253,12 @@ namespace MiniProjekt
 
                 //Sort the tournamentfemalePlayers by firstname before the tournament starts
                 #region
-                List<TennisPlayer> sortedfemale = tournamentFemalePlayers.OrderBy(TennisPlayer => TennisPlayer.FirstName).ToList();
+                List<TennisPlayer> sortedfemale = tournamentFemalePlayers.OrderBy(tennisPlayer => tennisPlayer.FirstName).ToList();
 
                 for (int i = 0; i < sortedfemale.Count; i++)
                 {
-                    Console.WriteLine(sortedfemale[i].FirstName + " Players number: {0} ", i);
+                    Console.WriteLine(sortedfemale[i].FirstName + " " + sortedfemale[i].MiddleName + " " + 
+                                      sortedfemale[i].LastName + " Players number: {0} ", i);
                 }
 
                 Console.WriteLine("Sorted list has been made: ");
@@ -460,12 +462,6 @@ namespace MiniProjekt
             {
                 Console.WriteLine("Something went wrong");
             }
-        }
-
-        public static void MainMatch()
-        {
-            var match = new TennisMatch();
-            Console.WriteLine(match);
         }
     }
 }
