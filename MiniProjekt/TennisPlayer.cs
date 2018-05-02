@@ -165,8 +165,8 @@ namespace MiniProjekt
             //ToShortDateString() is used to delete time
             // "\r\n" is equal to Environment.NewLine
             return "Identifikation: " + Identifikation +
-                   Environment.NewLine + "Persons Name: " + FirstName + middleNameSpaceCheck + " " + LastName +
-                   Environment.NewLine + "Persons birthday is the: " + DateOfBirth.ToShortDateString() +
+                   Environment.NewLine + "The persons Name: " + FirstName + middleNameSpaceCheck + " " + LastName +
+                   Environment.NewLine + "The persons birthday is the: " + DateOfBirth.ToShortDateString() +
                    Environment.NewLine + "The persons nationality is: " + Nationality +
                    Environment.NewLine + "The persons gender is: " + genderCheck +
                    Environment.NewLine + "The persons age is " + playersAge +

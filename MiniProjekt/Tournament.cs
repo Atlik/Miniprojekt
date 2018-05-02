@@ -39,11 +39,11 @@ namespace MiniProjekt
             string FileName01 = "tennis_data";
             string FileName = "MaleRefs";
             string FileName02 = "FermaleRefs";
-            FileHandler _listOfFemaleReferee = new FileHandler(@"" + Environment.CurrentDirectory + "\\" + FileName01 + "\\" + FileName02 + ".txt");
-            FileHandler _listOfMaleReferee = new FileHandler(@"" + Environment.CurrentDirectory + "\\" + FileName01 + "\\" + FileName + ".txt");
+            FileHandler listOfFemaleReferee = new FileHandler(@"" + Environment.CurrentDirectory + "\\" + FileName01 + "\\" + FileName02 + ".txt");
+            FileHandler listOfMaleReferee = new FileHandler(@"" + Environment.CurrentDirectory + "\\" + FileName01 + "\\" + FileName + ".txt");
 
-            List<TennisPlayer> refFemale = _listOfFemaleReferee.GetListFemaleReferee();
-            List<TennisPlayer> refMale = _listOfMaleReferee.GetListMaleReferee();
+            List<TennisPlayer> refFemale = listOfFemaleReferee.GetListFemaleReferee();
+            List<TennisPlayer> refMale = listOfMaleReferee.GetListMaleReferee();
 
             for (int i = 0; i < refFemale.Count; i++)
             {
@@ -54,7 +54,7 @@ namespace MiniProjekt
                 }
             }
 
-            Console.WriteLine("Do you want to be GameMaster?, then write your name");
+            Console.WriteLine("Do you want to be GameMaster for the Tournament?, then write your name");
             string gameMaster = Convert.ToString(Console.ReadLine());
             Console.WriteLine("You are now GameMaster!");
             Console.WriteLine("GameMaster of the tournament is: {0}", gameMaster);
@@ -66,13 +66,13 @@ namespace MiniProjekt
         {
             string FileName01 = "tennis_data";
             string FileName = "FemalePlayer";
-            FileHandler _listOfFemalePlayer = new FileHandler(@"" + Environment.CurrentDirectory + "\\" + FileName01 + "\\" + FileName + ".txt");
+            FileHandler listOfFemalePlayer = new FileHandler(@"" + Environment.CurrentDirectory + "\\" + FileName01 + "\\" + FileName + ".txt");
 
-            List<TennisPlayer> femaleTennisPlayers = _listOfFemalePlayer.GetListFemalePlayers();
+            List<TennisPlayer> femaleTennisPlayers = listOfFemalePlayer.GetListFemalePlayers();
             try
             {
-                Console.WriteLine("What amount of female player do you want to play at the tournament?");
-                Console.WriteLine("The amount of player has to be even such as: 32, 16 or 8 as an example ");
+                Console.WriteLine("What amount of female players do you want to play at the tournament?");
+                Console.WriteLine("The amount of players has to be even such as: 32, 16 or 8 as an example ");
                 int upTo = Convert.ToInt32(Console.ReadLine());
                 Console.WriteLine("You have typed the number {0} and the tournament will now be played" + Environment.NewLine, upTo);
 
@@ -113,13 +113,13 @@ namespace MiniProjekt
         {
             string FileName = "MalePlayer";
             string FileName01 = "tennis_data";
-            FileHandler _listOfMalePlayer = new FileHandler(@"" + Environment.CurrentDirectory + "\\" + FileName01 + "\\" + FileName + ".txt");
+            FileHandler listOfMalePlayer = new FileHandler(@"" + Environment.CurrentDirectory + "\\" + FileName01 + "\\" + FileName + ".txt");
 
-            List<TennisPlayer> maleTennisPlayers = _listOfMalePlayer.GetListMalePlayers();
+            List<TennisPlayer> maleTennisPlayers = listOfMalePlayer.GetListMalePlayers();
             try
             {
-                Console.WriteLine("What amount of male player do you want to play at the tournament?");
-                Console.WriteLine("The amount of player has to be even such as: 32, 16 or 8 as an example and be between 2 and 64");
+                Console.WriteLine("What amount of male players do you want to play at the tournament?");
+                Console.WriteLine("The amount of players has to be even such as: 32, 16 or 8 as an example and be between 2 and 64");
                 int upTo = Convert.ToInt32(Console.ReadLine());
                 Console.WriteLine("You have typed the number {0} and the tournament will now be played" + Environment.NewLine, upTo);
 

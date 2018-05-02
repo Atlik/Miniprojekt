@@ -14,13 +14,6 @@ namespace MiniProjekt
     //This class handles and simulate each match in the tournament
     class TennisMatch
     {
-        //Tennis Match properties
-        #region
-        public string Results { get; set; }
-        public int MenSingleSet { get; set; }
-        public int WomenSingleSet { get; set; }
-        public string Match { get; set; }
-        #endregion
 
         static Random rnd = new Random();
 
@@ -47,11 +40,11 @@ namespace MiniProjekt
 
                 //Sort the tournamentMalePlayers by firstname before the tournament starts
                 #region
-                List<TennisPlayer> TennisMatch_SortedMalePlayer = tournamentMalePlayers.OrderBy(TennisPlayer => TennisPlayer.FirstName).ToList();
+                List<TennisPlayer> sortedMalePlayer = tournamentMalePlayers.OrderBy(tennisPlayer => tennisPlayer.FirstName).ToList();
 
-                for (int i = 0; i < TennisMatch_SortedMalePlayer.Count; i++)
+                for (int i = 0; i < sortedMalePlayer.Count; i++)
                 {
-                    Console.WriteLine(TennisMatch_SortedMalePlayer[i].FirstName + " Players number: {0} ", i);
+                    Console.WriteLine(sortedMalePlayer[i].FirstName + " Players number: {0} ", i);
                 }
 
                 Console.WriteLine("Sorted list has been made: ");
@@ -67,8 +60,8 @@ namespace MiniProjekt
 
                 int round = 0;
                 int p2 = 1;
-                List<TennisPlayer> Winners = new List<TennisPlayer>();
-                List<int> Losers = new List<int>();
+                List<TennisPlayer> winners = new List<TennisPlayer>();
+                List<int> losers = new List<int>();
 
                 while (true)
                 {
@@ -182,8 +175,8 @@ namespace MiniProjekt
                                     " Player 1: {0} has won the game!\r\n", tournamentMalePlayers[p1].FirstName);
                                 matchOfSetsCounter = 0;
                                 //Console.ReadLine();
-                                Winners.Add(tournamentMalePlayers[p1]);
-                                Losers.Add(tournamentMalePlayers[p2].Identifikation);
+                                winners.Add(tournamentMalePlayers[p1]);
+                                losers.Add(tournamentMalePlayers[p2].Identifikation);
                                 break;
                             }
                             else if (setWinCount02 == 3)
@@ -194,8 +187,8 @@ namespace MiniProjekt
                                     tournamentMalePlayers[p2].FirstName);
                                 matchOfSetsCounter = 0;
                                 //Console.ReadLine();
-                                Winners.Add(tournamentMalePlayers[p2]);
-                                Losers.Add(tournamentMalePlayers[p1].Identifikation);
+                                winners.Add(tournamentMalePlayers[p2]);
+                                losers.Add(tournamentMalePlayers[p1].Identifikation);
                                 break;
                             }
 
@@ -215,9 +208,9 @@ namespace MiniProjekt
                     int m = 1;
                     Console.ForegroundColor = ConsoleColor.Green;
                     Console.WriteLine("Winners of Round: {0}", round);
-                    for (int i = 0; i < Winners.Count; i++)
+                    for (int i = 0; i < winners.Count; i++)
                     {
-                        Console.WriteLine("Winner of Game {0} was the players: {1}", m, Winners[i].FirstName);
+                        Console.WriteLine("Winner of Game {0} was the players: {1}", m, winners[i].FirstName);
                         m++;
                     }
 
@@ -225,15 +218,15 @@ namespace MiniProjekt
                     Console.ResetColor();
                     for (int i = 0; i < tournamentMalePlayers.Count; i++)
                     {
-                        for (int k = 0; k < Losers.Count; k++)
+                        for (int k = 0; k < losers.Count; k++)
                         {
-                            for (int o = 0; o < Winners.Count; o++)
+                            for (int o = 0; o < winners.Count; o++)
                             {
-                                if (tournamentMalePlayers[i].Identifikation == Losers[k] ||
-                                    Winners[o].Identifikation == Losers[k])
+                                if (tournamentMalePlayers[i].Identifikation == losers[k] ||
+                                    winners[o].Identifikation == losers[k])
                                 {
                                     tournamentMalePlayers.RemoveAt(i);
-                                    Winners.RemoveAt(o);
+                                    winners.RemoveAt(o);
                                 }
                             }
                         }
@@ -259,11 +252,11 @@ namespace MiniProjekt
 
                 //Sort the tournamentfemalePlayers by firstname before the tournament starts
                 #region
-                List<TennisPlayer> Sortedfemale = tournamentFemalePlayers.OrderBy(TennisPlayer => TennisPlayer.FirstName).ToList();
+                List<TennisPlayer> sortedfemale = tournamentFemalePlayers.OrderBy(TennisPlayer => TennisPlayer.FirstName).ToList();
 
-                for (int i = 0; i < Sortedfemale.Count; i++)
+                for (int i = 0; i < sortedfemale.Count; i++)
                 {
-                    Console.WriteLine(Sortedfemale[i].FirstName + " Players number: {0} ", i);
+                    Console.WriteLine(sortedfemale[i].FirstName + " Players number: {0} ", i);
                 }
 
                 Console.WriteLine("Sorted list has been made: ");

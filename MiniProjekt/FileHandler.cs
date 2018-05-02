@@ -142,120 +142,123 @@ namespace MiniProjekt
             Delimiter = delim;
         }
 
-        public int Load()
-        {
-            //Read and add text from file to the string List _content 
-            //og forsøg på hvordan exceptions bliver lavet
-            #region
-            StreamReader file = null;
-            int noLines = 0;
+        //Test cases for the file 
+#region
+        /* public int Load()
+         {
+             //Read and add text from file to the string List _content 
+             //og forsøg på hvordan exceptions bliver lavet
+             #region
+             StreamReader file = null;
+             int noLines = 0;
 
-            try
-            {
-                string line;
-                file = new StreamReader(FileName);
-                while ((line = file.ReadLine()) != null)
-                {
-                    _content.Add(line);
-                    noLines++;
-                }
-            }
-            //Exceptions
-            #region
-            catch (System.IO.FileNotFoundException)
-            {
-                var message = String.Format("File: {0} does not exist", FileName);
-                Console.WriteLine(message);
-            }
-            catch (System.IO.DirectoryNotFoundException)
-            {
-                var message = String.Format("Dir: {0} does not exist, part of file or directory is not loaded",
-                    FileName);
-                Console.WriteLine(message);
-            }
-            catch (System.IO.PathTooLongException)
-            {
-                Console.WriteLine("Path to file name is too long");
-            }
-            catch (System.IO.FileLoadException)
-            {
-                var message = String.Format("File: {0} can't be loaded", FileName);
-                Console.WriteLine(message);
-            }
-            catch (System.Exception)
-            {
-                Console.WriteLine("There happened a general error");
-            }
-            #endregion
-            finally
-            {
-                if (file != null)
-                {
-                    file.Close();
-                }
-            }
-            return noLines;
-            #endregion
-        }
+             try
+             {
+                 string line;
+                 file = new StreamReader(FileName);
+                 while ((line = file.ReadLine()) != null)
+                 {
+                     _content.Add(line);
+                     noLines++;
+                 }
+             }
+             //Exceptions
+             #region
+             catch (System.IO.FileNotFoundException)
+             {
+                 var message = String.Format("File: {0} does not exist", FileName);
+                 Console.WriteLine(message);
+             }
+             catch (System.IO.DirectoryNotFoundException)
+             {
+                 var message = String.Format("Dir: {0} does not exist, part of file or directory is not loaded",
+                     FileName);
+                 Console.WriteLine(message);
+             }
+             catch (System.IO.PathTooLongException)
+             {
+                 Console.WriteLine("Path to file name is too long");
+             }
+             catch (System.IO.FileLoadException)
+             {
+                 var message = String.Format("File: {0} can't be loaded", FileName);
+                 Console.WriteLine(message);
+             }
+             catch (System.Exception)
+             {
+                 Console.WriteLine("There happened a general error");
+             }
+             #endregion
+             finally
+             {
+                 if (file != null)
+                 {
+                     file.Close();
+                 }
+             }
+             return noLines;
+             #endregion
+         }
 
-        public override string ToString()
-        {
-            //Shows how the variable (string) "line" in "_content" list should be printed
-            //Listen _content bliver lavet i metoden Load() bruges kun i det tilfælde at det er nødvendigt at printe indhold
-            #region
-            var rv = "";
+         public override string ToString()
+         {
+             //Shows how the variable (string) "line" in "_content" list should be printed
+             //Listen _content bliver lavet i metoden Load() bruges kun i det tilfælde at det er nødvendigt at printe indhold
+             #region
+             var rv = "";
 
-            foreach (var line in _content)
-            {
-                rv += line + Environment.NewLine;
-            }
+             foreach (var line in _content)
+             {
+                 rv += line + Environment.NewLine;
+             }
 
-            foreach (var line in _listOfMalePlayers)
-            {
-                rv += line + Environment.NewLine;
-            }
+             foreach (var line in _listOfMalePlayers)
+             {
+                 rv += line + Environment.NewLine;
+             }
 
-            foreach (var line in _listOfMaleReferee)
-            {
-                rv += line + Environment.NewLine;
-            }
+             foreach (var line in _listOfMaleReferee)
+             {
+                 rv += line + Environment.NewLine;
+             }
 
-            foreach (var line in _listOfFemalePlayers)
-            {
-                rv += line + Environment.NewLine;
-            }
-            foreach (var line in _listOfFemaleReferee)
-            {
-                rv += line + Environment.NewLine;
-            }
+             foreach (var line in _listOfFemalePlayers)
+             {
+                 rv += line + Environment.NewLine;
+             }
+             foreach (var line in _listOfFemaleReferee)
+             {
+                 rv += line + Environment.NewLine;
+             }
 
-            return rv;
-            #endregion
-        }
+             return rv;
+             #endregion
+         }
 
-        public static void ReadFile()
-        {
-            //Husk at ændre til korrekt kildesti!
-            //Her kan indhold printes hvis nødvendigt
-            #region 
-            var loadContent = new FileHandler(@"C:\Users\Christian(Atlik)\Desktop\Miniprojekt\MiniProjekt\tennis_data\MalePlayer.txt");
+         public static void ReadFile()
+         {
+             //Husk at ændre til korrekt kildesti!
+             //Her kan indhold printes hvis nødvendigt
+             #region 
+             var loadContent = new FileHandler(@"C:\Users\Christian(Atlik)\Desktop\Miniprojekt\MiniProjekt\tennis_data\MalePlayer.txt");
 
-            var malePlayers = new FileHandler(@"C:\Users\Christian(Atlik)\Desktop\Miniprojekt\MiniProjekt\tennis_data\MalePlayer.txt");
-            //malePlayers.LoadMalePlayer();
-            //Console.WriteLine(malePlayers);
+             var malePlayers = new FileHandler(@"C:\Users\Christian(Atlik)\Desktop\Miniprojekt\MiniProjekt\tennis_data\MalePlayer.txt");
+             //malePlayers.LoadMalePlayer();
+             //Console.WriteLine(malePlayers);
 
-            var femalePlayers = new FileHandler(@"C:\Users\Christian(Atlik)\Desktop\Miniprojekt\MiniProjekt\tennis_data\FemalePlayer.txt");
-            //femalePlayers.LoadFemalePlayer();
-            //Console.WriteLine(femalePlayers);
+             var femalePlayers = new FileHandler(@"C:\Users\Christian(Atlik)\Desktop\Miniprojekt\MiniProjekt\tennis_data\FemalePlayer.txt");
+             //femalePlayers.LoadFemalePlayer();
+             //Console.WriteLine(femalePlayers);
 
-            var maleReferee = new FileHandler(@"C:\Users\Christian(Atlik)\Desktop\Miniprojekt\MiniProjekt\tennis_data\MaleRefs.txt");
-            //maleReferee.LoadMaleReferee();
-            //Console.WriteLine(maleReferee);
+             var maleReferee = new FileHandler(@"C:\Users\Christian(Atlik)\Desktop\Miniprojekt\MiniProjekt\tennis_data\MaleRefs.txt");
+             //maleReferee.LoadMaleReferee();
+             //Console.WriteLine(maleReferee);
 
-            var femaleReferee = new FileHandler(@"C:\Users\Christian(Atlik)\Desktop\Miniprojekt\MiniProjekt\tennis_data\FermaleRefs.txt");
-            //femaleReferee.LoadFemaleReferee();
-            //Console.WriteLine(femaleReferee);
-            #endregion
-        }
+             var femaleReferee = new FileHandler(@"C:\Users\Christian(Atlik)\Desktop\Miniprojekt\MiniProjekt\tennis_data\FermaleRefs.txt");
+             //femaleReferee.LoadFemaleReferee();
+             //Console.WriteLine(femaleReferee);
+             #endregion
+         }*/
+#endregion
     }
 }
