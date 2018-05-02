@@ -14,7 +14,6 @@ namespace MiniProjekt
     //This class handles and simulate each match in the tournament
     class TennisMatch
     {
-
         static Random rnd = new Random();
 
         public TennisMatch()
