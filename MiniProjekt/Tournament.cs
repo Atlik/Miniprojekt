@@ -7,6 +7,7 @@ using System.Linq;
 using Microsoft.VisualBasic;
 using Microsoft.VisualBasic.FileIO;
 
+
 namespace MiniProjekt
 {
     class Tournament
@@ -19,12 +20,6 @@ namespace MiniProjekt
         public DateTime TournamentStart { get; set; }
         public DateTime TournamentEnd { get; set; }
         #endregion
-
-        //Filehandler Initiering
-        readonly FileHandler _listOfMalePlayer = new FileHandler(@"C:\Users\Christian(Atlik)\Desktop\Miniprojekt\MiniProjekt\tennis_data\MalePlayer.txt");
-        readonly FileHandler _listOfMaleReferee = new FileHandler(@"C:\Users\Christian(Atlik)\Desktop\Miniprojekt\MiniProjekt\tennis_data\MaleRefs.txt");
-        readonly FileHandler _listOfFemalePlayer = new FileHandler(@"C:\Users\Christian(Atlik)\Desktop\Miniprojekt\MiniProjekt\tennis_data\FemalePlayer.txt");
-        readonly FileHandler _listOfFemaleReferee = new FileHandler(@"C:\Users\Christian(Atlik)\Desktop\Miniprojekt\MiniProjekt\tennis_data\FermaleRefs.txt");
 
         //Runde Lister
         List<TennisPlayer> malePlayerForRoundList = new List<TennisPlayer>();
@@ -41,6 +36,12 @@ namespace MiniProjekt
 
         public List<TennisPlayer> TournamentHandlerRefs()
         {
+            string FileName01 = "tennis_data";
+            string FileName = "MaleRefs";
+            string FileName02 = "FermaleRefs";
+            FileHandler _listOfFemaleReferee = new FileHandler(@"" + Environment.CurrentDirectory + "\\" + FileName01 + "\\" + FileName02 + ".txt");
+            FileHandler _listOfMaleReferee = new FileHandler(@"" + Environment.CurrentDirectory + "\\" + FileName01 + "\\" + FileName + ".txt");
+
             List<TennisPlayer> refFemale = _listOfFemaleReferee.GetListFemaleReferee();
             List<TennisPlayer> refMale = _listOfMaleReferee.GetListMaleReferee();
 
@@ -63,8 +64,11 @@ namespace MiniProjekt
 
         public List<TennisPlayer> TournamentHandlerFemaleGame()
         {
-            List<TennisPlayer> femaleTennisPlayers = _listOfFemalePlayer.GetListFemalePlayers();
+            string FileName01 = "tennis_data";
+            string FileName = "FemalePlayer";
+            FileHandler _listOfFemalePlayer = new FileHandler(@"" + Environment.CurrentDirectory + "\\" + FileName01 + "\\" + FileName + ".txt");
 
+            List<TennisPlayer> femaleTennisPlayers = _listOfFemalePlayer.GetListFemalePlayers();
             try
             {
                 Console.WriteLine("What amount of female player do you want to play at the tournament?");
@@ -107,8 +111,11 @@ namespace MiniProjekt
 
         public List<TennisPlayer> TournamentHandlerMaleGame()
         {
-            List<TennisPlayer> maleTennisPlayers = _listOfMalePlayer.GetListMalePlayers();
+            string FileName = "MalePlayer";
+            string FileName01 = "tennis_data";
+            FileHandler _listOfMalePlayer = new FileHandler(@"" + Environment.CurrentDirectory + "\\" + FileName01 + "\\" + FileName + ".txt");
 
+            List<TennisPlayer> maleTennisPlayers = _listOfMalePlayer.GetListMalePlayers();
             try
             {
                 Console.WriteLine("What amount of male player do you want to play at the tournament?");
@@ -129,9 +136,12 @@ namespace MiniProjekt
                     }
                 }
             }
-            catch (System.FormatException)
+            catch (System.FormatException e)
             {
-                Console.WriteLine("You have to type a integer before the tournament can start");
+                Console.WriteLine("You have to type a integer before the tournament can start\n" + e);
+                Console.WriteLine("\n System will now close down");
+                Console.ReadLine();
+
             }
             catch (System.IO.IOException ioex)
             {
@@ -157,17 +167,6 @@ namespace MiniProjekt
             int yearEnd = TournamentEnd.Year;
 
             return "Tournament name: " + TournamentName + " " + yearStart.ToString("d") + " - " + yearEnd.ToString("d") + Environment.NewLine;
-            #endregion
-        }
-
-        public static void MainTournament()
-        {
-            //Assigns objects of tournament and prints it
-            #region
-            DateTime tournamentStart = new DateTime(2017, 11, 22);
-            DateTime tournamentEnd = new DateTime(2018, 01, 05);
-            Tournament T1 = new Tournament(tournamentStart, tournamentEnd, "Winter Olympics");
-            Console.WriteLine(T1);
             #endregion
         }
     }

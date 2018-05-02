@@ -21,6 +21,7 @@ namespace MiniProjekt
         public int WomenSingleSet { get; set; }
         public string Match { get; set; }
         #endregion
+
         static Random rnd = new Random();
 
         public TennisMatch()
@@ -30,53 +31,34 @@ namespace MiniProjekt
                 //Initiating Tournament and lists
 
                 #region
-
                 DateTime tournamentStart = new DateTime(2017, 11, 22);
                 DateTime tournamentEnd = new DateTime(2018, 01, 05);
                 Tournament listOfPersonsForRound = new Tournament(tournamentStart, tournamentEnd, "Winter Olympics");
                 List<TennisPlayer> tournamentRefs = listOfPersonsForRound.TournamentHandlerRefs();
-
-
-                //Skrald
-
-                #region
-
-                /*
-                int j = 0;
-                //Console.WriteLine("Male Players");
-                for (int i = 0; i < tournamentMalePlayers.Count; i++)
-                {
-                    //Console.WriteLine(tournamentMalePlayers[i]);
-                    j++;
-                    //Console.ReadLine();
-                }
-                //Console.WriteLine(j);
-    
-                //Console.ReadLine();
-                //Console.WriteLine("Female Players");
-                for (int i = 0; i < tournamentFemalePlayers.Count; i++)
-                {
-                    //Console.WriteLine(tournamentFemalePlayers[i]);
-                }
-    
-                //Console.ReadLine();
-                //Console.WriteLine("Referees");
-                for (int i = 0; i < tournamentRefs.Count; i++)
-                {
-                    //Console.WriteLine(tournamentRefs[i]);
-                }
-    
-                //Console.ReadLine();*/
-
                 #endregion
 
-                #endregion
+                Console.WriteLine(listOfPersonsForRound);
 
                 //Simulate Tournament for Males
 
                 #region
 
                 List<TennisPlayer> tournamentMalePlayers = listOfPersonsForRound.TournamentHandlerMaleGame();
+
+                //Sort the tournamentMalePlayers by firstname before the tournament starts
+                #region
+                List<TennisPlayer> TennisMatch_SortedMalePlayer = tournamentMalePlayers.OrderBy(TennisPlayer => TennisPlayer.FirstName).ToList();
+
+                for (int i = 0; i < TennisMatch_SortedMalePlayer.Count; i++)
+                {
+                    Console.WriteLine(TennisMatch_SortedMalePlayer[i].FirstName + " Players number: {0} ", i);
+                }
+
+                Console.WriteLine("Sorted list has been made: ");
+                Console.ReadLine();
+                #endregion
+
+
                 Console.WriteLine("Tournament for male players is beginning!!");
                 if (tournamentMalePlayers == null)
                 {
@@ -274,6 +256,21 @@ namespace MiniProjekt
                 #region
 
                 List<TennisPlayer> tournamentFemalePlayers = listOfPersonsForRound.TournamentHandlerFemaleGame();
+
+                //Sort the tournamentfemalePlayers by firstname before the tournament starts
+                #region
+                List<TennisPlayer> Sortedfemale = tournamentFemalePlayers.OrderBy(TennisPlayer => TennisPlayer.FirstName).ToList();
+
+                for (int i = 0; i < Sortedfemale.Count; i++)
+                {
+                    Console.WriteLine(Sortedfemale[i].FirstName + " Players number: {0} ", i);
+                }
+
+                Console.WriteLine("Sorted list has been made: ");
+                Console.ReadLine();
+                #endregion
+
+
                 Console.WriteLine("Female tournament will now start");
                 if (tournamentFemalePlayers == null)
                 {
@@ -466,12 +463,11 @@ namespace MiniProjekt
 
                 #endregion
             }
-            catch(SystemException)
+            catch (SystemException)
             {
                 Console.WriteLine("Something went wrong");
             }
         }
-
 
         public static void MainMatch()
         {

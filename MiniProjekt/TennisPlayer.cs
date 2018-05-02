@@ -98,7 +98,7 @@ namespace MiniProjekt
             LicenseGot = LGdate;
             LicenseRenewal = LRdate;
         }
-        
+
         /// <summary>
         /// ToString metode
         /// </summary>
@@ -111,8 +111,8 @@ namespace MiniProjekt
             switch (PlayerOrReferee)
             {
                 case true:
-                    refereeCheck = "This is a referee." + Environment.NewLine + 
-                                   "The person got the license: " + LicenseGot.ToShortDateString() + 
+                    refereeCheck = "This is a referee." + Environment.NewLine +
+                                   "The person got the license: " + LicenseGot.ToShortDateString() +
                                    " and got it renewed: " + LicenseRenewal.ToShortDateString();
                     break;
                 case false:
