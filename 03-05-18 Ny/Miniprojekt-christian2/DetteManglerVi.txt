@@ -1,0 +1,14 @@
+TennisMatch
+- Throw new exception i det tilfælde at der ikke er 2 eller 4 spillere i kampen.
+- Fjern/tilføj funktion af referee
+- Tilføj funktionalitet der validere om der er det korrekte køn
+
+Tournament
+- Lav metode der sortere listen af de spillere der spiller i turneringen
+- Lav funktionalitet der tilføjer en Game Master for hele turneringen fra listen referee
+- lav funktionalitet der kan fjerne/tilføje dommere til turneringen
+- tilføj udprintning af lastname på de spillere der er med i turneringen
+- lav readline der beslutter hvor mange spillere der er i turneringen
+	-> throw exception ved ulige tal 
+
+evt. lav readline der kan håndtere om du vil se resultater 32, 16... osv.
