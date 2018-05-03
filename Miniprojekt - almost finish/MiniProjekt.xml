@@ -1,0 +1,220 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>MiniProjekt - Tournament</name>
+    </assembly>
+    <members>
+        <member name="T:MiniProjekt.FileHandler">
+            <summary cref="T:System.Collections.Generic.List`1">
+            Filehandler handles all loading and reading of files
+            When reading the files, it will insert each line from the textfiles in their respective objects
+            </summary>
+        </member>
+        <member name="P:MiniProjekt.FileHandler.FileName">
+            <summary>
+            FileHandler property: Handles the use of the string FileName that indcates which file the Filehandler should search for.
+            </summary>
+        </member>
+        <member name="P:MiniProjekt.FileHandler.Delimiter">
+            <summary>
+            FileHandler property: Is used to indicate what separates important information from the textfiles from eachother
+            </summary>
+        </member>
+        <member name="M:MiniProjekt.FileHandler.GetListMalePlayers">
+            <summary>
+            Reads the textfile with male players.
+            Each line from the textfile indicate a new object instance of TennisPlayer
+            </summary>
+            <returns>The return value _listOfMalePlayers is used in <see cref="T:MiniProjekt.Tournament"/> to compile and handle the objects which should be used in <see cref="T:MiniProjekt.TennisMatch"/></returns>
+        </member>
+        <member name="M:MiniProjekt.FileHandler.GetListFemalePlayers">
+            <summary>
+            Reads the textfile with FemalePlayers.
+            Each line from the textfile indicate a new object instance of TennisPlayer
+            </summary>
+            <returns>The return value _listOfFemalePlayers is used in <see cref="T:MiniProjekt.Tournament"/> to compile and handle the objects which should be used in <see cref="T:MiniProjekt.TennisMatch"/></returns>
+        </member>
+        <member name="M:MiniProjekt.FileHandler.GetListMaleReferee">
+            <summary>
+            Reads the textfile with Male Referees
+            Each Line from the textfile indicate a new object instance of Tennisplayer
+            </summary>
+            <returns>The return value _listOfMaleReferee is used in <see cref="T:MiniProjekt.Tournament"/> to compile and handle the objects which should be used in <see cref="T:MiniProjekt.TennisMatch"/></returns>
+        </member>
+        <member name="M:MiniProjekt.FileHandler.GetListFemaleReferee">
+            <summary>
+            Reads the textfile with Female Referees
+            Each line from the textfile indicate a new object instnce of TennisPlayer
+            </summary>
+            <returns>The return value _listOfFemaleReferee is used in <see cref="T:MiniProjekt.Tournament"/> to compile and handle the objects which should be used in <see cref="T:MiniProjekt.TennisMatch"/></returns>
+        </member>
+        <member name="M:MiniProjekt.FileHandler.#ctor(System.String,System.String)">
+            <summary>
+            Constructor of FileHandler: Indicate what FileHandler will need in order to be instantiated
+            </summary>
+            <param name="fn"></param>
+            <param name="delim"></param>
+        </member>
+        <member name="T:MiniProjekt.Program">
+            <summary>
+            This is the main of the program
+            Its only use is to call different instances of the program to see if it works
+            </summary>
+        </member>
+        <member name="T:MiniProjekt.TennisMatch">
+            <summary>
+            The class TennisMatch handles and simulate each match in the tournament
+            </summary>
+        </member>
+        <member name="M:MiniProjekt.TennisMatch.#ctor">
+            <summary>
+            Default constructor of TennisMatch
+            </summary>
+        </member>
+        <member name="T:MiniProjekt.TennisPlayer">
+            <summary>
+            This class will implement the information about the player
+            </summary>
+        </member>
+        <member name="P:MiniProjekt.TennisPlayer.Identifikation">
+            <summary>
+            TennisPlayer property
+            </summary>
+        </member>
+        <member name="P:MiniProjekt.TennisPlayer.FirstName">
+            <summary>
+            TennisPlayer property
+            </summary>
+        </member>
+        <member name="P:MiniProjekt.TennisPlayer.MiddleName">
+            <summary>
+            TennisPlayer property
+            </summary>
+        </member>
+        <member name="P:MiniProjekt.TennisPlayer.LastName">
+            <summary>
+            TennisPlayer property
+            </summary>
+        </member>
+        <member name="P:MiniProjekt.TennisPlayer.Nationality">
+            <summary>
+            TennisPlayer property
+            </summary>
+        </member>
+        <member name="P:MiniProjekt.TennisPlayer.Gender">
+            <summary>
+            TennisPlayer property
+            </summary>
+        </member>
+        <member name="P:MiniProjekt.TennisPlayer.DateOfBirth">
+            <summary>
+            TennisPlayer property
+            </summary>
+        </member>
+        <member name="P:MiniProjekt.TennisPlayer.PlayerOrReferee">
+            <summary>
+            TennisPlayer property
+            </summary>
+        </member>
+        <member name="P:MiniProjekt.TennisPlayer.LicenseGot">
+            <summary>
+            TennisPlayer for the referee property
+            </summary>
+        </member>
+        <member name="P:MiniProjekt.TennisPlayer.LicenseRenewal">
+            <summary>
+            TennisPlayer for the referee property
+            </summary>
+        </member>
+        <member name="M:MiniProjekt.TennisPlayer.#ctor(System.Int32,System.String,System.String,System.String,System.DateTime,System.String,System.Boolean,System.Boolean)">
+            <summary>
+            Constructor of Tennisplayer
+            </summary>
+            <param name="id"></param>
+            <param name="fname"></param>
+            <param name="mname"></param>
+            <param name="lname"></param>
+            <param name="dob"></param>
+            <param name="na"></param>
+            <param name="sex"></param>
+            <param name="PoR"></param>
+        </member>
+        <member name="M:MiniProjekt.TennisPlayer.#ctor(System.Int32,System.String,System.String,System.String,System.DateTime,System.String,System.Boolean,System.Boolean,System.DateTime,System.DateTime)">
+            <summary>
+            Constructor of referee
+            </summary>
+            <param name="id"></param>
+            <param name="fname"></param>
+            <param name="mname"></param>
+            <param name="lname"></param>
+            <param name="dob"></param>
+            <param name="na"></param>
+            <param name="sex"></param>
+            <param name="PoR"></param>
+            <param name="LGdate"></param>
+            <param name="LRdate"></param>
+        </member>
+        <member name="M:MiniProjekt.TennisPlayer.ToString">
+            <summary>
+            ToString method
+            Returns a string in which the object TennisPlayer should be represented
+            </summary>
+            <returns> Referee values, Gender, Middlename if true, Age, Tennis player information order</returns>
+        </member>
+        <member name="T:MiniProjekt.Tournament">
+            <summary>
+            Vi har i dette projekt fokuseret på at samle generering af kampe i klassen “TennisMatch”.
+            Dette har gjort at constructoren af “TennisMatch” samler og instantiere de øvrige klasser og metoder.
+            Udover klassen “TennisMatch” er der lavet 4 andre klasser ved navn: “FileHandler”, “TennisPlayer”, “Tournament” og “Program”.
+            Klassen “Program” er kun lavet for at have en separat fil hvori det er muligt at kalde metoder,
+            objekter eller lignende vi gerne vil have kørt/udskrevet i konsollen uden at ændre på koden i de øvrige metoder.
+            Programmet starter her i det vi her kalder et nyt objekt af “TennisMatch” der instantiere de brugte metoder.
+            Klassen “FileHandler” loader og læser filerne der skal bruges i programmet,
+            og indsætter dem i lister af objekter der bliver defineret af constructoren TennisPlayer i klassen “TennisPlayer”.
+            Klassen “TennisPlayer” sørger for at informationerne omkring spillerne i turneringen er repræsenteret korrekt når de kaldes i andre metoder eller udskrives på konsollen.
+            Klassen “Tournament” sørger for at det korrekte antal af spillere og dommere bliver sendt videre til “TennisMatch”, og dermed konstruere essentielle dele for at en turnering kan afholdes.
+            </summary>
+            <summary>
+            The class tournament constructs the elements in which should be simulated in the tournament
+             </summary>
+        </member>
+        <member name="M:MiniProjekt.Tournament.#ctor(System.DateTime,System.DateTime,System.String)">
+            <summary>
+            Constructor of Tournament
+            </summary>
+            <param name="tourDateStart"></param>
+            <param name="tourDateEnd"></param>
+            <param name="tourName"></param>
+        </member>
+        <member name="M:MiniProjekt.Tournament.TournamentHandlerRefs">
+            <summary>
+            Handles the lists returned from GetListFemaleReferee() and GetListMaleReferee() in <see cref="T:MiniProjekt.FileHandler"/>
+            Combines the two lists of referees from <see cref="T:MiniProjekt.FileHandler"/> into the list "referees", after which it will ask the user, if it should use a referee from list as gamemaster or if he/she wants to be the GameMaster
+            <exception cref="T:System.Exception"> Is thrown if the user types something wrong in the console  </exception>
+            </summary>
+            <returns> A list of referees minus the referee at index number [0] </returns>
+        </member>
+        <member name="M:MiniProjekt.Tournament.TournamentHandlerMaleGame">
+            <summary>
+            Handles the list returned from GetListMalePlayers() in <see cref="T:MiniProjekt.FileHandler"/>
+            Inserts a random TennisPlayer object into the list malePlayerForRound with amount that the user defines in his/hers prompt
+            <exception cref="T:System.FormatException">  </exception>
+            </summary>
+            <returns> malePlayerForRoundList, which is a list of TennisPlayer objects used in <see cref="T:MiniProjekt.TennisMatch"/></returns>
+        </member>
+        <member name="M:MiniProjekt.Tournament.TournamentHandlerFemaleGame">
+            <summary>
+            Handles the list returned from GetListFemalePlayer() in <see cref="T:MiniProjekt.FileHandler"/>
+            Based on how many Female players the user defines that they want to play at the tournament, it returns this amount of random players.
+            <exception cref="T:System.FormatException"> </exception>
+            </summary>
+            <returns> femalePlayerForRoundList which is a list of TennisPlayer objects that will be used in the class <see cref="T:MiniProjekt.TennisMatch"/> </returns>
+        </member>
+        <member name="M:MiniProjekt.Tournament.ToString">
+            <summary>
+            ToString method
+            </summary>
+            <returns>Returns a string in which the object Tournament should be represented</returns>
+        </member>
+    </members>
+</doc>

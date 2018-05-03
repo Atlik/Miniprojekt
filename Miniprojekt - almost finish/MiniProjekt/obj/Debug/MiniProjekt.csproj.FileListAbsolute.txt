@@ -1,0 +1,9 @@
+C:\Users\ferdi\Desktop\One of the last build of miniproject\03-05-18 Ny 001\Miniprojekt-christian2\MiniProjekt\obj\Debug\MiniProjekt.csprojResolveAssemblyReference.cache
+C:\Users\ferdi\Desktop\One of the last build of miniproject\03-05-18 Ny 001\Miniprojekt-christian2\MiniProjekt\obj\Debug\MiniProjekt.csproj.CoreCompileInputs.cache
+C:\Users\ferdi\Desktop\One of the last build of miniproject\03-05-18 Ny 001\Miniprojekt-christian2\MiniProjekt - Tournament.exe.config
+C:\Users\ferdi\Desktop\One of the last build of miniproject\03-05-18 Ny 001\Miniprojekt-christian2\MiniProjekt\obj\Debug\MiniProjekt - Tournament.exe
+C:\Users\ferdi\Desktop\One of the last build of miniproject\03-05-18 Ny 001\Miniprojekt-christian2\MiniProjekt\bin\Debug\MiniProjekt.xml
+C:\Users\ferdi\Desktop\One of the last build of miniproject\03-05-18 Ny 001\Miniprojekt-christian2\MiniProjekt\obj\Debug\MiniProjekt - Tournament.pdb
+C:\Users\ferdi\Desktop\One of the last build of miniproject\03-05-18 Ny 001\Miniprojekt-christian2\MiniProjekt - Tournament.exe
+C:\Users\ferdi\Desktop\One of the last build of miniproject\03-05-18 Ny 001\Miniprojekt-christian2\MiniProjekt - Tournament.pdb
+C:\Users\ferdi\Desktop\One of the last build of miniproject\03-05-18 Ny 001\Miniprojekt-christian2\MiniProjekt.xml
