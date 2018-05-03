@@ -1,11 +1,5 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
-using System.Data;
-using System.IO;
-using System.Linq;
-using Microsoft.VisualBasic;
-using Microsoft.VisualBasic.FileIO;
 
 
 namespace MiniProjekt
@@ -28,7 +22,7 @@ namespace MiniProjekt
     /// </summary>
     class Tournament
     {
-        static Random rnd = new Random();
+        private static readonly Random Rnd = new Random();
 
         //Tournament properties
         #region
@@ -38,9 +32,9 @@ namespace MiniProjekt
         #endregion
 
         //Runde Lister
-        List<TennisPlayer> malePlayerForRoundList = new List<TennisPlayer>();
-        List<TennisPlayer> referees = new List<TennisPlayer>();
-        List<TennisPlayer> femalePlayerForRoundList = new List<TennisPlayer>();
+        readonly List<TennisPlayer> _malePlayerForRoundList = new List<TennisPlayer>();
+        readonly List<TennisPlayer> _referees = new List<TennisPlayer>();
+        readonly List<TennisPlayer> _femalePlayerForRoundList = new List<TennisPlayer>();
 
         /// <summary>
         /// Constructor of Tournament
@@ -75,10 +69,10 @@ namespace MiniProjekt
             {
                 for (int i = 0; i < refFemale.Count; i++)
                 {
-                    referees.Add(refFemale[i]);
+                    _referees.Add(refFemale[i]);
                     for (int j = 0; j < refMale.Count; j++)
                     {
-                        referees.Add(refMale[j]);
+                        _referees.Add(refMale[j]);
                     }
                 }
 
@@ -104,7 +98,7 @@ namespace MiniProjekt
                 else if (gameMaster == "no")
                 {
                     Console.WriteLine(Environment.NewLine + "Finding a Referee to be GameMaster" + Environment.NewLine);
-                    Console.WriteLine("GameMaster of the tournament is: {0}", referees[0]);
+                    Console.WriteLine("GameMaster of the tournament is: {0}", _referees[0]);
                 }
                 else
                 {
@@ -119,8 +113,8 @@ namespace MiniProjekt
 
                 TournamentHandlerRefs();
             }
-            int amount = referees.Count - 1;
-            return referees.GetRange(1, amount);
+            int amount = _referees.Count - 1;
+            return _referees.GetRange(1, amount);
         }
 
         /// <summary>
@@ -128,7 +122,7 @@ namespace MiniProjekt
         /// Inserts a random TennisPlayer object into the list malePlayerForRound with amount that the user defines in his/hers prompt
         /// <exception cref="System.FormatException">  </exception>
         /// </summary>
-        /// <returns> malePlayerForRoundList, which is a list of TennisPlayer objects used in <see cref="TennisMatch"/></returns>
+        /// <returns> _malePlayerForRoundList, which is a list of TennisPlayer objects used in <see cref="TennisMatch"/></returns>
         public List<TennisPlayer> TournamentHandlerMaleGame()
         {
             string FileName = "MalePlayer";
@@ -148,11 +142,11 @@ namespace MiniProjekt
                     int i = 0;
                     while (i < upTo)
                     {
-                        int r = rnd.Next(maleTennisPlayers.Count);
+                        int r = Rnd.Next(maleTennisPlayers.Count);
 
-                        if (!malePlayerForRoundList.Contains(maleTennisPlayers[r]))
+                        if (!_malePlayerForRoundList.Contains(maleTennisPlayers[r]))
                         {
-                            malePlayerForRoundList.Add(maleTennisPlayers[r]);
+                            _malePlayerForRoundList.Add(maleTennisPlayers[r]);
                             i++;
                         }
                     }
@@ -178,7 +172,7 @@ namespace MiniProjekt
 
                 TournamentHandlerMaleGame();
             }
-            return malePlayerForRoundList;
+            return _malePlayerForRoundList;
         }
 
         /// <summary>
@@ -207,11 +201,11 @@ namespace MiniProjekt
                     int i = 0;
                     while (i < upTo)
                     {
-                        int r = rnd.Next(femaleTennisPlayers.Count);
+                        int r = Rnd.Next(femaleTennisPlayers.Count);
 
-                        if (!femalePlayerForRoundList.Contains(femaleTennisPlayers[r]))
+                        if (!_femalePlayerForRoundList.Contains(femaleTennisPlayers[r]))
                         {
-                            femalePlayerForRoundList.Add(femaleTennisPlayers[r]);
+                            _femalePlayerForRoundList.Add(femaleTennisPlayers[r]);
                             i++;
                         }
                     }
@@ -237,7 +231,7 @@ namespace MiniProjekt
 
                 TournamentHandlerFemaleGame();
             }
-            return femalePlayerForRoundList;
+            return _femalePlayerForRoundList;
         }
 
         /// <summary>

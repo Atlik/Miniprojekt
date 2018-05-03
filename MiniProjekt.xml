@@ -200,7 +200,7 @@
             Inserts a random TennisPlayer object into the list malePlayerForRound with amount that the user defines in his/hers prompt
             <exception cref="T:System.FormatException">  </exception>
             </summary>
-            <returns> malePlayerForRoundList, which is a list of TennisPlayer objects used in <see cref="T:MiniProjekt.TennisMatch"/></returns>
+            <returns> _malePlayerForRoundList, which is a list of TennisPlayer objects used in <see cref="T:MiniProjekt.TennisMatch"/></returns>
         </member>
         <member name="M:MiniProjekt.Tournament.TournamentHandlerFemaleGame">
             <summary>

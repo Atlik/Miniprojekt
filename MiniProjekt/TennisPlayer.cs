@@ -12,35 +12,35 @@ namespace MiniProjekt
         /// <summary>
         /// TennisPlayer property
         /// </summary>
-        public int Identifikation { get; set; }
+        public int Identifikation { get; }
         /// <summary>
         /// TennisPlayer property
         /// </summary>
-        public string FirstName { get; set; }
+        public string FirstName { get; }
         /// <summary>
         /// TennisPlayer property
         /// </summary>
-        public string MiddleName { get; set; }
+        public string MiddleName { get; }
         /// <summary>
         /// TennisPlayer property
         /// </summary>
-        public string LastName { get; set; }
+        public string LastName { get; }
         /// <summary>
         /// TennisPlayer property
         /// </summary>
-        public string Nationality { get; set; }
+        private string Nationality { get; }
         /// <summary>
         /// TennisPlayer property
         /// </summary>
-        public bool Gender { get; set; }
+        private bool Gender { get; }
         /// <summary>
         /// TennisPlayer property
         /// </summary>
-        public DateTime DateOfBirth { get; set; }
+        private DateTime DateOfBirth { get; }
         /// <summary>
         /// TennisPlayer property
         /// </summary>
-        public bool PlayerOrReferee { get; set; }
+        private bool PlayerOrReferee { get; }
         #endregion
 
         //Referee properties
@@ -48,11 +48,11 @@ namespace MiniProjekt
         /// <summary>
         /// TennisPlayer for the referee property
         /// </summary>
-        public DateTime LicenseGot { get; set; }
+        private DateTime LicenseGot { get; }
         /// <summary>
         /// TennisPlayer for the referee property
         /// </summary>
-        public DateTime LicenseRenewal { get; set; }
+        private DateTime LicenseRenewal { get; }
         #endregion
 
         //Constructor of TennisPlayer

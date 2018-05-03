@@ -16,7 +16,7 @@ namespace MiniProjekt
     /// </summary>
     class TennisMatch
     {
-        static Random rnd = new Random();
+        private static readonly Random Rnd = new Random();
 
         /// <summary>
         /// Default constructor of TennisMatch
@@ -47,7 +47,7 @@ namespace MiniProjekt
 
                 for (int i = 0; i < sortedMalePlayer.Count; i++)
                 {
-                    Console.WriteLine(sortedMalePlayer[i].FirstName + " " + sortedMalePlayer[i].MiddleName + " " + 
+                    Console.WriteLine(sortedMalePlayer[i].FirstName + " " + sortedMalePlayer[i].MiddleName + " " +
                                       sortedMalePlayer[i].LastName + " Players number: {0} ", i);
                 }
 
@@ -75,7 +75,7 @@ namespace MiniProjekt
 
                         #region
 
-                        int r = rnd.Next(tournamentRefs.Count);
+                        int r = Rnd.Next(tournamentRefs.Count);
                         Console.WriteLine(tournamentMalePlayers[p1]);
                         Console.WriteLine(tournamentMalePlayers[p2]);
                         Console.WriteLine(
@@ -109,7 +109,7 @@ namespace MiniProjekt
 
                                     #region
 
-                                    var dice = rnd.Next(0, 2);
+                                    var dice = Rnd.Next(0, 2);
                                     if (dice == 0)
                                     {
                                         ++player01Point;
@@ -262,7 +262,7 @@ namespace MiniProjekt
 
                 for (int i = 0; i < sortedfemale.Count; i++)
                 {
-                    Console.WriteLine(sortedfemale[i].FirstName + " " + sortedfemale[i].MiddleName + " " + 
+                    Console.WriteLine(sortedfemale[i].FirstName + " " + sortedfemale[i].MiddleName + " " +
                                       sortedfemale[i].LastName + " Players number: {0} ", i);
                 }
 
@@ -290,7 +290,7 @@ namespace MiniProjekt
 
                         #region
 
-                        int r = rnd.Next(tournamentRefs.Count);
+                        int r = Rnd.Next(tournamentRefs.Count);
                         Console.WriteLine(tournamentFemalePlayers[p1]);
                         Console.WriteLine(tournamentFemalePlayers[femalep2]);
                         Console.WriteLine(
@@ -324,7 +324,7 @@ namespace MiniProjekt
 
                                     #region
 
-                                    var dice = rnd.Next(0, 2);
+                                    var dice = Rnd.Next(0, 2);
                                     if (dice == 0)
                                     {
                                         ++player01Point;

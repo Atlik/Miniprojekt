@@ -17,11 +17,11 @@ namespace MiniProjekt
         /// <summary>
         /// FileHandler property: Handles the use of the string FileName that indcates which file the Filehandler should search for.
         /// </summary>
-        public string FileName { get; set; }
+        private string FileName { get; }
         /// <summary>
         /// FileHandler property: Is used to indicate what separates important information from the textfiles from eachother
         /// </summary>
-        public string Delimiter { get; set; }
+        private string Delimiter { get; }
 
         //Instantiate new lists of Tennisplayer objects
         #region
