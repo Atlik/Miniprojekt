@@ -244,6 +244,8 @@ namespace MiniProjekt
                         Console.WriteLine("Tournament for Male player is done" + Environment.NewLine);
                         break;
                     }
+                    Console.WriteLine("Round {0} has been played, press ANY key to continue the tournament", round);
+                    Console.ReadKey();
                 }
 
                 #endregion
@@ -457,6 +459,8 @@ namespace MiniProjekt
                         Console.WriteLine("Tournament for female players is done" + Environment.NewLine);
                         break;
                     }
+                    Console.WriteLine("Round {0} has been played, press ANY key to continue the tournament", femaleRound);
+                    Console.ReadKey();
                 }
 
                 #endregion
