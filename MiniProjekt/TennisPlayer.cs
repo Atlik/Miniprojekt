@@ -100,7 +100,8 @@ namespace MiniProjekt
         }
 
         /// <summary>
-        /// ToString metode
+        /// ToString method
+        /// Returns a string in which the object TennisPlayer should be represented
         /// </summary>
         /// <returns> Referee values, Gender, Middlename if true, Age, Tennis player information order</returns>
         public override string ToString()
@@ -162,8 +163,6 @@ namespace MiniProjekt
 
             //Inserts player information in correct order if printed
             #region
-            //ToShortDateString() is used to delete time
-            // "\r\n" is equal to Environment.NewLine
             return "Identifikation: " + Identifikation +
                    Environment.NewLine + "The persons Name: " + FirstName + middleNameSpaceCheck + " " + LastName +
                    Environment.NewLine + "The persons birthday is the: " + DateOfBirth.ToShortDateString() +

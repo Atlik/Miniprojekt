@@ -11,17 +11,21 @@ using Microsoft.VisualBasic.FileIO;
 
 namespace MiniProjekt
 {
-    //This class handles and simulate each match in the tournament
+    /// <summary>
+    /// The class TennisMatch handles and simulate each match in the tournament
+    /// </summary>
     class TennisMatch
     {
         static Random rnd = new Random();
 
+        /// <summary>
+        /// Default constructor of TennisMatch
+        /// </summary>
         public TennisMatch()
         {
             try
             {
                 //Initiating Tournament and lists
-
                 #region
                 DateTime tournamentStart = new DateTime(2017, 11, 22);
                 DateTime tournamentEnd = new DateTime(2018, 01, 05);

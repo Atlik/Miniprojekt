@@ -7,10 +7,20 @@ using Microsoft.VisualBasic.FileIO;
 
 namespace MiniProjekt
 {
+    /// <summary cref="List{T}">
+    /// Filehandler handles all loading and reading of files
+    /// When reading the files, it will insert each line from the textfiles in their respective objects
+    /// </summary>
     class FileHandler
     {
         //FileHandler properties
+        /// <summary>
+        /// FileHandler property: Handles the use of the string FileName that indcates which file the Filehandler should search for.
+        /// </summary>
         public string FileName { get; set; }
+        /// <summary>
+        /// FileHandler property: Is used to indicate what separates important information from the textfiles from eachother
+        /// </summary>
         public string Delimiter { get; set; }
 
         //Instantiate new lists of Tennisplayer objects
@@ -22,9 +32,13 @@ namespace MiniProjekt
         readonly List<TennisPlayer> _listOfFemaleReferee = new List<TennisPlayer>();
         #endregion
 
+        /// <summary>
+        /// Reads the textfile with male players.
+        /// Each line from the textfile indicate a new object instance of TennisPlayer
+        /// </summary>
+        /// <returns>The return value _listOfMalePlayers is used in <see cref="Tournament"/> to compile and handle the objects which should be used in <see cref="TennisMatch"/></returns>
         public List<TennisPlayer> GetListMalePlayers()
         {
-            //Inserts text from textfile into correct object references for Male Players
             #region
             TextFieldParser par = new TextFieldParser(FileName);
             par.TextFieldType = FieldType.Delimited;
@@ -48,9 +62,14 @@ namespace MiniProjekt
             return _listOfMalePlayers;
             #endregion
         }
+
+        /// <summary>
+        /// Reads the textfile with FemalePlayers.
+        /// Each line from the textfile indicate a new object instance of TennisPlayer
+        /// </summary>
+        /// <returns>The return value _listOfFemalePlayers is used in <see cref="Tournament"/> to compile and handle the objects which should be used in <see cref="TennisMatch"/></returns>
         public List<TennisPlayer> GetListFemalePlayers()
         {
-            //Inserts text from textfile into correct object references for Female Players
             #region
             TextFieldParser par = new TextFieldParser(FileName);
             par.TextFieldType = FieldType.Delimited;
@@ -75,9 +94,14 @@ namespace MiniProjekt
             return _listOfFemalePlayers;
             #endregion
         }
+
+        /// <summary>
+        /// Reads the textfile with Male Referees
+        /// Each Line from the textfile indicate a new object instance of Tennisplayer
+        /// </summary>
+        /// <returns>The return value _listOfMaleReferee is used in <see cref="Tournament"/> to compile and handle the objects which should be used in <see cref="TennisMatch"/></returns>
         public List<TennisPlayer> GetListMaleReferee()
         {
-            //Inserts text from textfile into correct object references for Male Refs
             #region
             TextFieldParser par = new TextFieldParser(FileName);
             par.TextFieldType = FieldType.Delimited;
@@ -105,9 +129,14 @@ namespace MiniProjekt
             return _listOfMaleReferee;
             #endregion
         }
+
+        /// <summary>
+        /// Reads the textfile with Female Referees
+        /// Each line from the textfile indicate a new object instnce of TennisPlayer
+        /// </summary>
+        /// <returns>The return value _listOfFemaleReferee is used in <see cref="Tournament"/> to compile and handle the objects which should be used in <see cref="TennisMatch"/></returns>
         public List<TennisPlayer> GetListFemaleReferee()
         {
-            //Inserts text from textfile into correct object references for Female Refs
             #region
             TextFieldParser par = new TextFieldParser(FileName);
             par.TextFieldType = FieldType.Delimited;
@@ -136,6 +165,11 @@ namespace MiniProjekt
             #endregion
         }
 
+        /// <summary>
+        /// Constructor of FileHandler: Indicate what FileHandler will need in order to be instantiated
+        /// </summary>
+        /// <param name="fn"></param>
+        /// <param name="delim"></param>
         public FileHandler(string fn, string delim = "|")
         {
             FileName = fn;

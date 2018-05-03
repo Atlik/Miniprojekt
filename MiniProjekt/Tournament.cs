@@ -10,15 +10,18 @@ using Microsoft.VisualBasic.FileIO;
 
 namespace MiniProjekt
 {
+    /// <summary>
+    /// The class tournament constructs the elements in which should be simulated in the tournament
+    /// </summary>
     class Tournament
     {
         static Random rnd = new Random();
 
         //Tournament properties
         #region
-        public string TournamentName { get; set; }
-        public DateTime TournamentStart { get; set; }
-        public DateTime TournamentEnd { get; set; }
+        private string TournamentName { get; }
+        private DateTime TournamentStart { get; }
+        private DateTime TournamentEnd { get; }
         #endregion
 
         //Runde Lister
@@ -26,7 +29,12 @@ namespace MiniProjekt
         List<TennisPlayer> referees = new List<TennisPlayer>();
         List<TennisPlayer> femalePlayerForRoundList = new List<TennisPlayer>();
 
-        //Constructor of Tournament
+        /// <summary>
+        /// Constructor of Tournament
+        /// </summary>
+        /// <param name="tourDateStart"></param>
+        /// <param name="tourDateEnd"></param>
+        /// <param name="tourName"></param>
         public Tournament(DateTime tourDateStart, DateTime tourDateEnd, string tourName)
         {
             TournamentStart = tourDateStart;
@@ -34,6 +42,12 @@ namespace MiniProjekt
             TournamentName = tourName;
         }
 
+        /// <summary>
+        /// Handles the lists returned from GetListFemaleReferee() and GetListMaleReferee() in <see cref="FileHandler"/>
+        /// Combines the two lists of referees from <see cref="FileHandler"/> into the list "referees", after which it will ask the user, if it should use a referee from list as gamemaster or if he/she wants to be the GameMaster
+        /// <exception cref="System.FormatException"> ----- bla bla ----- </exception>
+        /// </summary>
+        /// <returns> A list of referees minus the referee at index number [0] </returns>
         public List<TennisPlayer> TournamentHandlerRefs()
         {
             string FileName01 = "tennis_data";
@@ -86,6 +100,12 @@ namespace MiniProjekt
             return referees.GetRange(1, amount);
         }
 
+        /// <summary>
+        /// Handles the list returned from GetListFemalePlayer() in <see cref="FileHandler"/>
+        /// Based on how many Female players the user defines that they want to play at the tournament, it returns this amount of random players.
+        /// <exception cref="System.FormatException"> </exception>
+        /// </summary>
+        /// <returns> femalePlayerForRoundList which is a list of TennisPlayer objects that will be used in the class <see cref="TennisMatch"/> </returns>
         public List<TennisPlayer> TournamentHandlerFemaleGame()
         {
             string FileName01 = "tennis_data";
@@ -133,6 +153,12 @@ namespace MiniProjekt
             return femalePlayerForRoundList;
         }
 
+        /// <summary>
+        /// Handles the list returned from GetListMalePlayers() in <see cref="FileHandler"/>
+        /// Inserts a random TennisPlayer object into the list malePlayerForRound with amount that the user defines in his/hers prompt
+        /// <exception cref="System.FormatException">  </exception>
+        /// </summary>
+        /// <returns> malePlayerForRoundList, which is a list of TennisPlayer objects used in <see cref="TennisMatch"/></returns>
         public List<TennisPlayer> TournamentHandlerMaleGame()
         {
             string FileName = "MalePlayer";
@@ -183,6 +209,10 @@ namespace MiniProjekt
             return malePlayerForRoundList;
         }
 
+        /// <summary>
+        /// ToString method
+        /// </summary>
+        /// <returns>Returns a string in which the object Tournament should be represented</returns>
         public override string ToString()
         {
             //Defines how the object tournament should be printed

@@ -1,0 +1,102 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<HelpKI>
+  <HelpKINode Title="DateOfBirth property" Url="html/034d0070-4210-974b-e30e-b9aad892d8ae.htm" />
+  <HelpKINode Title="Delimiter property" Url="html/289e7789-a71b-b2ff-eb1f-2c4881cb1948.htm" />
+  <HelpKINode Title="FileHandler class">
+    <HelpKINode Title="FileHandler Class" Url="html/47e99c04-b884-8e0d-e5b9-7b7b6e626140.htm" />
+    <HelpKINode Title="constructor" Url="html/849b3bec-ae2b-68f6-9394-bcd7cabfcc5d.htm" />
+    <HelpKINode Title="methods" Url="html/a91376c1-3b24-9655-b05e-7235301fdbda.htm" />
+    <HelpKINode Title="properties" Url="html/59f99a61-16a7-2e49-aa65-0ea02a1270bd.htm" />
+  </HelpKINode>
+  <HelpKINode Title="FileHandler.Delimiter property" Url="html/289e7789-a71b-b2ff-eb1f-2c4881cb1948.htm" />
+  <HelpKINode Title="FileHandler.FileHandler constructor" Url="html/849b3bec-ae2b-68f6-9394-bcd7cabfcc5d.htm" />
+  <HelpKINode Title="FileHandler.FileName property" Url="html/3a6e6371-171d-2f5b-d005-0008c5efcd02.htm" />
+  <HelpKINode Title="FileHandler.GetListFemalePlayers method" Url="html/3791dc64-bb5a-21b6-8999-f66a464f3e27.htm" />
+  <HelpKINode Title="FileHandler.GetListFemaleReferee method" Url="html/111e6593-9657-f660-d03d-f3f0caea0c4e.htm" />
+  <HelpKINode Title="FileHandler.GetListMalePlayers method" Url="html/0b504a7f-9ec5-5fa9-fedb-af24c36ab2b7.htm" />
+  <HelpKINode Title="FileHandler.GetListMaleReferee method" Url="html/7643f76e-c41b-aad3-2393-87ab7881a704.htm" />
+  <HelpKINode Title="FileName property" Url="html/3a6e6371-171d-2f5b-d005-0008c5efcd02.htm" />
+  <HelpKINode Title="FirstName property" Url="html/0f764add-923b-de99-bca8-39553f1f5ed4.htm" />
+  <HelpKINode Title="Gender property" Url="html/a6c08b69-4bb8-2af1-840f-7b6339dde1ed.htm" />
+  <HelpKINode Title="GetListFemalePlayers method" Url="html/3791dc64-bb5a-21b6-8999-f66a464f3e27.htm" />
+  <HelpKINode Title="GetListFemaleReferee method" Url="html/111e6593-9657-f660-d03d-f3f0caea0c4e.htm" />
+  <HelpKINode Title="GetListMalePlayers method" Url="html/0b504a7f-9ec5-5fa9-fedb-af24c36ab2b7.htm" />
+  <HelpKINode Title="GetListMaleReferee method" Url="html/7643f76e-c41b-aad3-2393-87ab7881a704.htm" />
+  <HelpKINode Title="Identifikation property" Url="html/ebbfe6e6-f5f0-f2d3-f38d-8f891f6718d3.htm" />
+  <HelpKINode Title="LastName property" Url="html/c44d440f-7b3c-5eb9-f453-d770bd9a7a06.htm" />
+  <HelpKINode Title="LicenseGot property" Url="html/cd105cce-d1d1-2f64-9968-f4a8aafa0c1a.htm" />
+  <HelpKINode Title="LicenseRenewal property" Url="html/944245db-e7f2-ef57-be7f-a2f40a884b8b.htm" />
+  <HelpKINode Title="Main method" Url="html/3f7a39e4-2be8-44b7-4e74-ef8ac35da37e.htm" />
+  <HelpKINode Title="MiddleName property" Url="html/f8b3e28f-0f84-5b24-8795-fb1db6a92bd2.htm" />
+  <HelpKINode Title="MiniProjekt namespace" Url="html/5e72f51c-91bd-1524-3298-c9ab38f6b396.htm" />
+  <HelpKINode Title="MiniProjekt.FileHandler class" Url="html/47e99c04-b884-8e0d-e5b9-7b7b6e626140.htm" />
+  <HelpKINode Title="MiniProjekt.Program class" Url="html/cecd3126-534f-89e2-a1fd-d4b64bffd6c2.htm" />
+  <HelpKINode Title="MiniProjekt.TennisMatch class" Url="html/0300d9be-8a5a-e8f0-6a78-82c7e097868c.htm" />
+  <HelpKINode Title="MiniProjekt.TennisPlayer class" Url="html/5800f011-f140-a296-7887-a1e78d234353.htm" />
+  <HelpKINode Title="MiniProjekt.Tournament class" Url="html/f9440f9c-74ce-cf86-44fc-15a3366de381.htm" />
+  <HelpKINode Title="Nationality property" Url="html/8908bfb0-68e8-3d37-4da5-8584effd684a.htm" />
+  <HelpKINode Title="PlayerOrReferee property" Url="html/1809fcb3-48a2-9b43-bd9c-6178d5f1c3c9.htm" />
+  <HelpKINode Title="Program class">
+    <HelpKINode Title="Program Class" Url="html/cecd3126-534f-89e2-a1fd-d4b64bffd6c2.htm" />
+    <HelpKINode Title="constructor" Url="html/6679cc9d-f7c0-4e72-fc10-027760cd165b.htm" />
+    <HelpKINode Title="methods" Url="html/cb8b6d06-ab4f-63db-43f9-f2e3187b8ade.htm" />
+  </HelpKINode>
+  <HelpKINode Title="Program.Main method" Url="html/3f7a39e4-2be8-44b7-4e74-ef8ac35da37e.htm" />
+  <HelpKINode Title="Program.Program constructor" Url="html/6679cc9d-f7c0-4e72-fc10-027760cd165b.htm" />
+  <HelpKINode Title="TennisMatch class">
+    <HelpKINode Title="TennisMatch Class" Url="html/0300d9be-8a5a-e8f0-6a78-82c7e097868c.htm" />
+    <HelpKINode Title="constructor" Url="html/a7b26f13-05c5-6e01-3737-6ae014798d68.htm" />
+    <HelpKINode Title="constructor" Url="html/05dd4373-b0fc-d4c4-d3fd-3693ac44aef0.htm" />
+    <HelpKINode Title="methods" Url="html/c7eb0eb4-9c05-2ba8-8ac5-ceca9c4cd72e.htm" />
+  </HelpKINode>
+  <HelpKINode Title="TennisMatch.TennisMatch constructor">
+    <HelpKINode Title="TennisMatch Constructor " Url="html/a7b26f13-05c5-6e01-3737-6ae014798d68.htm" />
+    <HelpKINode Title="TennisMatch Constructor " Url="html/05dd4373-b0fc-d4c4-d3fd-3693ac44aef0.htm" />
+  </HelpKINode>
+  <HelpKINode Title="TennisPlayer class">
+    <HelpKINode Title="TennisPlayer Class" Url="html/5800f011-f140-a296-7887-a1e78d234353.htm" />
+    <HelpKINode Title="constructor" Url="html/22bb58cd-817b-3724-3de1-5bb9403577cb.htm" />
+    <HelpKINode Title="methods" Url="html/3901ded7-77ea-69de-3a69-66f60dab8206.htm" />
+    <HelpKINode Title="properties" Url="html/b796a657-7b25-a1c3-d0ff-49e4b002a421.htm" />
+  </HelpKINode>
+  <HelpKINode Title="TennisPlayer.DateOfBirth property" Url="html/034d0070-4210-974b-e30e-b9aad892d8ae.htm" />
+  <HelpKINode Title="TennisPlayer.FirstName property" Url="html/0f764add-923b-de99-bca8-39553f1f5ed4.htm" />
+  <HelpKINode Title="TennisPlayer.Gender property" Url="html/a6c08b69-4bb8-2af1-840f-7b6339dde1ed.htm" />
+  <HelpKINode Title="TennisPlayer.Identifikation property" Url="html/ebbfe6e6-f5f0-f2d3-f38d-8f891f6718d3.htm" />
+  <HelpKINode Title="TennisPlayer.LastName property" Url="html/c44d440f-7b3c-5eb9-f453-d770bd9a7a06.htm" />
+  <HelpKINode Title="TennisPlayer.LicenseGot property" Url="html/cd105cce-d1d1-2f64-9968-f4a8aafa0c1a.htm" />
+  <HelpKINode Title="TennisPlayer.LicenseRenewal property" Url="html/944245db-e7f2-ef57-be7f-a2f40a884b8b.htm" />
+  <HelpKINode Title="TennisPlayer.MiddleName property" Url="html/f8b3e28f-0f84-5b24-8795-fb1db6a92bd2.htm" />
+  <HelpKINode Title="TennisPlayer.Nationality property" Url="html/8908bfb0-68e8-3d37-4da5-8584effd684a.htm" />
+  <HelpKINode Title="TennisPlayer.PlayerOrReferee property" Url="html/1809fcb3-48a2-9b43-bd9c-6178d5f1c3c9.htm" />
+  <HelpKINode Title="TennisPlayer.TennisPlayer constructor" Url="html/22bb58cd-817b-3724-3de1-5bb9403577cb.htm" />
+  <HelpKINode Title="TennisPlayer.ToString method" Url="html/f4978c4d-f27f-9523-485e-96542e82a473.htm" />
+  <HelpKINode Title="ToString method">
+    <HelpKINode Title="TennisPlayer.ToString Method " Url="html/f4978c4d-f27f-9523-485e-96542e82a473.htm" />
+    <HelpKINode Title="Tournament.ToString Method " Url="html/65a74de0-1889-84ee-930c-e2589ccd2e4d.htm" />
+  </HelpKINode>
+  <HelpKINode Title="Tournament class">
+    <HelpKINode Title="Tournament Class" Url="html/f9440f9c-74ce-cf86-44fc-15a3366de381.htm" />
+    <HelpKINode Title="constructor" Url="html/e3229ccc-d3d0-4add-a500-4b3a73151c4a.htm" />
+    <HelpKINode Title="constructor" Url="html/73113ba3-7f61-ecd5-5df7-2b661ddef75e.htm" />
+    <HelpKINode Title="methods" Url="html/97f725bc-c562-0b17-8ce7-8f4c0af291f4.htm" />
+    <HelpKINode Title="properties" Url="html/98d0ec66-12cf-ddbe-5a9b-c13183b30772.htm" />
+  </HelpKINode>
+  <HelpKINode Title="Tournament.ToString method" Url="html/65a74de0-1889-84ee-930c-e2589ccd2e4d.htm" />
+  <HelpKINode Title="Tournament.Tournament constructor">
+    <HelpKINode Title="Tournament Constructor " Url="html/e3229ccc-d3d0-4add-a500-4b3a73151c4a.htm" />
+    <HelpKINode Title="Tournament Constructor " Url="html/73113ba3-7f61-ecd5-5df7-2b661ddef75e.htm" />
+  </HelpKINode>
+  <HelpKINode Title="Tournament.TournamentEnd property" Url="html/6c57dc03-5545-6147-1088-0c57f2586de2.htm" />
+  <HelpKINode Title="Tournament.TournamentHandlerFemaleGame method" Url="html/023dca55-1fa5-c119-9368-cf6f354f276d.htm" />
+  <HelpKINode Title="Tournament.TournamentHandlerMaleGame method" Url="html/6fe00d6d-f1be-7470-f82d-4eadaf59098f.htm" />
+  <HelpKINode Title="Tournament.TournamentHandlerRefs method" Url="html/62f2e351-1436-64f5-5733-e38767d49cfb.htm" />
+  <HelpKINode Title="Tournament.TournamentName property" Url="html/19386fdc-82af-213e-55f1-e0da809c7d7a.htm" />
+  <HelpKINode Title="Tournament.TournamentStart property" Url="html/20d16e1d-e425-83d4-9103-890223b52fa1.htm" />
+  <HelpKINode Title="TournamentEnd property" Url="html/6c57dc03-5545-6147-1088-0c57f2586de2.htm" />
+  <HelpKINode Title="TournamentHandlerFemaleGame method" Url="html/023dca55-1fa5-c119-9368-cf6f354f276d.htm" />
+  <HelpKINode Title="TournamentHandlerMaleGame method" Url="html/6fe00d6d-f1be-7470-f82d-4eadaf59098f.htm" />
+  <HelpKINode Title="TournamentHandlerRefs method" Url="html/62f2e351-1436-64f5-5733-e38767d49cfb.htm" />
+  <HelpKINode Title="TournamentName property" Url="html/19386fdc-82af-213e-55f1-e0da809c7d7a.htm" />
+  <HelpKINode Title="TournamentStart property" Url="html/20d16e1d-e425-83d4-9103-890223b52fa1.htm" />
+</HelpKI>
