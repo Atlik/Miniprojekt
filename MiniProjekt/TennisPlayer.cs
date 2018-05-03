@@ -3,7 +3,9 @@ using System.Collections.Generic;
 
 namespace MiniProjekt
 {
+    /// <summary>
     /// This class will implement the information about the player
+    /// </summary>
     public class TennisPlayer
     {
         #region

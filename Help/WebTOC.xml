@@ -1,37 +1,47 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <HelpTOC>
 
-  <HelpTOCNode Id="e19c4df1-891a-4790-ba1c-6d8faa5b8cc0" Title="MiniProjekt" Url="html/5e72f51c-91bd-1524-3298-c9ab38f6b396.htm">
-    <HelpTOCNode Id="17cd6b8d-c8be-4560-a129-6543b8aaed44" Title="FileHandler Class" Url="html/47e99c04-b884-8e0d-e5b9-7b7b6e626140.htm">
+  <HelpTOCNode Id="8f9ce08d-a07e-43a2-bc4e-f10c8120cb18" Title="MiniProjekt" Url="html/5e72f51c-91bd-1524-3298-c9ab38f6b396.htm">
+    <HelpTOCNode Id="56eebcb0-f340-4487-a3ad-d1d1732a1ce3" Title="FileHandler Class" Url="html/47e99c04-b884-8e0d-e5b9-7b7b6e626140.htm">
       <HelpTOCNode Title="FileHandler Constructor " Url="html/849b3bec-ae2b-68f6-9394-bcd7cabfcc5d.htm" />
-      <HelpTOCNode Id="742c9b0a-53b9-4070-889c-0c54095971da" Title="FileHandler Properties" Url="html/59f99a61-16a7-2e49-aa65-0ea02a1270bd.htm">
+      <HelpTOCNode Id="614d5e6a-9244-4df8-a5d8-9b6585055977" Title="FileHandler Properties" Url="html/59f99a61-16a7-2e49-aa65-0ea02a1270bd.htm">
         <HelpTOCNode Title="Delimiter Property " Url="html/289e7789-a71b-b2ff-eb1f-2c4881cb1948.htm" />
         <HelpTOCNode Title="FileName Property " Url="html/3a6e6371-171d-2f5b-d005-0008c5efcd02.htm" />
       </HelpTOCNode>
-      <HelpTOCNode Id="dce9010c-0d36-4081-9d58-d36359e7a18c" Title="FileHandler Methods" Url="html/a91376c1-3b24-9655-b05e-7235301fdbda.htm">
+      <HelpTOCNode Id="d22af1e7-ada9-4bfe-9533-796c0e1ef9f2" Title="FileHandler Methods" Url="html/a91376c1-3b24-9655-b05e-7235301fdbda.htm">
         <HelpTOCNode Title="GetListFemalePlayers Method " Url="html/3791dc64-bb5a-21b6-8999-f66a464f3e27.htm" />
         <HelpTOCNode Title="GetListFemaleReferee Method " Url="html/111e6593-9657-f660-d03d-f3f0caea0c4e.htm" />
         <HelpTOCNode Title="GetListMalePlayers Method " Url="html/0b504a7f-9ec5-5fa9-fedb-af24c36ab2b7.htm" />
         <HelpTOCNode Title="GetListMaleReferee Method " Url="html/7643f76e-c41b-aad3-2393-87ab7881a704.htm" />
       </HelpTOCNode>
+      <HelpTOCNode Id="9ffb88f8-15a9-44d3-b7fd-ad7616890af0" Title="FileHandler Fields" Url="html/e09c5bcd-b8f9-370d-3f86-e90b0deab1e0.htm">
+        <HelpTOCNode Title="_content Field" Url="html/138ec9a0-8e25-72e6-d84d-c814bcb4fe65.htm" />
+        <HelpTOCNode Title="_listOfFemalePlayers Field" Url="html/78f01a28-6983-6e42-456b-a787958e98b6.htm" />
+        <HelpTOCNode Title="_listOfFemaleReferee Field" Url="html/c13936fd-f964-5cf5-85bb-ed24301d7225.htm" />
+        <HelpTOCNode Title="_listOfMalePlayers Field" Url="html/582d9717-00a1-5b69-d7c7-52e6b3d505a2.htm" />
+        <HelpTOCNode Title="_listOfMaleReferee Field" Url="html/d5dc332a-d507-87b9-a90a-431bb0949a8a.htm" />
+      </HelpTOCNode>
     </HelpTOCNode>
-    <HelpTOCNode Id="66244f7a-bc70-43a1-94b6-f42ee8dc479e" Title="Program Class" Url="html/cecd3126-534f-89e2-a1fd-d4b64bffd6c2.htm">
+    <HelpTOCNode Id="2eb4f155-e5e2-4988-86f4-99af5fb1b50d" Title="Program Class" Url="html/cecd3126-534f-89e2-a1fd-d4b64bffd6c2.htm">
       <HelpTOCNode Title="Program Constructor " Url="html/6679cc9d-f7c0-4e72-fc10-027760cd165b.htm" />
-      <HelpTOCNode Id="a889e63c-15a4-4857-aee1-d0ea5f67d16d" Title="Program Methods" Url="html/cb8b6d06-ab4f-63db-43f9-f2e3187b8ade.htm">
+      <HelpTOCNode Id="37e9ac1a-9a5c-4b3e-88c2-e56ba6adc5ef" Title="Program Methods" Url="html/cb8b6d06-ab4f-63db-43f9-f2e3187b8ade.htm">
         <HelpTOCNode Title="Main Method " Url="html/3f7a39e4-2be8-44b7-4e74-ef8ac35da37e.htm" />
       </HelpTOCNode>
     </HelpTOCNode>
-    <HelpTOCNode Id="9fee45d2-323b-40ba-a4ca-220f1f92b1de" Title="TennisMatch Class" Url="html/0300d9be-8a5a-e8f0-6a78-82c7e097868c.htm">
+    <HelpTOCNode Id="fa7eaa83-2b10-4def-9483-2715c48fdd68" Title="TennisMatch Class" Url="html/0300d9be-8a5a-e8f0-6a78-82c7e097868c.htm">
       <HelpTOCNode Title="TennisMatch Constructor " Url="html/a7b26f13-05c5-6e01-3737-6ae014798d68.htm" />
       <HelpTOCNode Title="TennisMatch Constructor " Url="html/05dd4373-b0fc-d4c4-d3fd-3693ac44aef0.htm" />
       <HelpTOCNode Title="TennisMatch Methods" Url="html/c7eb0eb4-9c05-2ba8-8ac5-ceca9c4cd72e.htm" />
+      <HelpTOCNode Id="7f393780-5646-492c-a1f6-a94c4b46946b" Title="TennisMatch Fields" Url="html/71408187-37b7-4d5d-4f28-3de1c8a91876.htm">
+        <HelpTOCNode Title="rnd Field" Url="html/bb52abf0-2588-c924-77f6-8f44d1483613.htm" />
+      </HelpTOCNode>
     </HelpTOCNode>
-    <HelpTOCNode Id="e73beaf2-a7bc-48cb-90d6-2600398e5524" Title="TennisPlayer Class" Url="html/5800f011-f140-a296-7887-a1e78d234353.htm">
-      <HelpTOCNode Id="0579c688-1eaa-43ee-8b67-729629534e9f" Title="TennisPlayer Constructor " Url="html/22bb58cd-817b-3724-3de1-5bb9403577cb.htm">
+    <HelpTOCNode Id="4261368d-27ad-4af7-82dd-b55fa2ec717f" Title="TennisPlayer Class" Url="html/5800f011-f140-a296-7887-a1e78d234353.htm">
+      <HelpTOCNode Id="a2d304df-c41e-49f1-bbce-33b31d07cdd2" Title="TennisPlayer Constructor " Url="html/22bb58cd-817b-3724-3de1-5bb9403577cb.htm">
         <HelpTOCNode Title="TennisPlayer Constructor (Int32, String, String, String, DateTime, String, Boolean, Boolean)" Url="html/56de27fe-b396-024e-079a-d81b2afc362e.htm" />
         <HelpTOCNode Title="TennisPlayer Constructor (Int32, String, String, String, DateTime, String, Boolean, Boolean, DateTime, DateTime)" Url="html/c17ec7cd-f6bc-4242-eacf-692aedd4b9e5.htm" />
       </HelpTOCNode>
-      <HelpTOCNode Id="9b97aef0-2c83-4752-b3ff-e37bbfba3b81" Title="TennisPlayer Properties" Url="html/b796a657-7b25-a1c3-d0ff-49e4b002a421.htm">
+      <HelpTOCNode Id="ffe35dc8-5f81-4d7b-b3c5-0b89185f14d3" Title="TennisPlayer Properties" Url="html/b796a657-7b25-a1c3-d0ff-49e4b002a421.htm">
         <HelpTOCNode Title="DateOfBirth Property " Url="html/034d0070-4210-974b-e30e-b9aad892d8ae.htm" />
         <HelpTOCNode Title="FirstName Property " Url="html/0f764add-923b-de99-bca8-39553f1f5ed4.htm" />
         <HelpTOCNode Title="Gender Property " Url="html/a6c08b69-4bb8-2af1-840f-7b6339dde1ed.htm" />
@@ -43,23 +53,29 @@
         <HelpTOCNode Title="Nationality Property " Url="html/8908bfb0-68e8-3d37-4da5-8584effd684a.htm" />
         <HelpTOCNode Title="PlayerOrReferee Property " Url="html/1809fcb3-48a2-9b43-bd9c-6178d5f1c3c9.htm" />
       </HelpTOCNode>
-      <HelpTOCNode Id="40e7a6f7-bdf0-47bf-be93-93060dddc058" Title="TennisPlayer Methods" Url="html/3901ded7-77ea-69de-3a69-66f60dab8206.htm">
+      <HelpTOCNode Id="d57d8deb-8719-488e-8f8c-e2acd3ada0df" Title="TennisPlayer Methods" Url="html/3901ded7-77ea-69de-3a69-66f60dab8206.htm">
         <HelpTOCNode Title="ToString Method " Url="html/f4978c4d-f27f-9523-485e-96542e82a473.htm" />
       </HelpTOCNode>
     </HelpTOCNode>
-    <HelpTOCNode Id="792a02f1-6906-4443-b94c-c9c37c82a6f0" Title="Tournament Class" Url="html/f9440f9c-74ce-cf86-44fc-15a3366de381.htm">
+    <HelpTOCNode Id="15c6633e-9f28-47d3-8131-b0d7bf1951c9" Title="Tournament Class" Url="html/f9440f9c-74ce-cf86-44fc-15a3366de381.htm">
       <HelpTOCNode Title="Tournament Constructor " Url="html/73113ba3-7f61-ecd5-5df7-2b661ddef75e.htm" />
       <HelpTOCNode Title="Tournament Constructor " Url="html/e3229ccc-d3d0-4add-a500-4b3a73151c4a.htm" />
-      <HelpTOCNode Id="52dd2010-f02a-428a-b07c-30a86b97f1c6" Title="Tournament Properties" Url="html/98d0ec66-12cf-ddbe-5a9b-c13183b30772.htm">
+      <HelpTOCNode Id="ef0de3ea-7c93-48a6-877c-e6ea322ca2d6" Title="Tournament Properties" Url="html/98d0ec66-12cf-ddbe-5a9b-c13183b30772.htm">
         <HelpTOCNode Title="TournamentEnd Property " Url="html/6c57dc03-5545-6147-1088-0c57f2586de2.htm" />
         <HelpTOCNode Title="TournamentName Property " Url="html/19386fdc-82af-213e-55f1-e0da809c7d7a.htm" />
         <HelpTOCNode Title="TournamentStart Property " Url="html/20d16e1d-e425-83d4-9103-890223b52fa1.htm" />
       </HelpTOCNode>
-      <HelpTOCNode Id="beef5555-2314-47ab-b719-7334bdd499f1" Title="Tournament Methods" Url="html/97f725bc-c562-0b17-8ce7-8f4c0af291f4.htm">
+      <HelpTOCNode Id="02ffb1dd-8e4b-42fb-a872-6f6862430d45" Title="Tournament Methods" Url="html/97f725bc-c562-0b17-8ce7-8f4c0af291f4.htm">
         <HelpTOCNode Title="ToString Method " Url="html/65a74de0-1889-84ee-930c-e2589ccd2e4d.htm" />
         <HelpTOCNode Title="TournamentHandlerFemaleGame Method " Url="html/023dca55-1fa5-c119-9368-cf6f354f276d.htm" />
         <HelpTOCNode Title="TournamentHandlerMaleGame Method " Url="html/6fe00d6d-f1be-7470-f82d-4eadaf59098f.htm" />
         <HelpTOCNode Title="TournamentHandlerRefs Method " Url="html/62f2e351-1436-64f5-5733-e38767d49cfb.htm" />
+      </HelpTOCNode>
+      <HelpTOCNode Id="6c43b5cc-dbc7-4b3d-b27e-926e5a8cb5fd" Title="Tournament Fields" Url="html/cb6b64b9-e789-783d-cf74-9f4e8cf133b2.htm">
+        <HelpTOCNode Title="femalePlayerForRoundList Field" Url="html/de047a04-8947-8902-8f0b-e702a27f0a2f.htm" />
+        <HelpTOCNode Title="malePlayerForRoundList Field" Url="html/5bcc7441-fe53-2d40-7039-bf1b02749de8.htm" />
+        <HelpTOCNode Title="referees Field" Url="html/59505283-6e3d-cf9c-3c90-d8fb1b6494dc.htm" />
+        <HelpTOCNode Title="rnd Field" Url="html/5ddabdfe-6eaa-c6d3-e698-eca91a713297.htm" />
       </HelpTOCNode>
     </HelpTOCNode>
   </HelpTOCNode>

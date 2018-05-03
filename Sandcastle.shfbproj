@@ -18,9 +18,9 @@
     <HtmlHelpName>Documentation</HtmlHelpName>
     <Language>en-US</Language>
     <DocumentationSources>
-      <DocumentationSource sourceFile="MiniProjekt.sln" xmlns="" />
+      <DocumentationSource sourceFile="MiniProjekt\MiniProjekt.csproj" />
     </DocumentationSources>
-    <HelpFileFormat>Website</HelpFileFormat>
+    <HelpFileFormat>HtmlHelp1, Website</HelpFileFormat>
     <SyntaxFilters>C#, XAML Usage, ASP.NET</SyntaxFilters>
     <PresentationStyle>VS2013</PresentationStyle>
     <CleanIntermediates>True</CleanIntermediates>
@@ -29,17 +29,17 @@
     <IndentHtml>False</IndentHtml>
     <BuildAssemblerVerbosity>OnlyWarningsAndErrors</BuildAssemblerVerbosity>
     <NamespaceSummaries>
-      <NamespaceSummaryItem name="(global)" isDocumented="False" xmlns="">Dette projekt er lavet af Christian og Ferdinand
-You must write a very short 0.5 - 1.0 page documentation that describes the overall structure of the program.
-In addition, you must document any assumptions that you have made.
-If you have use code that is not in the.Net library you must clear document where the code is from and what you have used it for.
-The documentation must be added as a comment at the top of the files that deals with the tournament class.
+      <NamespaceSummaryItem name="(global)" isDocumented="False">Vi har i dette projekt fokuseret på at samle generering af kampe i klassen “TennisMatch”. Dette har gjort at constructoren af “TennisMatch” samler og instantiere de øvrige klasser og metoder. Udover klassen “TennisMatch” er der lavet 4 andre klasser ved navn: “FileHandler”, “TennisPlayer”, “Tournament” og “Program”.  
+Klassen “Program” er kun lavet for at have en separat fil hvori det er muligt at kalde metoder, objekter eller lignende vi gerne vil have kørt/udskrevet i konsollen uden at ændre på koden i de øvrige metoder. Programmet starter her i det vi her kalder et nyt objekt af “TennisMatch” der instantiere de brugte metoder. 
+Klassen “FileHandler” loader og læser filerne der skal bruges i programmet, og indsætter dem i lister af objekter der bliver defineret af constructoren TennisPlayer i klassen “TennisPlayer”.   
+Klassen “TennisPlayer” sørger for at informationerne omkring spillerne i turneringen er repræsenteret korrekt når de kaldes i andre metoder eller udskrives på konsollen. 
+Klassen “Tournament” sørger for at det korrekte antal af spillere og dommere bliver sendt videre til “TennisMatch”, og dermed konstruere essentielle dele for at en turnering kan afholdes. 
 
-This project is made by Ferdinand Brødløs and Christian Gundersen Holmgaard
+Dette projekt er lavet af Ferdinand Brødløs og Christian Gundersen Holmgaard
 Christian Gundersen Holmgaard, studie nr. 20155309
 Ferdinand Brødløs, studie nr. 20167752</NamespaceSummaryItem>
     </NamespaceSummaries>
-    <VisibleItems>InheritedMembers, InheritedFrameworkMembers, InheritedFrameworkInternalMembers, InheritedFrameworkPrivateMembers, Internals, Privates, Protected, ProtectedInternalAsProtected, NonBrowsable</VisibleItems>
+    <VisibleItems>InheritedMembers, InheritedFrameworkMembers, Internals, Privates, PrivateFields, Protected, SealedProtected, ProtectedInternalAsProtected</VisibleItems>
   </PropertyGroup>
   <!-- There are no properties for these groups.  AnyCPU needs to appear in order for Visual Studio to perform
 			 the build.  The others are optional common platform types that may appear. -->

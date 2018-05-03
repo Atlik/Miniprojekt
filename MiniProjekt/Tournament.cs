@@ -11,7 +11,20 @@ using Microsoft.VisualBasic.FileIO;
 namespace MiniProjekt
 {
     /// <summary>
-    /// The class tournament constructs the elements in which should be simulated in the tournament
+    /// Vi har i dette projekt fokuseret på at samle generering af kampe i klassen “TennisMatch”.
+    /// Dette har gjort at constructoren af “TennisMatch” samler og instantiere de øvrige klasser og metoder.
+    /// Udover klassen “TennisMatch” er der lavet 4 andre klasser ved navn: “FileHandler”, “TennisPlayer”, “Tournament” og “Program”.
+    /// Klassen “Program” er kun lavet for at have en separat fil hvori det er muligt at kalde metoder,
+    /// objekter eller lignende vi gerne vil have kørt/udskrevet i konsollen uden at ændre på koden i de øvrige metoder.
+    /// Programmet starter her i det vi her kalder et nyt objekt af “TennisMatch” der instantiere de brugte metoder.
+    /// Klassen “FileHandler” loader og læser filerne der skal bruges i programmet,
+    /// og indsætter dem i lister af objekter der bliver defineret af constructoren TennisPlayer i klassen “TennisPlayer”.
+    /// Klassen “TennisPlayer” sørger for at informationerne omkring spillerne i turneringen er repræsenteret korrekt når de kaldes i andre metoder eller udskrives på konsollen.
+    /// Klassen “Tournament” sørger for at det korrekte antal af spillere og dommere bliver sendt videre til “TennisMatch”, og dermed konstruere essentielle dele for at en turnering kan afholdes.
+    /// </summary>
+
+    ///<summary>
+    ///The class tournament constructs the elements in which should be simulated in the tournament
     /// </summary>
     class Tournament
     {
@@ -45,7 +58,7 @@ namespace MiniProjekt
         /// <summary>
         /// Handles the lists returned from GetListFemaleReferee() and GetListMaleReferee() in <see cref="FileHandler"/>
         /// Combines the two lists of referees from <see cref="FileHandler"/> into the list "referees", after which it will ask the user, if it should use a referee from list as gamemaster or if he/she wants to be the GameMaster
-        /// <exception cref="System.FormatException"> ----- bla bla ----- </exception>
+        /// <exception cref="Exception"> Is thrown if the user types something wrong in the console  </exception>
         /// </summary>
         /// <returns> A list of referees minus the referee at index number [0] </returns>
         public List<TennisPlayer> TournamentHandlerRefs()
@@ -58,99 +71,56 @@ namespace MiniProjekt
 
             List<TennisPlayer> refFemale = listOfFemaleReferee.GetListFemaleReferee();
             List<TennisPlayer> refMale = listOfMaleReferee.GetListMaleReferee();
-
-            for (int i = 0; i < refFemale.Count; i++)
-            {
-                referees.Add(refFemale[i]);
-                for (int j = 0; j < refMale.Count; j++)
-                {
-                    referees.Add(refMale[j]);
-                }
-            }
-
             try
             {
-                Console.WriteLine("Do you want to be GameMaster for the Tournament?" + Environment.NewLine +
-                                  " please answer with yes or no");
+                for (int i = 0; i < refFemale.Count; i++)
+                {
+                    referees.Add(refFemale[i]);
+                    for (int j = 0; j < refMale.Count; j++)
+                    {
+                        referees.Add(refMale[j]);
+                    }
+                }
+
+                Console.WriteLine("Do you want to be GameMaster for the Tournament?" + Environment.NewLine + "Please answer with yes or no");
                 string gameMaster = Convert.ToString(Console.ReadLine());
 
                 if (gameMaster == "yes")
                 {
+                    int check;
                     Console.WriteLine("Please enter your name");
                     string userGameMaster = Convert.ToString((Console.ReadLine()));
-                    Console.WriteLine("You are now GameMaster!");
-                    Console.WriteLine("GameMaster of the tournament is: {0}", userGameMaster);
+
+                    if (userGameMaster == "" || int.TryParse(userGameMaster, out check))
+                    {
+                        throw new Exception("Your name cannot be empty or only consist of integers");
+                    }
+                    else
+                    {
+                        Console.WriteLine("You are now GameMaster!" + Environment.NewLine);
+                        Console.WriteLine("GameMaster of the tournament is: {0}", userGameMaster);
+                    }
                 }
                 else if (gameMaster == "no")
                 {
-                    Console.WriteLine("Finding a Referee to be GameMaster");
+                    Console.WriteLine(Environment.NewLine + "Finding a Referee to be GameMaster" + Environment.NewLine);
                     Console.WriteLine("GameMaster of the tournament is: {0}", referees[0]);
                 }
                 else
                 {
-                    throw new System.Exception();
+                    throw new Exception("You have typed something wrong, please type yes or no to continue the Tournament");
                 }
             }
-            catch (System.Exception)
+            catch (Exception ex)
             {
-                Console.WriteLine("You have typed something wrong");
-            }
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine(Environment.NewLine + "{0}" + Environment.NewLine, ex.Message);
+                Console.ResetColor();
 
+                TournamentHandlerRefs();
+            }
             int amount = referees.Count - 1;
             return referees.GetRange(1, amount);
-        }
-
-        /// <summary>
-        /// Handles the list returned from GetListFemalePlayer() in <see cref="FileHandler"/>
-        /// Based on how many Female players the user defines that they want to play at the tournament, it returns this amount of random players.
-        /// <exception cref="System.FormatException"> </exception>
-        /// </summary>
-        /// <returns> femalePlayerForRoundList which is a list of TennisPlayer objects that will be used in the class <see cref="TennisMatch"/> </returns>
-        public List<TennisPlayer> TournamentHandlerFemaleGame()
-        {
-            string FileName01 = "tennis_data";
-            string FileName = "FemalePlayer";
-            FileHandler listOfFemalePlayer = new FileHandler(@"" + Environment.CurrentDirectory + "\\" + FileName01 + "\\" + FileName + ".txt");
-
-            List<TennisPlayer> femaleTennisPlayers = listOfFemalePlayer.GetListFemalePlayers();
-            try
-            {
-                Console.WriteLine("What amount of female players do you want to play at the tournament?");
-                Console.WriteLine("The amount of players has to be even such as: 32, 16 or 8 as an example ");
-                int upTo = Convert.ToInt32(Console.ReadLine());
-                Console.WriteLine("You have typed the number {0} and the tournament will now be played" + Environment.NewLine, upTo);
-
-                int i = 0;
-
-                while (i < upTo)
-                {
-                    int r = rnd.Next(femaleTennisPlayers.Count);
-
-                    if (!femalePlayerForRoundList.Contains(femaleTennisPlayers[r]))
-                    {
-                        femalePlayerForRoundList.Add(femaleTennisPlayers[r]);
-                        i++;
-                    }
-                }
-            }
-            catch (System.FormatException)
-            {
-                Console.WriteLine("You have to type an integer before the tournament can start");
-            }
-            catch (System.IO.IOException ioex)
-            {
-                if (ioex.Message.ToLowerInvariant().Contains("32"))
-                {
-                    Console.WriteLine("You will now see the tournament simulated");
-                    throw;
-                }
-                else
-                {
-                    Console.WriteLine("Something went wrong!");
-                    throw;
-                }
-            }
-            return femalePlayerForRoundList;
         }
 
         /// <summary>
@@ -168,45 +138,106 @@ namespace MiniProjekt
             List<TennisPlayer> maleTennisPlayers = listOfMalePlayer.GetListMalePlayers();
             try
             {
-                Console.WriteLine("What amount of male players do you want to play at the tournament?");
-                Console.WriteLine("The amount of players has to be even such as: 32, 16 or 8 as an example and be between 2 and 64");
+                Console.WriteLine("What amount of male players do you want to play at the tournament?" +
+                                    Environment.NewLine + "The amount of players that can be reseprented to the tournanemnt is: 2, 4, 8, 16, 32 or 64 Players");
                 int upTo = Convert.ToInt32(Console.ReadLine());
                 Console.WriteLine("You have typed the number {0} and the tournament will now be played" + Environment.NewLine, upTo);
 
-                int i = 0;
-
-                while (i < upTo)
+                if (upTo == 2 || upTo == 4 || upTo == 8 || upTo == 16 || upTo == 32 || upTo == 64)
                 {
-                    int r = rnd.Next(maleTennisPlayers.Count);
-
-                    if (!malePlayerForRoundList.Contains(maleTennisPlayers[r]))
+                    int i = 0;
+                    while (i < upTo)
                     {
-                        malePlayerForRoundList.Add(maleTennisPlayers[r]);
-                        i++;
-                    }
-                }
-            }
-            catch (System.FormatException e)
-            {
-                Console.WriteLine("You have to type a integer before the tournament can start\n" + e);
-                Console.WriteLine("\n System will now close down");
-                Console.ReadLine();
+                        int r = rnd.Next(maleTennisPlayers.Count);
 
-            }
-            catch (System.IO.IOException ioex)
-            {
-                if (ioex.Message.ToLowerInvariant().Contains("32"))
-                {
-                    Console.WriteLine("You will now see the tournament simulated");
-                    throw;
+                        if (!malePlayerForRoundList.Contains(maleTennisPlayers[r]))
+                        {
+                            malePlayerForRoundList.Add(maleTennisPlayers[r]);
+                            i++;
+                        }
+                    }
                 }
                 else
                 {
-                    Console.WriteLine("Something went wrong!");
-                    throw;
+                    throw new Exception("You didn't type one of the asked numbers, please type one of the valid numbers!");
                 }
             }
+            catch (System.FormatException)
+            {
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine(Environment.NewLine + "You typed something wrong, please type one of the valid numbers!" + Environment.NewLine);
+                Console.ResetColor();
+
+                TournamentHandlerMaleGame();
+            }
+            catch (Exception ex)
+            {
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine(Environment.NewLine + "{0}" + Environment.NewLine, ex.Message);
+                Console.ResetColor();
+
+                TournamentHandlerMaleGame();
+            }
             return malePlayerForRoundList;
+        }
+
+        /// <summary>
+        /// Handles the list returned from GetListFemalePlayer() in <see cref="FileHandler"/>
+        /// Based on how many Female players the user defines that they want to play at the tournament, it returns this amount of random players.
+        /// <exception cref="System.FormatException"> </exception>
+        /// </summary>
+        /// <returns> femalePlayerForRoundList which is a list of TennisPlayer objects that will be used in the class <see cref="TennisMatch"/> </returns>
+        public List<TennisPlayer> TournamentHandlerFemaleGame()
+        {
+            string FileName01 = "tennis_data";
+            string FileName = "FemalePlayer";
+            FileHandler listOfFemalePlayer = new FileHandler(@"" + Environment.CurrentDirectory + "\\" + FileName01 + "\\" + FileName + ".txt");
+
+            List<TennisPlayer> femaleTennisPlayers = listOfFemalePlayer.GetListFemalePlayers();
+            try
+            {
+                Console.WriteLine("What amount of female players do you want to play at the tournament?" +
+                    Environment.NewLine + "The amount of players that can be reseprented to the tournanemnt is: 2, 4, 8, 16, 32 or 64 Players");
+                int upTo = Convert.ToInt32(Console.ReadLine());
+                Console.WriteLine("You have typed the number {0} and the tournament will now be played" + Environment.NewLine, upTo);
+
+
+                if (upTo == 2 || upTo == 4 || upTo == 8 || upTo == 16 || upTo == 32 || upTo == 64)
+                {
+                    int i = 0;
+                    while (i < upTo)
+                    {
+                        int r = rnd.Next(femaleTennisPlayers.Count);
+
+                        if (!femalePlayerForRoundList.Contains(femaleTennisPlayers[r]))
+                        {
+                            femalePlayerForRoundList.Add(femaleTennisPlayers[r]);
+                            i++;
+                        }
+                    }
+                }
+                else
+                {
+                    throw new Exception("You didn't type one of the asked numbers, please type one of the valid numbers!");
+                }
+            }
+            catch (System.FormatException)
+            {
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine(Environment.NewLine + "You typed something wrong, please type one of the valid numbers!" + Environment.NewLine);
+                Console.ResetColor();
+
+                TournamentHandlerFemaleGame();
+            }
+            catch (Exception ex)
+            {
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine(Environment.NewLine + "{0}" + Environment.NewLine, ex.Message);
+                Console.ResetColor();
+
+                TournamentHandlerFemaleGame();
+            }
+            return femalePlayerForRoundList;
         }
 
         /// <summary>
