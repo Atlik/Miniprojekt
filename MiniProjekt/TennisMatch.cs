@@ -1,13 +1,8 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
-using System.Diagnostics.Eventing.Reader;
-using System.IO;
 using System.Linq;
-using System.Linq.Expressions;
-using System.Security.Cryptography;
-using Microsoft.VisualBasic;
-using Microsoft.VisualBasic.FileIO;
+using System.Net.Mime;
+
 
 namespace MiniProjekt
 {
@@ -20,6 +15,7 @@ namespace MiniProjekt
 
         /// <summary>
         /// Default constructor of TennisMatch
+        /// <exception cref="SystemException"> Will be thrown if a failure occurs during the execution of TennisMatch that isn't expected </exception>
         /// </summary>
         public TennisMatch()
         {
@@ -31,36 +27,57 @@ namespace MiniProjekt
                 DateTime tournamentEnd = new DateTime(2018, 01, 05);
                 Tournament listOfPersonsForRound = new Tournament(tournamentStart, tournamentEnd, "Winter Olympics");
                 List<TennisPlayer> tournamentRefs = listOfPersonsForRound.TournamentHandlerRefs();
+                List<TennisPlayer> tournamentMalePlayers = listOfPersonsForRound.TournamentHandlerMaleGame();
                 #endregion
 
+                //Prints the tournament object
                 Console.WriteLine(listOfPersonsForRound);
+
+                //Sort the tournamentMalePlayers by firstname or lastname before the tournament starts
+                #region
+                List<TennisPlayer> sortedMalePlayerByFirstname = tournamentMalePlayers.OrderBy(tennisPlayer => tennisPlayer.FirstName).ToList();
+                List<TennisPlayer> sortedMalePlayerByLastname = tournamentMalePlayers.OrderBy(tennisPlayer => tennisPlayer.LastName).ToList();
+
+                Console.WriteLine("Before continuing the tournament you can see the player list sorted by their first- or lastname " + Environment.NewLine +
+                                  "by typing 'f' for firstname 'l' for last name or type any other keys to continue to the simulation of the tournament");
+
+                var input = Console.ReadKey();
+                switch (input.Key)
+                {
+                    case ConsoleKey.F:
+                        {
+                            Console.WriteLine(Environment.NewLine);
+                            for (int i = 0; i < sortedMalePlayerByFirstname.Count; i++)
+                            {
+                                Console.WriteLine(sortedMalePlayerByFirstname[i].FirstName + " " + sortedMalePlayerByFirstname[i].MiddleName + " " +
+                                                  sortedMalePlayerByFirstname[i].LastName);
+                            }
+
+                            break;
+                        }
+                    case ConsoleKey.L:
+                        {
+                            Console.WriteLine(Environment.NewLine);
+                            for (int i = 0; i < sortedMalePlayerByLastname.Count; i++)
+                            {
+                                Console.WriteLine(sortedMalePlayerByLastname[i].FirstName + " " + sortedMalePlayerByLastname[i].MiddleName + " " +
+                                                  sortedMalePlayerByLastname[i].LastName);
+                            }
+                            break;
+                        }
+                    default:
+                        {
+                            break;
+                        }
+                }
+                #endregion
 
                 //Simulate Tournament for Males
 
                 #region
 
-                List<TennisPlayer> tournamentMalePlayers = listOfPersonsForRound.TournamentHandlerMaleGame();
-
-                //Sort the tournamentMalePlayers by firstname before the tournament starts
-                #region
-                List<TennisPlayer> sortedMalePlayer = tournamentMalePlayers.OrderBy(tennisPlayer => tennisPlayer.FirstName).ToList();
-
-                for (int i = 0; i < sortedMalePlayer.Count; i++)
-                {
-                    Console.WriteLine(sortedMalePlayer[i].FirstName + " " + sortedMalePlayer[i].MiddleName + " " +
-                                      sortedMalePlayer[i].LastName + " Players number: {0} ", i);
-                }
-
-                Console.WriteLine("Sorted list has been made: ");
-                Console.ReadLine();
-                #endregion
-
-
-                Console.WriteLine("Tournament for male players is beginning!!");
-                if (tournamentMalePlayers == null)
-                {
-                    throw new System.IO.IOException();
-                }
+                Console.WriteLine(Environment.NewLine + "Tournament for male players will begin. Press ANY key to continue" + Environment.NewLine);
+                Console.ReadKey();
 
                 int round = 0;
                 int p2 = 1;
@@ -76,10 +93,8 @@ namespace MiniProjekt
                         #region
 
                         int r = Rnd.Next(tournamentRefs.Count);
-                        Console.WriteLine(tournamentMalePlayers[p1]);
-                        Console.WriteLine(tournamentMalePlayers[p2]);
                         Console.WriteLine(
-                            "A single male game has been set for player 01: {0} and player 2: {1} \r\n" +
+                            "A single male game has been set between the player 1: {0} and player 2: {1} \r\n" +
                             "The game will be controlled by the referee: {2}" +
                             Environment.NewLine,
                             tournamentMalePlayers[p1].FirstName, tournamentMalePlayers[p2].FirstName,
@@ -109,30 +124,24 @@ namespace MiniProjekt
 
                                     #region
 
-                                    var dice = Rnd.Next(0, 2);
-                                    if (dice == 0)
+                                    var point = Rnd.Next(0, 2);
+                                    if (point == 0)
                                     {
                                         ++player01Point;
-                                        //Tester hvordan point systemet gives
-                                        //Console.WriteLine("Player 1 gets a point: " + Player01);
                                         if (player01Point == 6)
                                         {
-                                            setWin01 = "Player 1: " + tournamentMalePlayers[p1].FirstName +
-                                                       " wins the game ";
+                                            setWin01 = "Player 1: " + tournamentMalePlayers[p1].FirstName + " " + tournamentMalePlayers[p1].MiddleName + " " + tournamentMalePlayers[p1].LastName + " wins the game ";
                                             setWin02 = null;
                                             setWinCount01++;
                                         }
                                     }
-                                    else if (dice == 1)
+                                    else if (point == 1)
                                     {
                                         ++player02Point;
-                                        //Tester hvordan point systemet gives
-                                        //Console.WriteLine("Player 2 gets a point: " + Player02);
                                         if (player02Point == 6)
                                         {
                                             setWin01 = null;
-                                            setWin02 = "Player 2: " + tournamentMalePlayers[p2].FirstName +
-                                                       " wins the game ";
+                                            setWin02 = "Player 2: " + tournamentMalePlayers[p2].FirstName + " " + tournamentMalePlayers[p2].MiddleName + " " + tournamentMalePlayers[p2].LastName + " wins the game ";
                                             setWinCount02++;
                                         }
                                     }
@@ -174,25 +183,26 @@ namespace MiniProjekt
 
                             if (setWinCount01 == 3)
                             {
+                                Console.ForegroundColor = ConsoleColor.Green;
                                 Console.WriteLine(
                                     "There has been a sets of: " + matchOfSetsCounter +
                                     " Player 1: {0} has won the game!\r\n", tournamentMalePlayers[p1].FirstName);
+                                Console.ResetColor();
                                 matchOfSetsCounter = 0;
-                                //Console.ReadLine();
                                 winners.Add(tournamentMalePlayers[p1]);
-                                losers.Add(tournamentMalePlayers[p2].Identifikation);
+                                losers.Add(tournamentMalePlayers[p2].Identification);
                                 break;
                             }
                             else if (setWinCount02 == 3)
                             {
+                                Console.ForegroundColor = ConsoleColor.Green;
                                 Console.WriteLine(
                                     "There has been a sets of: " + matchOfSetsCounter +
-                                    " Player 2: {0} has won the game!\r\n",
-                                    tournamentMalePlayers[p2].FirstName);
+                                    " Player 2: {0} has won the game!\r\n", tournamentMalePlayers[p2].FirstName);
+                                Console.ResetColor();
                                 matchOfSetsCounter = 0;
-                                //Console.ReadLine();
                                 winners.Add(tournamentMalePlayers[p2]);
-                                losers.Add(tournamentMalePlayers[p1].Identifikation);
+                                losers.Add(tournamentMalePlayers[p1].Identification);
                                 break;
                             }
 
@@ -212,22 +222,22 @@ namespace MiniProjekt
                     int m = 1;
                     Console.ForegroundColor = ConsoleColor.Green;
                     Console.WriteLine("Winners of Round: {0}", round);
+                    Console.ResetColor();
                     for (int i = 0; i < winners.Count; i++)
                     {
-                        Console.WriteLine("Winner of Game {0} was the players: {1}", m, winners[i].FirstName);
+                        Console.WriteLine("Winner of game {0} was the players: {1}", m, winners[i].FirstName + " " + winners[i].MiddleName + " " + winners[i].LastName);
                         m++;
                     }
-
                     m = 1;
-                    Console.ResetColor();
+
                     for (int i = 0; i < tournamentMalePlayers.Count; i++)
                     {
                         for (int k = 0; k < losers.Count; k++)
                         {
                             for (int o = 0; o < winners.Count; o++)
                             {
-                                if (tournamentMalePlayers[i].Identifikation == losers[k] ||
-                                    winners[o].Identifikation == losers[k])
+                                if (tournamentMalePlayers[i].Identification == losers[k] ||
+                                    winners[o].Identification == losers[k])
                                 {
                                     tournamentMalePlayers.RemoveAt(i);
                                     winners.RemoveAt(o);
@@ -241,41 +251,68 @@ namespace MiniProjekt
                     p2 = 1;
                     if (tournamentMalePlayers.Count == 1)
                     {
-                        Console.WriteLine("Tournament for Male player is done" + Environment.NewLine);
+                        Console.WriteLine(Environment.NewLine + "Tournament for Male player is done" + Environment.NewLine);
                         break;
                     }
-                    Console.WriteLine("Round {0} has been played, press ANY key to continue the tournament", round);
+                    Console.WriteLine("\r\nRound {0} has been played, press ANY key to continue the tournament", round);
                     Console.ReadKey();
                 }
 
+                #endregion
+
+                Console.WriteLine("The Female tournament will now start press ANY key continue");
+                Console.ReadKey();
+                Console.WriteLine();
+                List<TennisPlayer> tournamentReferee = listOfPersonsForRound.TournamentHandlerRefs();
+
+                List<TennisPlayer> tournamentFemalePlayers = listOfPersonsForRound.TournamentHandlerFemaleGame();
+                Console.WriteLine(listOfPersonsForRound);
+
+                //Sort the tournamentFemalePlayers by firstname or lastname before the tournament starts
+                #region
+                List<TennisPlayer> sortedFemalePlayerByFirstname = tournamentFemalePlayers.OrderBy(tennisPlayer => tennisPlayer.FirstName).ToList();
+                List<TennisPlayer> sortedFemalePlayerByLastname = tournamentFemalePlayers.OrderBy(tennisPlayer => tennisPlayer.LastName).ToList();
+
+                Console.WriteLine("Before continuing the tournament you can see the player list sorted by their first- or lastname " + Environment.NewLine +
+                                  "by typing 'f' for firstname 'l' for last name or type any other keys to continue to the simulation of the tournament");
+
+                var inputFemale = Console.ReadKey();
+                switch (inputFemale.Key)
+                {
+                    case ConsoleKey.F:
+                        {
+                            Console.WriteLine(Environment.NewLine);
+                            for (int i = 0; i < sortedFemalePlayerByFirstname.Count; i++)
+                            {
+                                Console.WriteLine(sortedFemalePlayerByFirstname[i].FirstName + " " + sortedFemalePlayerByFirstname[i].MiddleName + " " +
+                                                  sortedFemalePlayerByFirstname[i].LastName);
+                            }
+
+                            break;
+                        }
+                    case ConsoleKey.L:
+                        {
+                            Console.WriteLine(Environment.NewLine);
+                            for (int i = 0; i < sortedFemalePlayerByLastname.Count; i++)
+                            {
+                                Console.WriteLine(sortedFemalePlayerByLastname[i].FirstName + " " + sortedFemalePlayerByLastname[i].MiddleName + " " +
+                                                  sortedFemalePlayerByLastname[i].LastName);
+                            }
+                            break;
+                        }
+                    default:
+                        {
+                            break;
+                        }
+                }
                 #endregion
 
                 //Simulate Tournament for females
 
                 #region
 
-                List<TennisPlayer> tournamentFemalePlayers = listOfPersonsForRound.TournamentHandlerFemaleGame();
-
-                //Sort the tournamentfemalePlayers by firstname before the tournament starts
-                #region
-                List<TennisPlayer> sortedfemale = tournamentFemalePlayers.OrderBy(tennisPlayer => tennisPlayer.FirstName).ToList();
-
-                for (int i = 0; i < sortedfemale.Count; i++)
-                {
-                    Console.WriteLine(sortedfemale[i].FirstName + " " + sortedfemale[i].MiddleName + " " +
-                                      sortedfemale[i].LastName + " Players number: {0} ", i);
-                }
-
-                Console.WriteLine("Sorted list has been made: ");
-                Console.ReadLine();
-                #endregion
-
-
-                Console.WriteLine("Female tournament will now start");
-                if (tournamentFemalePlayers == null)
-                {
-                    throw new System.IO.IOException();
-                }
+                Console.WriteLine(Environment.NewLine + "Tournament for female players will begin. Press ANY key to continue" + Environment.NewLine);
+                Console.ReadKey();
 
                 int femaleRound = 0;
                 int femalep2 = 1;
@@ -286,15 +323,13 @@ namespace MiniProjekt
                 {
                     for (int p1 = 0; p1 < tournamentFemalePlayers.Count; p1 += 2)
                     {
-                        //generate a random Referee for each game and inserts which players will play eachother
+                        //Generate a random Referee for each game and inserts which players will play eachother
 
                         #region
 
                         int r = Rnd.Next(tournamentRefs.Count);
-                        Console.WriteLine(tournamentFemalePlayers[p1]);
-                        Console.WriteLine(tournamentFemalePlayers[femalep2]);
                         Console.WriteLine(
-                            "A single female game has been set for player 01: {0} and player 2: {1} \r\n" +
+                            "A single female game has been set for player 1: {0} and player 2: {1} \r\n" +
                             "The game will be controlled by the referee: {2}" +
                             Environment.NewLine,
                             tournamentFemalePlayers[p1].FirstName, tournamentFemalePlayers[femalep2].FirstName,
@@ -328,12 +363,12 @@ namespace MiniProjekt
                                     if (dice == 0)
                                     {
                                         ++player01Point;
-                                        //Tester hvordan point systemet gives
-                                        //Console.WriteLine("Player 1 gets a point: " + Player01);
                                         if (player01Point == 6)
                                         {
                                             setWin01 = "Player 1: " + tournamentFemalePlayers[p1].FirstName +
-                                                       " wins the game ";
+                                                tournamentFemalePlayers[p1].MiddleName +
+                                                tournamentFemalePlayers[p1].LastName +
+                                                " wins the game ";
                                             setWin02 = null;
                                             setWinCount01++;
                                         }
@@ -341,17 +376,16 @@ namespace MiniProjekt
                                     else if (dice == 1)
                                     {
                                         ++player02Point;
-                                        //Tester hvordan point systemet gives
-                                        //Console.WriteLine("Player 2 gets a point: " + Player02);
                                         if (player02Point == 6)
                                         {
                                             setWin01 = null;
-                                            setWin02 = "Player 2: " + tournamentFemalePlayers[femalep2].FirstName +
-                                                       " wins the game ";
+                                            setWin02 = "Player 2: " + tournamentFemalePlayers[p2].FirstName +
+                                                tournamentFemalePlayers[p2].MiddleName +
+                                                tournamentFemalePlayers[p2].LastName +
+                                                " wins the game ";
                                             setWinCount02++;
                                         }
                                     }
-
                                     #endregion
 
                                     //Player points pr. set is printed
@@ -389,25 +423,27 @@ namespace MiniProjekt
 
                             if (setWinCount01 == 2)
                             {
+                                Console.ForegroundColor = ConsoleColor.Green;
                                 Console.WriteLine(
                                     "There has been a sets of: " + matchOfSetsCounter +
                                     " Player 1: {0} has won the game!\r\n", tournamentFemalePlayers[p1].FirstName);
+                                Console.ResetColor();
                                 matchOfSetsCounter = 0;
-                                //Console.ReadLine();
                                 femaleWinners.Add(tournamentFemalePlayers[p1]);
-                                femaleLosers.Add(tournamentFemalePlayers[femalep2].Identifikation);
+                                femaleLosers.Add(tournamentFemalePlayers[femalep2].Identification);
                                 break;
                             }
                             else if (setWinCount02 == 2)
                             {
+                                Console.ForegroundColor = ConsoleColor.Green;
                                 Console.WriteLine(
                                     "There has been a sets of: " + matchOfSetsCounter +
                                     " Player 2: {0} has won the game!\r\n",
                                     tournamentFemalePlayers[femalep2].FirstName);
+                                Console.ResetColor();
                                 matchOfSetsCounter = 0;
-                                //Console.ReadLine();
                                 femaleWinners.Add(tournamentFemalePlayers[femalep2]);
-                                femaleLosers.Add(tournamentFemalePlayers[p1].Identifikation);
+                                femaleLosers.Add(tournamentFemalePlayers[p1].Identification);
                                 break;
                             }
 
@@ -426,22 +462,22 @@ namespace MiniProjekt
                     int m = 1;
                     Console.ForegroundColor = ConsoleColor.Green;
                     Console.WriteLine("Winners of Round: {0}", femaleRound);
+                    Console.ResetColor();
                     for (int i = 0; i < femaleWinners.Count; i++)
                     {
-                        Console.WriteLine("Winner of Game {0} was the players: {1}", m, femaleWinners[i].FirstName);
+                        Console.WriteLine("Winner of game {0} was the players: {1}", m, femaleWinners[i].FirstName);
                         m++;
                     }
-
                     m = 1;
-                    Console.ResetColor();
+
                     for (int i = 0; i < tournamentFemalePlayers.Count; i++)
                     {
                         for (int k = 0; k < femaleLosers.Count; k++)
                         {
                             for (int o = 0; o < femaleWinners.Count; o++)
                             {
-                                if (tournamentFemalePlayers[i].Identifikation == femaleLosers[k] ||
-                                    femaleWinners[o].Identifikation == femaleLosers[k])
+                                if (tournamentFemalePlayers[i].Identification == femaleLosers[k] ||
+                                    femaleWinners[o].Identification == femaleLosers[k])
                                 {
                                     tournamentFemalePlayers.RemoveAt(i);
                                     femaleWinners.RemoveAt(o);
@@ -467,8 +503,13 @@ namespace MiniProjekt
             }
             catch (SystemException)
             {
-                Console.WriteLine("Something went wrong");
+                Console.WriteLine("Something unexpected happened");
+                while (true)
+                {
+                    Environment.Exit(0);
+                }
             }
+
         }
     }
 }

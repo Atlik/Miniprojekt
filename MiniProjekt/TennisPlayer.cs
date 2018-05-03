@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 
 namespace MiniProjekt
 {
@@ -12,7 +11,7 @@ namespace MiniProjekt
         /// <summary>
         /// TennisPlayer property
         /// </summary>
-        public int Identifikation { get; }
+        public int Identification { get; }
         /// <summary>
         /// TennisPlayer property
         /// </summary>
@@ -69,7 +68,7 @@ namespace MiniProjekt
         /// <param name="PoR"></param>
         public TennisPlayer(int id, string fname, string mname, string lname, DateTime dob, string na, bool sex, bool PoR)
         {
-            Identifikation = id;
+            Identification = id;
             FirstName = fname;
             MiddleName = mname;
             LastName = lname;
@@ -165,7 +164,7 @@ namespace MiniProjekt
 
             //Inserts player information in correct order if printed
             #region
-            return "Identifikation: " + Identifikation +
+            return "Identification: " + Identification +
                    Environment.NewLine + "The persons Name: " + FirstName + middleNameSpaceCheck + " " + LastName +
                    Environment.NewLine + "The persons birthday is the: " + DateOfBirth.ToShortDateString() +
                    Environment.NewLine + "The persons nationality is: " + Nationality +

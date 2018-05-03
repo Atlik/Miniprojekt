@@ -69,6 +69,7 @@
         <member name="M:MiniProjekt.TennisMatch.#ctor">
             <summary>
             Default constructor of TennisMatch
+            <exception cref="T:System.SystemException"> Will be thrown if a failure occurs during the execution of TennisMatch that isn't expected </exception>
             </summary>
         </member>
         <member name="T:MiniProjekt.TennisPlayer">
@@ -76,7 +77,7 @@
             This class will implement the information about the player
             </summary>
         </member>
-        <member name="P:MiniProjekt.TennisPlayer.Identifikation">
+        <member name="P:MiniProjekt.TennisPlayer.Identification">
             <summary>
             TennisPlayer property
             </summary>
@@ -163,20 +164,23 @@
         </member>
         <member name="T:MiniProjekt.Tournament">
             <summary>
-            Vi har i dette projekt fokuseret på at samle generering af kampe i klassen “TennisMatch”.
-            Dette har gjort at constructoren af “TennisMatch” samler og instantiere de øvrige klasser og metoder.
-            Udover klassen “TennisMatch” er der lavet 4 andre klasser ved navn: “FileHandler”, “TennisPlayer”, “Tournament” og “Program”.
-            Klassen “Program” er kun lavet for at have en separat fil hvori det er muligt at kalde metoder,
-            objekter eller lignende vi gerne vil have kørt/udskrevet i konsollen uden at ændre på koden i de øvrige metoder.
-            Programmet starter her i det vi her kalder et nyt objekt af “TennisMatch” der instantiere de brugte metoder.
-            Klassen “FileHandler” loader og læser filerne der skal bruges i programmet,
-            og indsætter dem i lister af objekter der bliver defineret af constructoren TennisPlayer i klassen “TennisPlayer”.
-            Klassen “TennisPlayer” sørger for at informationerne omkring spillerne i turneringen er repræsenteret korrekt når de kaldes i andre metoder eller udskrives på konsollen.
-            Klassen “Tournament” sørger for at det korrekte antal af spillere og dommere bliver sendt videre til “TennisMatch”, og dermed konstruere essentielle dele for at en turnering kan afholdes.
-            </summary>
-            <summary>
             The class tournament constructs the elements in which should be simulated in the tournament
              </summary>
+        </member>
+        <member name="P:MiniProjekt.Tournament.TournamentName">
+            <summary>
+            Tournament property: Gets the Tournament name
+            </summary>
+        </member>
+        <member name="P:MiniProjekt.Tournament.TournamentStart">
+            <summary>
+            Tournament property: Gets the tournament start date
+            </summary>
+        </member>
+        <member name="P:MiniProjekt.Tournament.TournamentEnd">
+            <summary>
+            Tournament property: Get the tournament end date
+            </summary>
         </member>
         <member name="M:MiniProjekt.Tournament.#ctor(System.DateTime,System.DateTime,System.String)">
             <summary>
@@ -198,7 +202,7 @@
             <summary>
             Handles the list returned from GetListMalePlayers() in <see cref="T:MiniProjekt.FileHandler"/>
             Inserts a random TennisPlayer object into the list malePlayerForRound with amount that the user defines in his/hers prompt
-            <exception cref="T:System.FormatException">  </exception>
+            <exception cref="T:System.FormatException"> Will be executed if the user writes a wrong integer(string format) </exception>
             </summary>
             <returns> _malePlayerForRoundList, which is a list of TennisPlayer objects used in <see cref="T:MiniProjekt.TennisMatch"/></returns>
         </member>
@@ -206,7 +210,8 @@
             <summary>
             Handles the list returned from GetListFemalePlayer() in <see cref="T:MiniProjekt.FileHandler"/>
             Based on how many Female players the user defines that they want to play at the tournament, it returns this amount of random players.
-            <exception cref="T:System.FormatException"> </exception>
+            <exception cref="T:System.FormatException"> Will be executed if the user writes a wrong integer(string format) </exception>
+            <exception cref="T:System.Exception"> Will be thrown if the user writes something else than numbers </exception>
             </summary>
             <returns> femalePlayerForRoundList which is a list of TennisPlayer objects that will be used in the class <see cref="T:MiniProjekt.TennisMatch"/> </returns>
         </member>

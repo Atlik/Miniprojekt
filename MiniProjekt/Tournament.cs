@@ -4,18 +4,36 @@ using System.Collections.Generic;
 
 namespace MiniProjekt
 {
-    /// <summary>
-    /// Vi har i dette projekt fokuseret på at samle generering af kampe i klassen “TennisMatch”.
-    /// Dette har gjort at constructoren af “TennisMatch” samler og instantiere de øvrige klasser og metoder.
-    /// Udover klassen “TennisMatch” er der lavet 4 andre klasser ved navn: “FileHandler”, “TennisPlayer”, “Tournament” og “Program”.
-    /// Klassen “Program” er kun lavet for at have en separat fil hvori det er muligt at kalde metoder,
-    /// objekter eller lignende vi gerne vil have kørt/udskrevet i konsollen uden at ændre på koden i de øvrige metoder.
-    /// Programmet starter her i det vi her kalder et nyt objekt af “TennisMatch” der instantiere de brugte metoder.
-    /// Klassen “FileHandler” loader og læser filerne der skal bruges i programmet,
-    /// og indsætter dem i lister af objekter der bliver defineret af constructoren TennisPlayer i klassen “TennisPlayer”.
-    /// Klassen “TennisPlayer” sørger for at informationerne omkring spillerne i turneringen er repræsenteret korrekt når de kaldes i andre metoder eller udskrives på konsollen.
-    /// Klassen “Tournament” sørger for at det korrekte antal af spillere og dommere bliver sendt videre til “TennisMatch”, og dermed konstruere essentielle dele for at en turnering kan afholdes.
-    /// </summary>
+    /*
+    /// Vi har i dette projekt fokuseret på at samle generering af kampe i klassen “TennisMatch”. 
+    /// Dette har gjort at constructoren af “TennisMatch” samler og instantiere de øvrige klasser og metoder. 
+    /// Klassen “TennisMatch” er med følge af tidligere nævnte rimelig lang, netop fordi der er fokuseret på funktionaliteter og instantieringen af metoder og klasser. 
+    /// En af disse funktionaliteter er simuleringen af kampe for mænd og kvinder, der umiddelbart burde blive kaldt i en separat metode. 
+    /// Endnu en funktionalitet er sorteringen af de spillere der er blevet indkaldt til turneringen. 
+    /// Denne ville med lidt omstrukturering af programmet blive kaldt ved instantiering af “Tournament” klassen som en metode, for at forbedre overblikket i programmet. 
+    /// En af de goder der er sket ved programmeringen er at det ikke har været nødvendigt med en funktionalitet der validere om der er en mandlig eller en kvindelig spiller, 
+    /// idet de bliver separeret i hver sin liste i klassen “FileHandler”.
+    /// Udover klassen “TennisMatch” er der lavet 4 andre klasser ved navn: “FileHandler”, “TennisPlayer”, “Tournament” og “Program”. 
+    /// Klassen “Program” er kun lavet for at have en separat fil hvori det er muligt at kalde metoder, 
+    /// objekter eller lignende vi gerne vil have kørt/udskrevet i konsollen uden at ændre på koden i de øvrige metoder. 
+    /// Programmet starter her i det vi her kalder et nyt objekt af “TennisMatch” der instantiere de brugte metoder. 
+    /// Klassen “FileHandler” loader og læser filerne der skal bruges i programmet, 
+    /// og indsætter dem i lister af objekter der bliver defineret af constructoren TennisPlayer i klassen “TennisPlayer”.  
+    /// Klassen “TennisPlayer” sørger for at informationerne omkring spillerne i turneringen er repræsenteret korrekt når de kaldes i andre metoder eller udskrives på konsollen. 
+    /// Klassen “Tournament” sørger for at det korrekte antal af spillere og dommere bliver sendt videre til “TennisMatch”, 
+    /// og dermed konstruere essentielle dele for at en turnering kan afholdes.
+    /// Når der bliver udvalgt en dommer i forhold til GameMaster funktionaliteten kunne denne forbedres hvis dommeren blev valgt baseret på en random instans. 
+    /// Den valgte ville herefter skulle fjernes fra den samlede liste af dommere der gives til hver kamp.
+    /// Exceptions er blevet lavet i systemet baseret på den black box testing der er foretaget mens programmet blev lavet, 
+    /// for at sikre at de dækker så mange huller som muligt. 
+    /// Der er blevet gjort brug af “System.FormatException” for at tage de huller der kommer af en forkert streng eller integer indtastning fra brugerens side. 
+    /// Derudover er der også anvendt “System.Exception” ved de områder i programmet hvor brugeren kan komme til at skrive det forkerte som der bliver bedt om.
+    /// 
+    ///
+    /// Dette projekt er lavet af Ferdinand Brødløs og Christian Gundersen Holmgaard
+    /// Christian Gundersen Holmgaard, studie nr. 20155309
+    /// Ferdinand Brødløs, studie nr. 20167752
+    */
 
     ///<summary>
     ///The class tournament constructs the elements in which should be simulated in the tournament
@@ -26,8 +44,17 @@ namespace MiniProjekt
 
         //Tournament properties
         #region
+        /// <summary>
+        /// Tournament property: Gets the Tournament name
+        /// </summary>
         private string TournamentName { get; }
+        /// <summary>
+        /// Tournament property: Gets the tournament start date
+        /// </summary>
         private DateTime TournamentStart { get; }
+        /// <summary>
+        /// Tournament property: Get the tournament end date
+        /// </summary>
         private DateTime TournamentEnd { get; }
         #endregion
 
@@ -120,7 +147,7 @@ namespace MiniProjekt
         /// <summary>
         /// Handles the list returned from GetListMalePlayers() in <see cref="FileHandler"/>
         /// Inserts a random TennisPlayer object into the list malePlayerForRound with amount that the user defines in his/hers prompt
-        /// <exception cref="System.FormatException">  </exception>
+        /// <exception cref="System.FormatException"> Will be executed if the user writes a wrong integer(string format) </exception>
         /// </summary>
         /// <returns> _malePlayerForRoundList, which is a list of TennisPlayer objects used in <see cref="TennisMatch"/></returns>
         public List<TennisPlayer> TournamentHandlerMaleGame()
@@ -133,7 +160,8 @@ namespace MiniProjekt
             try
             {
                 Console.WriteLine("What amount of male players do you want to play at the tournament?" +
-                                    Environment.NewLine + "The amount of players that can be reseprented to the tournanemnt is: 2, 4, 8, 16, 32 or 64 Players");
+                                    Environment.NewLine + "The amount of players that can be reseprented to the tournanemnt is: " + Environment.NewLine +
+                                  "2, 4, 8, 16, 32 or 64 Players");
                 int upTo = Convert.ToInt32(Console.ReadLine());
                 Console.WriteLine("You have typed the number {0} and the tournament will now be played" + Environment.NewLine, upTo);
 
@@ -178,7 +206,8 @@ namespace MiniProjekt
         /// <summary>
         /// Handles the list returned from GetListFemalePlayer() in <see cref="FileHandler"/>
         /// Based on how many Female players the user defines that they want to play at the tournament, it returns this amount of random players.
-        /// <exception cref="System.FormatException"> </exception>
+        /// <exception cref="System.FormatException"> Will be executed if the user writes a wrong integer(string format) </exception>
+        /// <exception cref="System.Exception"> Will be thrown if the user writes something else than numbers </exception>
         /// </summary>
         /// <returns> femalePlayerForRoundList which is a list of TennisPlayer objects that will be used in the class <see cref="TennisMatch"/> </returns>
         public List<TennisPlayer> TournamentHandlerFemaleGame()
@@ -190,8 +219,9 @@ namespace MiniProjekt
             List<TennisPlayer> femaleTennisPlayers = listOfFemalePlayer.GetListFemalePlayers();
             try
             {
-                Console.WriteLine("What amount of female players do you want to play at the tournament?" +
-                    Environment.NewLine + "The amount of players that can be reseprented to the tournanemnt is: 2, 4, 8, 16, 32 or 64 Players");
+                Console.WriteLine("What amount of female players do you want to play at the tournament?" + Environment.NewLine + 
+                                  "The amount of players that can be reseprented to the tournanemnt is:" + Environment.NewLine +
+                                  " 2, 4, 8, 16, 32 or 64 Players");
                 int upTo = Convert.ToInt32(Console.ReadLine());
                 Console.WriteLine("You have typed the number {0} and the tournament will now be played" + Environment.NewLine, upTo);
 
