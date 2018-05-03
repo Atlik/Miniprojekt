@@ -83,8 +83,8 @@ namespace MiniProjekt
         /// <returns> A list of referees minus the referee at index number [0] </returns>
         public List<TennisPlayer> TournamentHandlerRefs()
         {
-            string FileName01 = "tennis_data";
             string FileName = "MaleRefs";
+            string FileName01 = "tennis_data";
             string FileName02 = "FermaleRefs";
             FileHandler listOfFemaleReferee = new FileHandler(@"" + Environment.CurrentDirectory + "\\" + FileName01 + "\\" + FileName02 + ".txt");
             FileHandler listOfMaleReferee = new FileHandler(@"" + Environment.CurrentDirectory + "\\" + FileName01 + "\\" + FileName + ".txt");

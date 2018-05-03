@@ -62,8 +62,8 @@
   </HelpKINode>
   <HelpKINode Title="TennisMatch.Rnd field" Url="html/18bf463a-e477-1dd3-8923-9abdde9385af.htm" />
   <HelpKINode Title="TennisMatch.TennisMatch constructor">
-    <HelpKINode Title="TennisMatch Constructor " Url="html/a7b26f13-05c5-6e01-3737-6ae014798d68.htm" />
     <HelpKINode Title="TennisMatch Constructor " Url="html/05dd4373-b0fc-d4c4-d3fd-3693ac44aef0.htm" />
+    <HelpKINode Title="TennisMatch Constructor " Url="html/a7b26f13-05c5-6e01-3737-6ae014798d68.htm" />
   </HelpKINode>
   <HelpKINode Title="TennisPlayer class">
     <HelpKINode Title="TennisPlayer Class" Url="html/5800f011-f140-a296-7887-a1e78d234353.htm" />
@@ -98,8 +98,8 @@
   <HelpKINode Title="Tournament.Rnd field" Url="html/8e2976bd-83c2-c209-5b56-8a7d9dea2208.htm" />
   <HelpKINode Title="Tournament.ToString method" Url="html/65a74de0-1889-84ee-930c-e2589ccd2e4d.htm" />
   <HelpKINode Title="Tournament.Tournament constructor">
-    <HelpKINode Title="Tournament Constructor " Url="html/e3229ccc-d3d0-4add-a500-4b3a73151c4a.htm" />
     <HelpKINode Title="Tournament Constructor " Url="html/73113ba3-7f61-ecd5-5df7-2b661ddef75e.htm" />
+    <HelpKINode Title="Tournament Constructor " Url="html/e3229ccc-d3d0-4add-a500-4b3a73151c4a.htm" />
   </HelpKINode>
   <HelpKINode Title="Tournament.TournamentEnd property" Url="html/6c57dc03-5545-6147-1088-0c57f2586de2.htm" />
   <HelpKINode Title="Tournament.TournamentHandlerFemaleGame method" Url="html/023dca55-1fa5-c119-9368-cf6f354f276d.htm" />
